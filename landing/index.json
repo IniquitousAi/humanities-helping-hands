@@ -1,0 +1,60 @@
+{
+ "made": "2026-11-09T00:59:27.670Z",
+ "label": "MEASURED",
+ "points": [
+  {
+   "at": "2026-10-29T00:37:27-05:00",
+   "count": 93,
+   "commit": "8aa76580"
+  },
+  {
+   "at": "2026-10-29T01:34:22-05:00",
+   "count": 98,
+   "commit": "3988322a"
+  },
+  {
+   "at": "2026-10-29T01:54:46-05:00",
+   "count": 136,
+   "commit": "d895227a"
+  },
+  {
+   "at": "2026-10-29T02:47:52-05:00",
+   "count": 137,
+   "commit": "caccd1c2"
+  },
+  {
+   "at": "2026-10-29T05:29:16-05:00",
+   "count": 152,
+   "commit": "2436fb34"
+  },
+  {
+   "at": "2026-10-29T11:15:51-05:00",
+   "count": 166,
+   "commit": "d3db58cf"
+  },
+  {
+   "at": "2026-10-29T13:02:18-05:00",
+   "count": 167,
+   "commit": "3d10ee03"
+  },
+  {
+   "at": "2026-10-30T19:57:20-05:00",
+   "count": 170,
+   "commit": "ace9c710"
+  }
+ ],
+ "change_pct": 1.8,
+ "since": "2026-10-29T13:02:18-05:00",
+ "cost": [
+  {
+   "at": "2026-10-29T01:54:46-05:00",
+   "seconds_per_fact": 0.6578947368421053,
+   "from": "mathlib_check.mjs: 25 s of Lean checking for 38 theorems"
+  }
+ ],
+ "verdict": {
+  "color": null,
+  "why": "not yet measured: the cost of a new fact has 1 point, a trend needs 2"
+ },
+ "growth": null
+}

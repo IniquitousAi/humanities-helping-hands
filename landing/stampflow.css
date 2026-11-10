@@ -1,0 +1,30 @@
+.stampflow { margin:1rem 0 0; }
+.stampflow[hidden] { display:none; }
+.sf-cards { list-style:none; margin:0; padding:0; display:grid; gap:.5rem; }
+.sf-card { display:flex; flex-wrap:wrap; align-items:baseline; gap:.25rem .6rem; padding:.55rem .75rem; border:1px solid rgba(29,26,46,.18);
+  border-radius:4px; background:linear-gradient(180deg, #fbf6e9, #f3f1f6); }
+.sf-said { color:var(--ink); }
+.sf-struck { text-decoration:line-through; text-decoration-color:var(--guess-ink); }
+.sf-how { color:var(--soft); font-size:.9em; }
+.sf-fix { flex-basis:100%; color:var(--proven-ink); }
+.sf-receipt { flex-basis:100%; color:var(--soft); font-size:.85em; }
+.sf-seal { display:flex; align-items:center; gap:.9rem; margin:1rem 0 0; color:var(--ink); text-decoration:none; }
+.sf-seal[hidden] { display:none; }
+.sf-wax { display:grid; place-items:center; width:4.25rem; height:4.25rem; flex:none; border-radius:50%; background:var(--proven-ink);
+  color:#fff; font-weight:600; letter-spacing:.06em; box-shadow:inset 0 0 0 4px rgba(255,255,255,.35); }
+.sf-partial .sf-wax { background:transparent; color:var(--proven-ink); border:3px dashed var(--proven-ink); box-shadow:none; }
+.sf-say { color:var(--ink); }
+.sf-seal:hover .sf-say { color:var(--link); text-decoration:underline; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sf-card { animation:sf-split .35s ease-out both; }
+  .sf-labeled .tag { animation:sf-label .3s ease-out both; }
+  .sf-receipt { animation:sf-slide .4s ease-out both; }
+  .sf-seal .sf-wax { animation:sf-press .45s cubic-bezier(.2,.9,.3,1.2) both; }
+}
+@keyframes sf-split { from { opacity:0; transform:translateY(-.4rem); } }
+@keyframes sf-label { from { opacity:0; transform:scale(.85); } }
+@keyframes sf-slide { from { opacity:0; transform:translateX(-.75rem); } }
+@keyframes sf-press { from { opacity:0; transform:scale(1.6) rotate(-12deg); } 70% { transform:scale(.94); } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sf-card { background:var(--field); border-color:rgba(236,229,211,.22); } }
+:root[data-theme="dark"] .sf-card { background:var(--field); border-color:rgba(236,229,211,.22); }

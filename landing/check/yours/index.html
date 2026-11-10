@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Check your own claim, Humanities Helping Hands</title>
+<link rel="canonical" href="https://humanitieshelpinghands.com/check/yours/">
+<meta property="og:title" content="Check your own claim, Humanities Helping Hands">
+<meta property="og:description" content="Bring a claim. A machine checks it and gives you a receipt, or says honestly that it could not check it.">
+<meta property="og:url" content="https://humanitieshelpinghands.com/check/yours/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Humanities Helping Hands">
+<meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Humanities Helping Hands: humanity's library of proven facts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Check your own claim, Humanities Helping Hands">
+<meta name="twitter:description" content="Bring a claim. A machine checks it and gives you a receipt, or says honestly that it could not check it.">
+<meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
+<meta name="description" content="Bring a claim. A machine checks it and gives you a receipt, or says honestly that it could not check it.">
+<link rel="icon" type="image/png" href="/favicon.png"><script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link href="/style.css" rel="stylesheet"><script type="module" src="/level.js"></script><script type="module" src="page.js"></script><link href="/site-nav.css" rel="stylesheet"><link href="/x-shell.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
+
+<div class="x-shell"><nav class="x-rail" aria-label="Site"><a class="x-mark" href="/"><span class="x-mark-big">HHH</span><span class="x-mark-small">Humanities Helping Hands</span></a><ul class="x-links"><li><a href="/atlas/">Atlas</a></li><li><a href="/open/">Open problems</a></li><li><a href="/book/">Book</a></li><li><a href="/charter/">Charter</a></li><li><a href="/founders/">Founders</a></li><li><a href="/check/done-for-you/">Plans</a></li></ul><a class="x-key" href="/#check">Check a claim</a><div class="x-rail-foot"><div class="theme-switch"><button type="button" class="theme-key" data-theme-key aria-pressed="false">Dark mode</button></div></div></nav><div class="x-center"><nav class="site-nav x-bar" aria-label="Reading level"><p class="x-title">Check your own claim</p><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav><main class="page" id="main">
+  <header class="mast">
+    <div class="kicker">Humanities Helping Hands</div>
+    <h1>Check your own claim</h1>
+    <p class="sub"><span data-level="kids">Type a math fact. The computer works it out and tells you if it is right. If it can't check it, it says so.</span><span data-level="everyone">Type a claim. If a machine can check it, you get the answer and a receipt anyone can re-check. If it can't, it says "not checked", which never means false.</span><span data-level="technical">Deterministic, bounded checks only: an exact match against the facts library (labels as stored, math part checked by Lean at add time), or exact BigInt arithmetic (60-digit numbers, powers up to 512, 4000-digit answers). No code you send is run. Anything else is not checked. Each answer carries a SHA-256 receipt.</span></p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/check/">Re-check a Lean proof</a> &middot; <a href="/scoreboard/">Scoreboard</a> &middot; <a href="/privacy/">Privacy</a></p>
+  </header>
+  <section class="glance">
+    <form id="pc-form" autocomplete="off">
+      <label for="pc-claim"><span data-level="kids">Your math fact</span><span data-level="everyone">Your claim</span><span data-level="technical">Claim (at most 300 characters)</span></label>
+      <input id="pc-claim" name="claim" maxlength="300" required placeholder="2^10 = 1024">
+      <div class="hp" aria-hidden="true"><label for="pc-website">Leave this empty</label><input id="pc-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <button type="submit">Check it</button>
+    </form>
+    <div id="pc-out" role="status" aria-live="polite"></div>
+    <p class="level-note"><span data-level="kids">We keep the answer, not you: no name, no address.</span><span data-level="everyone">What we keep: only checks a machine finished (the claim as checked, its label and receipt). Never your address or anything else about you. Things it could not check are not kept.</span><span data-level="technical">Logged: append-only rows {t, kind, claim (library wording or normalized arithmetic form), label, check, run_id, output_sha256, credit, sha256}. No IP, no user agent, no free text. A daily-salted device hash with a 2 day TTL caps logged checks at 20 per device a day; it is not in the log.</span></p>
+    <h2>For AI tools</h2>
+    <p><span data-level="kids">Computer helpers can ask us too, at one web address.</span><span data-level="everyone">AI assistants can use the same library through our read-only MCP server at https://humanitieshelpinghands.com/mcp (three tools: look up a fact, check a claim, search past P vs NP attempts). Nothing sent there is stored.</span><span data-level="technical">MCP over Streamable HTTP, stateless JSON, POST https://humanitieshelpinghands.com/mcp, protocol 2025-11-25 or 2025-06-18, tools lookup_fact, check_claim, search_attempts, all readOnlyHint. Card: /.well-known/mcp/server-card.json. Rate limit 60 a minute per address.</span></p>
+  </section>
+  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/#check">Check a claim</a></section>
+  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open Problems</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+</main></div><aside class="x-side" aria-label="More"><form class="x-ask" action="/" method="get" role="search"><label class="visually-hidden" for="x-c">Check a claim</label><input id="x-c" name="c" type="search" placeholder="Check a claim" maxlength="600" enterkeyhint="go"></form><section class="x-box"><h2 class="x-h">Proven so far</h2><p class="x-big"><span class="x-n">142</span> math facts a machine proved</p><p class="x-big"><span class="x-n">28</span> real-world claims, arithmetic checked</p><p class="x-more"><a href="/atlas/list/">See every one</a></p></section><section class="x-box"><h2 class="x-h">Newest proven</h2><ul class="x-list"><li><a href="/atlas/#p56">the average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39</a></li><li><a href="/atlas/#p39">Random walk: expected highest point in 10 steps, not counting the starting point</a></li></ul></section></aside></div>
+</body></html>

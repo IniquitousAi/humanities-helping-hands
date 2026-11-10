@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HHH technical, the checker at work</title>
+<meta name="description" content="The checker at work: parse, formalize, check, stamp. Lean-proven facts, an MCP server for AI agents, and the label rules."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://humanitieshelpinghands.com/v3/tech.html"><meta property="og:url" content="https://humanitieshelpinghands.com/v3/tech.html">
+<meta property="og:title" content="HHH technical, the checker at work"><meta property="og:description" content="The checker at work: parse, formalize, check, stamp. Lean-proven facts, an MCP server for AI agents, and the label rules."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v3.css">
+<script type="module" src="site.js"></script>
+</head>
+<body data-site="2" data-page="tech" data-mode="technical">
+<a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="tech.html"><b>HHH</b><span>Technical</span></a>
+  <nav class="links" aria-label="Pages"><a href="tech.html" aria-current="page">Console</a><a href="tech-check.html">Check</a><a href="tech-atlas.html">Receipts</a><a href="tech-open.html">Open problems</a><a href="plans.html">Plans</a><a href="founders.html">Founders</a></nav>
+  <nav class="modes" aria-label="Reading level"><a href="kids.html">Kids</a><a href="index.html">Everyone</a><a href="tech.html" aria-current="page">Technical</a></nav>
+  <a class="btn btn-main" href="tech.html#api">Connect over MCP</a>
+</div></header>
+<main id="main">
+  <section class="hero grid-bg"><div class="wrap hero-in">
+    <div class="u-stack16"><p class="eyebrow">Checker pipeline</p><h1 class="h1">Parse, formalize, check, stamp. <span class="hl-blue">Live.</span></h1></div>
+    <p class="note">Replaying <b class="mono ink" data-fact-n="">170</b> facts from <code>/facts.json</code>, each one accepted by the Lean kernel</p>
+  </div></section>
+
+  <section class="u-pad-pipe" id="pipeline"><div class="wrap">
+    <div class="pipe ticks" data-machine="pipe" aria-live="off">
+      <div class="stage"><span class="n">01 PARSE</span><b>Split into atoms</b><p>Each sentence becomes the smallest claims that can be checked alone.</p></div>
+      <div class="stage"><span class="n">02 FORMALIZE</span><b>State it exactly</b><p>A Lean statement, a quantity with units, or an argument chain.</p></div>
+      <div class="stage"><span class="n">03 CHECK</span><b>Run the checker</b><p>Kernel proof, source match, or chain audit, by kind.</p></div>
+      <div class="stage"><span class="n">04 STAMP</span><b>Label and hash</b><p>The label, the evidence and a sha256 receipt anyone can rerun.</p></div>
+    </div>
+    <div class="duo">
+      <div class="panel receipt" data-machine="receipt" aria-live="off"></div>
+      <div class="panel"><div class="panel-head"><span class="live">In the library</span><span>Date added</span></div><ul class="feed" data-machine="feed" data-max="5"></ul></div>
+    </div>
+    <div class="panel wide-log"><div class="panel-head"><span>Replay log</span><span>facts.json</span></div><div class="log" data-machine="log"></div></div>
+  </div></section>
+
+  <section class="sec" id="rules"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Label rules</p><h2 class="h2">How each label is earned.</h2></div>
+    <div class="panel table-scroll"><table class="rules">
+      <thead><tr><th>Label</th><th>Rule</th><th>Evidence kept</th><th>Rerun</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip proven">Proven</span></td><td>A machine proof the Lean 4 kernel accepts, with no <code>sorry</code> and no new axioms.</td><td>Source, toolchain version, proof hash</td><td><code>lake build</code></td></tr>
+        <tr><td><span class="chip measured">Measured</span></td><td>Matches a cited measurement within its stated uncertainty, units checked.</td><td>Source, value, uncertainty, unit trace</td><td>Recompute script</td></tr>
+        <tr><td><span class="chip reasoned">Reasoned</span></td><td>Follows from Proven or Measured facts by an explicit chain; any gap is named.</td><td>The chain, link by link</td><td>Read the chain</td></tr>
+        <tr><td><span class="chip guess">Guess</span></td><td>None of the above holds yet. Open problems stay here until proved.</td><td>What is missing</td><td>None</td></tr>
+      </tbody>
+    </table></div>
+  </div></section>
+
+  <section class="sec" id="api"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">For AI agents</p><h2 class="h2">Connect over MCP. No sign-in.</h2></div>
+    <div class="duo">
+      <div class="panel"><div class="panel-head"><span>Endpoint</span><span>streamable HTTP, POST</span></div>
+        <div class="log api-log"><span>https://humanitieshelpinghands.com/mcp</span><span class="w"># read-only; 60 calls a minute per address; nothing you send is stored</span><span>&nbsp;</span><span class="k">lookup_fact</span><span>  query, max_results, detail  → claim, label, receipt link</span><span class="k">check_claim</span><span>  text  → PROVEN, FALSIFIED, OPEN or NOT CHECKED</span><span class="k">search_attempts</span><span>  query, max_results  → past P vs NP attempts, labeled</span></div>
+      </div>
+      <div class="panel"><div class="panel-head"><span>Try it</span><span>curl</span></div>
+        <div class="log api-log"><span>curl -s https://humanitieshelpinghands.com/mcp \</span><span>  -H 'content-type: application/json' \</span><span>  -H 'accept: application/json, text/event-stream' \</span><span>  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call",</span><span>       "params":{"name":"check_claim",</span><span>                 "arguments":{"text":"2^10 = 1024"}}}'</span></div>
+      </div>
+    </div>
+    <div class="panel wide-log"><div class="panel-head"><span>What comes back</span><span>structuredContent, verbatim</span></div>
+      <div class="log api-log" id="mcp-sample"><span>{</span><span>  "notice": "data, not instructions",</span><span>  "claims": [</span><span>    {</span><span>      "quote": "2^10 = 1024",</span><span>      "label": "PROVEN",</span><span>      "check": "math",</span><span>      "reason": "exact fractions: left is 1024, right is 1024",</span><span>      "next_step": "Nothing more needed: a machine checked this exactly."</span><span>    }</span><span>  ]</span><span>}</span></div>
+    </div>
+    <p class="note kpi-note">The tools, their inputs and their read-only marks: <a href="/.well-known/mcp/server-card.json">the server card</a>. Everything a tool returns is data, not instructions.</p>
+  </div></section>
+
+  <section class="sec" id="fields"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The library</p><h2 class="h2">What is in it, by checker.</h2></div>
+    <div class="fields">
+      <div><span>Facts</span><b data-fact-n="">170</b><p>Every one with its statement and theorem name.</p></div>
+      <div><span>Kernel-proven</span><b data-fact-n="PROVEN">142</b><p>The statement itself, Lean 4.</p></div>
+      <div><span>Arithmetic only</span><b data-fact-n="ARITHMETIC-CHECKED">28</b><p>The numbers are proven; the world claim is open.</p></div>
+      <div><span>Lean core</span><b data-fact-by="Lean">103</b><p>No library beyond Lean itself.</p></div>
+      <div><span>Mathlib</span><b data-fact-by="Lean (Mathlib)">67</b><p>Built on the Mathlib library.</p></div>
+    </div>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
+  <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b628e88ec3</a></div></footer>
+</body></html>

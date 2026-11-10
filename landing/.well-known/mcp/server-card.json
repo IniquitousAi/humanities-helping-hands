@@ -1,0 +1,121 @@
+{
+  "serverInfo": {
+    "name": "humanities-helping-hands",
+    "title": "Humanities Helping Hands",
+    "version": "1.1.0"
+  },
+  "description": "Open library of labeled facts: look up a fact, check a claim, search P vs NP attempts. Read-only; nothing you send is stored.",
+  "websiteUrl": "https://humanitieshelpinghands.com",
+  "documentationUrl": "https://humanitieshelpinghands.com/check/yours/",
+  "privacyPolicyUrl": "https://humanitieshelpinghands.com/privacy/",
+  "termsOfServiceUrl": "https://humanitieshelpinghands.com/terms/",
+  "supportUrl": "https://humanitieshelpinghands.com/support/",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://humanitieshelpinghands.com/mcp"
+  },
+  "authentication": {
+    "required": false
+  },
+  "tools": [
+    {
+      "name": "lookup_fact",
+      "title": "Look up a proven fact",
+      "description": "Search the library of machine-checked facts. Compact by default (claim start, label, receipt link); set detail true for the full wording.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Words about the fact, e.g. \"root theorem\""
+          },
+          "max_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25,
+            "default": 10,
+            "description": "How many matches, at most 25"
+          },
+          "detail": {
+            "type": "boolean",
+            "default": false,
+            "description": "Full claim, what checked it and what is not proven"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Look up a proven fact",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "check_claim",
+      "title": "Check a claim",
+      "description": "Find the claims in a text and check the ones plain code can: arithmetic (PROVEN or FALSIFIED), primes, unit conversions. A famous unsolved problem (P vs NP, the Riemann hypothesis) is OPEN. Anything else is NOT CHECKED, which never means false, with a next step.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "The sentence or answer to check, e.g. \"2+2=5\""
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Check a claim",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_attempts",
+      "title": "Search past P vs NP attempts",
+      "description": "Search the list of past attempts at P vs NP. Rows are labeled CHECKED, REASONED or NOT TRACED. A match is a warning sign, never a verdict.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Words about your idea, e.g. \"linear programming TSP\""
+          },
+          "max_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 25,
+            "default": 10,
+            "description": "How many matches, at most 25"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Search past P vs NP attempts",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "resources": [],
+  "prompts": []
+}

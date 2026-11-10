@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Check a stamp, Humanities Helping Hands</title>
+<link rel="canonical" href="https://humanitieshelpinghands.com/verify/">
+<meta property="og:title" content="Check a stamp, Humanities Helping Hands">
+<meta property="og:description" content="Paste an HHH stamp. Your browser checks our signature and our public log, and says VALID or FAKE.">
+<meta property="og:url" content="https://humanitieshelpinghands.com/verify/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Humanities Helping Hands">
+<meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Humanities Helping Hands: humanity's library of proven facts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Check a stamp, Humanities Helping Hands">
+<meta name="twitter:description" content="Paste an HHH stamp. Your browser checks our signature and our public log, and says VALID or FAKE.">
+<meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
+<meta name="description" content="Paste an HHH stamp. Your browser checks our signature and our public log, and says VALID or FAKE.">
+<link rel="icon" type="image/png" href="/favicon.png"><script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link href="/style.css" rel="stylesheet"><script type="module" src="/level.js"></script><script type="module" src="page.js"></script><link href="/site-nav.css" rel="stylesheet"><link href="/x-shell.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
+
+<div class="x-shell"><nav class="x-rail" aria-label="Site"><a class="x-mark" href="/"><span class="x-mark-big">HHH</span><span class="x-mark-small">Humanities Helping Hands</span></a><ul class="x-links"><li><a href="/atlas/">Atlas</a></li><li><a href="/open/">Open problems</a></li><li><a href="/book/">Book</a></li><li><a href="/charter/">Charter</a></li><li><a href="/founders/">Founders</a></li><li><a href="/check/done-for-you/">Plans</a></li></ul><a class="x-key" href="/#check">Check a claim</a><div class="x-rail-foot"><div class="theme-switch"><button type="button" class="theme-key" data-theme-key aria-pressed="false">Dark mode</button></div></div></nav><div class="x-center"><nav class="site-nav x-bar" aria-label="Reading level"><p class="x-title">Check a stamp</p><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav><main class="page" id="main">
+  <header class="mast">
+    <div class="kicker">Humanities Helping Hands</div>
+    <h1>Check a stamp</h1>
+    <p class="sub"><span data-level="kids">Paste a stamp. Your computer checks if we really made it.</span><span data-level="everyone">Paste a stamp. Your browser checks that we signed it and that it is in our public log. It says VALID or FAKE.</span><span data-level="technical">Paste the stamp JSON. Your browser verifies the Ed25519 signature over "HHH-STAMP-v2\nhash\nlabel\ngate\ndate\n" with our published key for its kid, then looks the stamp up in the append-only log. Signed but not logged reads FAKE.</span></p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/.well-known/hhh-stamp-key.json">Our public key</a> &middot; <a href="/stamps/log.json">The public stamp log</a></p>
+  </header>
+  <section class="glance">
+    <form id="vf-form" class="stamp-form" autocomplete="off">
+      <label for="vf-stamp">Your stamp</label>
+      <textarea id="vf-stamp" name="stamp" rows="5" maxlength="2000" required placeholder='{"v":2,"hash":"...","label":"...","gate":"...","date":"...","kid":"...","sig":"..."}'></textarea>
+      <button type="submit">Check this stamp</button>
+    </form>
+    <div id="vf-out" role="status" aria-live="polite"></div>
+    <p class="level-note"><span data-level="kids">The check runs on your computer. We do not see what you paste.</span><span data-level="everyone">The check runs in your browser; nothing you paste is sent to us. The date in a stamp is what we signed, not a clock anyone else checked.</span><span data-level="technical">Runs client-side with WebCrypto; only the key and log are fetched. The signed date is our claim; only the OpenTimestamps anchor in /stamp.json proves when.</span></p>
+    <h2>Repeat every check yourself</h2>
+    <p><span data-level="kids">You do not have to trust us. Every check below can be done again on your own computer.</span><span data-level="everyone">You never have to take our word for it. Each step below repeats one of our checks on your own machine.</span><span data-level="technical">Every claim the site makes can be re-derived without us: file hashes, the timestamp, the Lean proofs.</span></p>
+    <ol>
+      <li><b>The files.</b> Download <a href="/stamp/manifest.txt">manifest.txt</a>: one line per published file, its SHA-256 and its path. Fetch any file (for example <a href="/facts.json">/facts.json</a>), run <code>sha256sum</code> on it, and the number must match its line. Data files and scripts match byte for byte. Pages match once Cloudflare's additions are taken out: it adds its analytics script and hides email addresses on the way out.</li>
+      <li><b>When.</b> <a href="/stamp/manifest.txt.ots">manifest.txt.ots</a> anchors the manifest's fingerprint in Bitcoin. Check it at opentimestamps.org, or run <code>ots verify manifest.txt.ots</code>. <a href="/stamp/">More on the stamp</a>.</li>
+      <li><b>The proofs.</b> Clone <a href="https://github.com/IniquitousAi/lean-proofs">lean-proofs</a> and run <code>./RERUN.sh</code> (<code>RERUN.cmd</code> on Windows). The first run takes 20 to 40 minutes while Lean fetches Mathlib, then prints PASS or FAIL for each claim. The Lean files are in the manifest too, so you can see they are the ones we stamped. The Root Theorem also re-checks in your browser on <a href="/check/">the check page</a>.</li>
+      <li><b>A stamp.</b> Paste it in the box above. Your browser checks our signature with <a href="/.well-known/hhh-stamp-key.json">our public key</a> and finds it in <a href="/stamps/log.json">the public log</a>.</li>
+    </ol>
+    <p class="note">The site's own test suite is not public yet, so that check cannot be repeated from outside today.</p>
+    <h2>What is open, and what you pay for</h2>
+    <p><span data-level="kids">Reading is open to everyone. Using our facts is open to everyone. You only pay if you want us to check your own work and give you a stamp that says so.</span><span data-level="everyone">Open to read and use: every fact, every proof, the map, the book, the checker and the AI tools are open to everyone. You pay only for a stamp (our signed record that a machine checked something of yours) or a check (we run the machine check for you). Paying never changes what a fact says or how it is labeled.</span><span data-level="technical">Open: every page, facts.json, the Lean proofs, the browser checker and the read-only MCP server. Paid (not on sale yet): a stamp, an Ed25519 signature over your hash, label and date, appended to the public hash-chained log; and a check, a machine check we run on your input. Labels come only from the checkers; money never touches them.</span></p>
+    <p class="note">The stamp is math. Check it yourself. If the math says real, it's real. Still think something is wrong after a VALID check? <a href="/support/#stamp">Send us the evidence</a>.</p>
+  </section>
+  <section class="closing" aria-label="Next step"><p>Want your own work checked and stamped?</p><a class="go" href="/check/done-for-you/">See the plans</a></section>
+  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open Problems</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+</main>
+</div><aside class="x-side" aria-label="More"><form class="x-ask" action="/" method="get" role="search"><label class="visually-hidden" for="x-c">Check a claim</label><input id="x-c" name="c" type="search" placeholder="Check a claim" maxlength="600" enterkeyhint="go"></form><section class="x-box"><h2 class="x-h">Proven so far</h2><p class="x-big"><span class="x-n">142</span> math facts a machine proved</p><p class="x-big"><span class="x-n">28</span> real-world claims, arithmetic checked</p><p class="x-more"><a href="/atlas/list/">See every one</a></p></section><section class="x-box"><h2 class="x-h">Newest proven</h2><ul class="x-list"><li><a href="/atlas/#p56">the average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39</a></li><li><a href="/atlas/#p39">Random walk: expected highest point in 10 steps, not counting the starting point</a></li></ul></section></aside></div>
+</body></html>

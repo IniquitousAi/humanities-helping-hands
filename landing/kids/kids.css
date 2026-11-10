@@ -1,0 +1,56 @@
+:root { --k-blue:#1c3fc4; --k-green:#00733f; --k-red:#c4001d; --k-violet:#5b1fa8; --k-pink:#d1006b; }
+body.kids .handover { grid-column:1 / -1; text-align:center; }
+.go { font:inherit; font-size:1.75rem; letter-spacing:.04em; color:var(--paper); background:var(--accent); border:1px solid var(--accent);
+  border-radius:2px; padding:16px 48px 12px; cursor:pointer; transition:transform .12s; }
+.go small { display:block; font-size:1rem; font-style:italic; letter-spacing:0; }
+.go:hover, .go:focus-visible { background:var(--link); border-color:var(--link); transform:translateY(-2px); }
+.go:active { transform:scale(.97); }
+.safe { max-width:640px; margin:14px auto 0; font-size:1.0625rem; color:var(--soft); }
+body.kids .card { grid-column:1 / -1; }
+body.kids .card .row { grid-template-columns:168px 1fr; }
+body.kids .card small { display:block; font-size:0.875rem; color:var(--soft); font-style:italic; }
+@media (max-width:560px) { body.kids .card .row { grid-template-columns:1fr; } }
+
+.kid { position:fixed; inset:0; background:var(--paper); display:flex; align-items:center; justify-content:center;
+  padding:max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom)); user-select:none; -webkit-user-select:none;
+  touch-action:manipulation; overflow:hidden; }
+.kid[hidden], .screen[hidden] { display:none; }
+:where(.kid) button { font:inherit; background:none; border:0; cursor:pointer; color:inherit; -webkit-tap-highlight-color:transparent; }
+.screen { width:100%; max-width:980px; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4vh; }
+
+.leave { position:fixed; top:0; left:0; width:64px; height:64px; padding:12px; color:var(--soft); opacity:.55; border-radius:0 0 14px 0; }
+.leave svg { width:100%; height:100%; }
+.leave .ring { stroke-dasharray:113.1; stroke-dashoffset:113.1; transform:rotate(-90deg); transform-origin:20px 20px; }
+.leave.holding { opacity:1; }
+.leave.holding .ring { stroke-dashoffset:0; transition:stroke-dashoffset 2s linear; }
+
+.hub { flex-direction:row; flex-wrap:wrap; gap:4vmin; }
+.pick { width:min(28vmin, 260px); min-width:120px; aspect-ratio:1; border:4px solid currentColor !important; border-radius:24px;
+  transition:transform .15s; }
+.pick svg { width:100%; height:100%; fill:currentColor; }
+.pick:hover { transform:translateY(-4px); } .pick:active { transform:scale(.95); }
+.c-blue { color:var(--k-blue); } .c-green { color:var(--k-green); } .c-red { color:var(--k-red); }
+
+.field { display:flex; flex-wrap:wrap; justify-content:center; gap:4vmin; }
+.thing { width:min(18vmin, 150px); min-width:96px; aspect-ratio:1; transition:transform .2s, opacity .2s; }
+.thing svg { width:100%; height:100%; }
+.thing.counted { transform:scale(.86); opacity:.45; }
+.answer { display:flex; gap:2vmin; min-height:min(10vmin, 80px); }
+.answer i { width:min(10vmin, 80px); aspect-ratio:1; border-radius:50%; background:var(--k-blue); }
+.model { width:min(22vmin, 180px); aspect-ratio:1; color:var(--k-violet); }
+.model svg, .choice svg { width:100%; height:100%; fill:currentColor; }
+.choice { width:min(24vmin, 200px); min-width:120px; aspect-ratio:1; color:var(--k-green); border:4px solid var(--k-green) !important;
+  border-radius:24px; padding:16px; transition:transform .15s; }
+.choice.pink { color:var(--k-pink); border-color:var(--k-pink) !important; }
+.choice:active { transform:scale(.95); }
+.letter { font-family:'EB Garamond', Georgia, serif; font-size:min(30vmin, 240px); line-height:1; color:var(--k-red); min-width:120px; }
+.hint { animation:hint .9s ease-in-out 2; }
+.nope { animation:nope .35s ease-in-out; }
+.right { transform:scale(1.12); }
+@keyframes hint { 50% { transform:scale(1.1); } }
+@keyframes nope { 25% { transform:translateX(-8px); } 75% { transform:translateX(8px); } }
+@media (prefers-reduced-motion:reduce) { .hint, .nope { animation:none; } .thing, .pick, .choice { transition:none; } }
+
+button, select, input:not([type=checkbox]):not([type=radio]):not([type=hidden]) { min-height:24px; }
+.level-links a { margin:0 6px; padding:3px 4px; }
+

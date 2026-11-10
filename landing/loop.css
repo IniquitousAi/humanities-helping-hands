@@ -1,0 +1,34 @@
+.loop { max-width:46rem; margin:2rem auto; padding:0 1rem; }
+.loop h2 { margin:0 0 .25rem; }
+.loop .loop-say { margin:.25rem 0 1rem; color:var(--soft); }
+.loop svg { display:block; width:100%; max-width:40rem; height:auto; margin:0 auto; }
+.loop svg text { font-family:'EB Garamond', Georgia, serif; font-size:24px; fill:var(--ink); }
+.loop svg .loop-sm { font-size:19px; fill:var(--soft); }
+.loop .ring { fill:none; stroke:var(--ink); stroke-width:1.5; opacity:.25; }
+.loop .ring-proven { fill:none; stroke:var(--proven-ink); stroke-width:8; }
+.loop .ring-guess { fill:none; stroke:var(--guess-ink); stroke-width:2; stroke-dasharray:4 6; }
+.loop .line-1733 { stroke:var(--ink); stroke-width:2; opacity:0; }
+.loop .beat circle { stroke:#fff; stroke-width:2; }
+.loop .b-checked circle { fill:var(--accent); }
+.loop .b-proven circle { fill:var(--proven-ink); }
+.loop .b-logged circle { fill:var(--link); }
+.loop .b-looped circle { fill:var(--ink); }
+.loop .seal { fill:var(--proven-ink); }
+.loop svg .seal-t { fill:#fff; font-size:22px; font-weight:600; letter-spacing:.06em; }
+.loop .rider { fill:var(--ink); opacity:0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .loop .beat circle { animation:loop-beat 10s ease-in-out infinite; }
+  .loop .b-proven circle { animation-delay:2.5s; }
+  .loop .b-logged circle { animation-delay:5s; }
+  .loop .b-looped circle { animation-delay:7.5s; }
+  .loop .rider { opacity:1; transform-origin:340px 200px; animation:loop-turn 10s linear infinite; }
+  .loop .ring-proven { animation:loop-thicken 10s ease-in-out infinite; }
+  .loop .ring-guess { animation:loop-thin 10s ease-in-out infinite; }
+  .loop .line-1733 { animation:loop-line 10s ease-in-out infinite; }
+}
+@keyframes loop-beat { 0%, 22% { opacity:1; } 30%, 92% { opacity:.3; } 100% { opacity:1; } }
+@keyframes loop-turn { to { transform:rotate(360deg); } }
+@keyframes loop-thicken { 0% { stroke-width:2; } 90%, 100% { stroke-width:8; } }
+@keyframes loop-thin { 0% { stroke-width:8; } 90%, 100% { stroke-width:2; } }
+@keyframes loop-line { 0% { opacity:.8; } 18%, 100% { opacity:0; } }

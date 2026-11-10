@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Check a claim, Humanities Helping Hands</title>
+<meta name="description" content="Check a claim: exact arithmetic and the facts in the Atlas come back true or false with a receipt; anything else says Not checked."><link rel="canonical" href="https://humanitieshelpinghands.com/v2/check.html"><meta property="og:url" content="https://humanitieshelpinghands.com/v2/check.html">
+<meta property="og:title" content="Check a claim, Humanities Helping Hands"><meta property="og:description" content="Check a claim: exact arithmetic and the facts in the Atlas come back true or false with a receipt; anything else says Not checked."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v2.css">
+<script type="module" src="site.js"></script><script type="module" src="check.js"></script>
+</head>
+<body data-site="2" data-page="check" data-mode="everyone">
+<a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="index.html"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="check.html" aria-current="page">Check</a><a href="atlas.html">Atlas</a><a href="open.html">Open problems</a><a href="plans.html">Plans</a><a href="book.html">The Book</a><a href="founders.html">Founders</a></nav>
+  <nav class="modes" aria-label="Reading level"><a href="kids.html">Kids</a><a href="check.html" aria-current="page">Everyone</a><a href="tech-check.html">Technical</a></nav>
+  <a class="btn btn-main" href="check.html">Check a claim</a>
+</div></header>
+<main id="main">
+  <section class="page-hero grid-bg"><div class="wrap">
+    <p class="eyebrow">The checker</p>
+    <h1 class="h1">Paste an answer, <span class="hl-red">get the labels.</span></h1>
+    <p class="lede">Each sentence is checked on its own. Exact arithmetic and the facts in the Atlas come back true or false with a receipt anyone can rerun. Anything else says Not checked, which never means false.</p>
+  </div></section>
+
+  <section class="u-pb96"><div class="wrap">
+    <div class="panel ticks checker">
+      <form class="form-grid" id="ask" novalidate>
+        <label class="skip" for="q">Text to check</label>
+        <textarea id="q" rows="3" placeholder="Paste an AI answer, a homework line, a headline...">366 * 86400 = 31,622,400. 12 x 12 = 144. The moon is made of cheese.</textarea>
+        <div><button class="btn btn-main" type="submit">Check it</button></div>
+      </form>
+      <div class="tries"><span>Try one:</span>
+        <button type="button" data-try="2 + 2 = 5">2 + 2 = 5</button>
+        <button type="button" data-try="Pi is bigger than 3.14">Pi is bigger than 3.14</button>
+        <button type="button" data-try="The square root of 2 is not a fraction of two whole numbers">The square root of 2</button>
+        <button type="button" data-try="2^64 = 18446744073709551616. Coffee cures colds.">A big power and coffee</button>
+        <button type="button" data-try="blueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee">A very long word</button>
+      </div>
+      <p class="summary" id="summary" role="status"></p>
+      <div><div class="tabs" role="tablist" aria-label="How to show the result">
+        <button role="tab" id="t-list" aria-controls="p-list" aria-selected="true">One per line</button>
+        <button role="tab" id="t-inline" aria-controls="p-inline" aria-selected="false" tabindex="-1">In your text</button>
+        <button role="tab" id="t-side" aria-controls="p-side" aria-selected="false" tabindex="-1">Side by side</button>
+      </div></div>
+      <div role="tabpanel" id="p-list" aria-labelledby="t-list"><ol class="results" id="list"></ol></div>
+      <div role="tabpanel" id="p-inline" aria-labelledby="t-inline" hidden><div class="inline-text" id="inline"></div></div>
+      <div role="tabpanel" id="p-side" aria-labelledby="t-side" hidden><div class="side"><div><h5>Your words</h5><div id="left"></div></div><div><h5>What checked it</h5><div id="right"></div></div></div></div>
+      <div class="tries"><button type="button" id="copy">Copy the result</button><button type="button" data-dialog="Receipts|Every claim the machine checked gets a receipt: the exact form it ran, the checker's name, and a SHA-256 hash over all of it. Anyone can run the same claim again and see the same answer.">What is a receipt?</button></div>
+      <p class="note">Today the checker settles exact whole-number arithmetic and the 170 facts in the Atlas, word for word. Measured, Reasoned and Guess are the labels for the rest of the library as it grows.</p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The four labels</p><h2 class="h2">What each label promises.</h2></div>
+    <div class="cols-4">
+      <div class="panel lab"><span><span class="chip proven">Proven</span></span><p>A machine proof checker accepted it.</p><span class="card-note">Lean checked the exact statement; the receipt reruns it.</span></div>
+      <div class="panel lab"><span><span class="chip measured">Measured</span></span><p>The math is checked; the world fact is measured.</p><span class="card-note">The inputs come from a named measurement.</span></div>
+      <div class="panel lab"><span><span class="chip reasoned">Reasoned</span></span><p>It follows from things we checked.</p><span class="card-note">Each step is shown so you can judge it.</span></div>
+      <div class="panel lab"><span><span class="chip guess">Guess</span></span><p>Nothing here can settle it yet.</p><span class="card-note">We say so plainly.</span></div>
+    </div>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
+  <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b628e88ec3</a></div></footer>
+</body></html>

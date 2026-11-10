@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Help build the floor, Humanities Helping Hands</title>
+<link rel="canonical" href="https://humanitieshelpinghands.com/help/">
+<meta name="description" content="Prove one fact in Lean, check a source, or flag a gap. One click hands you a starter task; a machine check decides if it counts, and your name stays on it.">
+<meta property="og:title" content="Help build the floor, Humanities Helping Hands">
+<meta property="og:description" content="Prove one fact in Lean, check a source, or flag a gap. One click hands you a starter task; a machine check decides if it counts, and your name stays on it.">
+<meta property="og:url" content="https://humanitieshelpinghands.com/help/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Humanities Helping Hands">
+<meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Help build the floor, Humanities Helping Hands"><meta name="twitter:description" content="Prove one fact in Lean, check a source, or flag a gap. One click hands you a starter task; a machine check decides if it counts, and your name stays on it."><meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link href="/style.css" rel="stylesheet"><script type="module" src="/level.js"></script><link href="/site-nav.css" rel="stylesheet"><link href="/x-shell.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
+
+<div class="x-shell"><nav class="x-rail" aria-label="Site"><a class="x-mark" href="/"><span class="x-mark-big">HHH</span><span class="x-mark-small">Humanities Helping Hands</span></a><ul class="x-links"><li><a href="/atlas/">Atlas</a></li><li><a href="/open/">Open problems</a></li><li><a href="/book/">Book</a></li><li><a href="/charter/">Charter</a></li><li><a href="/founders/">Founders</a></li><li><a href="/check/done-for-you/">Plans</a></li></ul><a class="x-key" href="/#check">Check a claim</a><div class="x-rail-foot"><div class="theme-switch"><button type="button" class="theme-key" data-theme-key aria-pressed="false">Dark mode</button></div></div></nav><div class="x-center"><nav class="site-nav x-bar" aria-label="Reading level"><p class="x-title">Help build the floor</p><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav><main class="page help" id="main">
+  <header class="mast">
+    <div class="kicker">Humanities Helping Hands</div>
+    <h1>Help build the floor</h1>
+    <p class="sub">Prove one fact. A machine decides if it counts, and your name stays on it.</p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/book/">The Human Autobiography</a> &middot; <a href="/open/">Open problems</a></p>
+  </header>
+  <section>
+    <h2>Your starter task</h2>
+    <button type="button" class="go" id="task-go">Give me a task<small>(drawn from what is really open)</small></button>
+    <div class="task" id="task" hidden>
+      <div class="row"><span class="tag open" id="task-kind"></span><div><b id="task-title"></b></div></div>
+      <p id="task-body" class="task-body"></p>
+      <p><a id="task-issue" rel="noopener" target="_blank">Open it as a GitHub issue</a> &middot; <a href="https://github.com/IniquitousAi/lean-proofs/blob/master/CONTRIBUTING.md" rel="noopener" target="_blank">How to send it in</a></p>
+    </div>
+    <p class="status" id="task-status" role="status"></p>
+  </section>
+  <section>
+    <h2>How it counts</h2>
+    <div class="lv"><p data-level="kids">Send us your proof. A computer checks every step. If it passes, it counts. No one has to trust you, and you do not have to trust us.</p>
+    <p data-level="everyone">Send your proof as a pull request. It counts when the automatic check passes: Lean builds it, with no sorry and no shortcut.
+      Nobody has to trust you, and you do not have to trust us.</p>
+    <p data-level="technical">Open a pull request against lean-proofs. It counts when CI passes: lake build succeeds, the file contains no sorry, and the axiom printout shows nothing beyond the standard three (no native_decide, no new axioms).
+      Trust rests on the Lean kernel, not on you or on us.</p></div>
+    <p class="deep"><a href="https://github.com/IniquitousAi/lean-proofs/blob/master/.github/workflows/verify.yml" rel="noopener" target="_blank">The check, step by step</a></p>
+  </section>
+  <section>
+    <h2>Who built it</h2>
+    <div id="people"><p data-level="kids">When your proof passes, your name goes on the fact. The first name goes here.</p><p data-level="technical">Each merged proof records its author's GitHub handle on the fact, here and in the Atlas. The first name goes here.</p><p data-level="everyone">Every accepted proof shows its author's GitHub name on its fact, here and in the Atlas. The first name goes here.</p></div>
+  </section>
+  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+</main>
+<script type="module" src="page.js"></script>
+</div><aside class="x-side" aria-label="More"><form class="x-ask" action="/" method="get" role="search"><label class="visually-hidden" for="x-c">Check a claim</label><input id="x-c" name="c" type="search" placeholder="Check a claim" maxlength="600" enterkeyhint="go"></form><section class="x-box"><h2 class="x-h">Proven so far</h2><p class="x-big"><span class="x-n">142</span> math facts a machine proved</p><p class="x-big"><span class="x-n">28</span> real-world claims, arithmetic checked</p><p class="x-more"><a href="/atlas/list/">See every one</a></p></section><section class="x-box"><h2 class="x-h">Newest proven</h2><ul class="x-list"><li><a href="/atlas/#p56">the average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39</a></li><li><a href="/atlas/#p39">Random walk: expected highest point in 10 steps, not counting the starting point</a></li></ul></section></aside></div>
+</body></html>

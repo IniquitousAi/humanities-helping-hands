@@ -1,0 +1,36 @@
+{
+ "v": 2,
+ "hash_rule": "Each entry's \"hash\" is a build hash: the sha256 of the build manifest, one line \"<sha256>  <path>\" per file of the copy that is uploaded, as built (the paths in stamp/manifest.txt). A served file matches when the sha256 of its body, fetched without compression, equals its line. Scripts, styles, data and keys must match byte for byte. Pages are served through Cloudflare, which adds one inline script to each page (its JavaScript bot detection, which this site's Content Security Policy does not let run); a page matches when it is byte for byte the same once that script is taken out (the rule in tools/ship_gate.py norm). Cloudflare's Email Address Obfuscation and Automatic HTTPS Rewrites are off for this site since 2026-11-06, so nothing else in a page is changed. Measured on build 11a4a24f, 2026-11-06 14:50 CT: 101 files byte for byte, 26 pages equal once that script is taken out, 0 other differences.",
+ "entries": [
+  {
+   "n": 1,
+   "hash": "ed7e5dbab27684a19a8c2511060a5cdde598b608eb38a75df49eeb2233779411",
+   "label": "CHECKED",
+   "gate": "d25306532fc7e2b04892a8ff230076d35b77288d8da079877b5413973c15c599",
+   "date": "2026-10-31",
+   "kid": "2026-1",
+   "sig": "xFvTE9mPpisdDVxvDGNghaFloHSYzxi5sIjN4tgmGpcqW_78DzQviULjKrSYOajA6SmY9czBXONxfKGFswXiCQ",
+   "prev": ""
+  },
+  {
+   "n": 2,
+   "hash": "7f873dc3a92f117cefdc6da4602bb5865cdf539e369faac0f3587d6d47cb67fe",
+   "label": "CHECKED",
+   "gate": "6f3804d7b9a7691e3f80ba26a9571e481916550f73d8a3b0fbf8d36a0e3781b7",
+   "date": "2026-10-31",
+   "kid": "2026-1",
+   "sig": "zPsGHWixNXOCoQOF9kO2rbLGGdXg8fxJsQ5HuIOCq9OlC-Q5zN-RD7qa1o15uRTOwdrHMXIOSYDNoXHQV5JJCQ",
+   "prev": "88519a9c5c585ea9adae3a21d7698dbcf91f77adb54a059945ba1d92dccdc978"
+  },
+  {
+   "n": 3,
+   "hash": "1dcc9c33c2f83e1455a9491b3b681be07cde7576a3feec8a5ea1147245a45908",
+   "label": "CHECKED",
+   "gate": "ba14cdd893234817ea1aef5894e0079d82b70a71269cee935311fa18bbbdbfe8",
+   "date": "2026-10-31",
+   "kid": "2026-1",
+   "sig": "zn93NDTu9Yw1ZoIB-yCG8a6j3NzDae9ElnErIov96rqaMab9mQcAsitZeKT8rAk0HmOwK6ljSNpivpwmisH4AA",
+   "prev": "45c8b3ceede2d8b900bea6170bd91d0808c2c0e5028c1e307d2573e0fc61800c"
+  }
+ ]
+}

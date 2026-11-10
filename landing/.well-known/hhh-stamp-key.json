@@ -1,0 +1,12 @@
+{
+ "keys": [
+  {
+   "alg": "Ed25519",
+   "kid": "2026-1",
+   "x": "0CRtXSC2EvAMYr_P_NxrJ3C_j3YgXXgi6ACVO_lxiFM",
+   "fingerprint": "452ca64278e67d9437dfafb4b8ab19d24fdb5117562452cb69fa33f4b4d071b7",
+   "valid_from": "2026-10-31",
+   "revoked_after": null
+  }
+ ]
+}

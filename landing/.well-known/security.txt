@@ -1,0 +1,4 @@
+Contact: mailto:hello@humanitieshelpinghands.com
+Expires: 2027-10-29T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://humanitieshelpinghands.com/.well-known/security.txt

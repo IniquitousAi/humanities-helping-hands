@@ -1,0 +1,22 @@
+html:not([data-level]) body [data-level]:not([data-level="everyone"]),
+html[data-level="kids"] body [data-level]:not([data-level="kids"]),
+html[data-level="everyone"] body [data-level]:not([data-level="everyone"]),
+html[data-level="technical"] body [data-level]:not([data-level="technical"]) { display:none; }
+html[data-js] .level-links { display:none; }
+.page-hero .meta { color:var(--ink-2); font-size:1.05rem; margin:16px 0 0; }
+.level-links { color:var(--ink-2); font-size:.9rem; margin:0; padding:10px max(16px, env(safe-area-inset-left, 0px)); text-align:center; }
+.level-links a { color:var(--blue); margin-right:12px; }
+.level-keys { display:flex; gap:8px; margin:24px 0 0; flex-wrap:wrap; }
+.level-keys button { font:inherit; font-size:.95rem; color:var(--ink); background:transparent; border:1px solid var(--hair-2); border-radius:var(--r); padding:8px 18px; cursor:pointer; }
+.level-keys button:hover { border-color:var(--blue); }
+.level-keys button[aria-pressed="true"] { border-color:var(--blue); color:var(--blue); }
+.dfy { padding-top:24px; padding-bottom:96px; display:flex; flex-direction:column; gap:20px; }
+.dfy section { border:1px solid var(--hair); background:var(--panel); border-radius:var(--r); padding:28px 32px; }
+.dfy h2 { font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--red); font-weight:600; margin:0 0 16px; }
+.dfy p { color:var(--ink-2); line-height:1.65; margin:0 0 14px; }
+.dfy p:last-child { margin-bottom:0; }
+.dfy b { color:var(--ink); }
+.dfy a { color:var(--blue); }
+.dfy .plan-go { display:inline-block; margin-left:8px; }
+.dfy .back { margin:8px 0 0; }
+@media (max-width:560px) { .dfy section { padding:20px 18px; } }

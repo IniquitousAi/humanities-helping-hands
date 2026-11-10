@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Humanities Helping Hands, every claim checked in the open</title>
+<meta name="description" content="Paste any claim or AI answer. A machine checks each part and gives it a label, with a receipt anyone can rerun."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://humanitieshelpinghands.com/v3/"><meta property="og:url" content="https://humanitieshelpinghands.com/v3/">
+<meta property="og:title" content="Humanities Helping Hands, every claim checked in the open"><meta property="og:description" content="Paste any claim or AI answer. A machine checks each part and gives it a label, with a receipt anyone can rerun."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v3.css">
+<script type="module" src="site.js"></script>
+</head>
+<body data-site="2" data-page="index" data-mode="everyone">
+<a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="index.html"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="check.html">Check</a><a href="atlas.html">Atlas</a><a href="open.html">Open problems</a><a href="plans.html">Plans</a><a href="book.html">The Book</a><a href="founders.html">Founders</a></nav>
+  <nav class="modes" aria-label="Reading level"><a href="kids.html">Kids</a><a href="index.html" aria-current="page">Everyone</a><a href="tech.html">Technical</a></nav>
+  <a class="btn btn-main" href="check.html">Check a claim</a>
+</div></header>
+<main id="main">
+  <section class="hero grid-bg" id="check"><div class="wrap hero-in">
+    <div class="hero-l">
+      <p class="eyebrow">The proof stamp</p>
+      <h1 class="h1">Every claim,<br><span class="hl-red">checked in the open.</span></h1>
+      <p class="lede">Paste a claim or an AI answer. A machine works out the math in it and checks it against the facts in the Atlas. Each claim comes back <b>Proven, False or Not checked</b>, with a receipt anyone can rerun.</p>
+      <form class="ask" action="check.html" method="get"><input name="q" aria-label="A claim to check" placeholder="Try: 15% of 80 is 12"><button class="btn btn-main" type="submit">Check</button></form>
+      <p class="note">Today it checks sums, percents, units, primes and the <span data-fact-n></span> Atlas facts. History, health and news say Not checked, which never means false. You pay only for a signed stamp.</p>
+    </div>
+    <div class="panel ticks receipt" data-machine="receipt" aria-live="off"></div>
+  </div></section>
+
+  <section class="sec u-flush" aria-label="Numbers"><div class="wrap">
+    <div class="kpis">
+      <div class="kpi"><b data-fact-n="">170</b><span>Facts in the Atlas</span></div>
+      <div class="kpi"><b data-fact-n="PROVEN">142</b><span>Proven by a proof checker</span></div>
+      <div class="kpi"><b data-fact-n="ARITHMETIC-CHECKED">28</b><span>Math checked</span></div>
+      <div class="kpi"><b data-attempts-n="">126</b><span>P vs NP attempts logged</span></div>
+    </div>
+    <p class="note kpi-note">The box above replays real facts from the Atlas, each one accepted by the Lean proof checker. <a href="atlas.html">See every fact</a> or <a href="open.html">every attempt</a>.</p>
+  </div></section>
+
+  <section class="sec" id="how"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2 class="h2">Three steps, every time.</h2></div>
+    <div class="cols-3">
+      <div class="panel step"><span class="n">01</span><h3 class="h3">Paste it</h3><p>Any answer, post or homework. It is split into sentences, and the math inside each one is found.</p></div>
+      <div class="panel step"><span class="n">02</span><h3 class="h3">The machine checks</h3><p>The math is worked out exactly, with fractions, units and primes, or matched word for word to a fact a proof checker accepted.</p></div>
+      <div class="panel step"><span class="n">03</span><h3 class="h3">You get the receipt</h3><p>Each claim gets its label and a receipt anyone can rerun. Nothing is hidden.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="labels"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The four labels</p><h2 class="h2">How sure we are, in one word.</h2><p class="lede">Every fact in the Atlas carries one of these. A check you run here answers Proven, False or Not checked.</p></div>
+    <div class="cols-4">
+      <div class="panel lab"><span><span class="chip proven">Proven</span></span><p>Checked by a computer proof. It holds, every time.</p></div>
+      <div class="panel lab"><span><span class="chip measured">Measured</span></span><p>Matched to a real measurement and its source.</p></div>
+      <div class="panel lab"><span><span class="chip reasoned">Reasoned</span></span><p>A careful argument, each link shown. Not a proof.</p></div>
+      <div class="panel lab"><span><span class="chip guess">Guess</span></span><p>Nothing backs it yet. We say so out loud.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The library</p><h2 class="h2">Facts the machine has proven.</h2></div>
+    <div class="panel ticks"><div class="panel-head"><span class="live">From the Atlas</span><span>Date added</span></div><ul class="feed" data-machine="feed" data-max="6"></ul></div>
+  </div></section>
+
+  <section class="sec" id="plans"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Plans</p><h2 class="h2">Pay only for the stamp.</h2></div>
+    <div class="cols-3">
+      <div class="panel plan"><h3 class="h3">One Stamp</h3><div class="price">$1 <small>once</small></div><ul><li>One file checked</li><li>Signed only if it passes with no gaps</li><li>A timestamp anyone can check</li></ul><a class="btn btn-line" href="plans.html#stamp">See One Stamp</a></div>
+      <div class="panel plan on ticks"><h3 class="h3">Checker</h3><div class="price">$10 <small>a month</small></div><ul><li>100 checks a month</li><li>Every check stamped, full receipt</li><li>Cancel any time with one email</li></ul><a class="btn btn-main" href="plans.html#checker">See the Checker</a></div>
+      <div class="panel plan"><h3 class="h3">Proven Standing</h3><div class="price">$99 <small>a month</small></div><ul><li>Your public claims kept checked</li><li>A public page of what holds</li><li>We tell you first when one breaks</li></ul><a class="btn btn-line" href="plans.html#standing">See Proven Standing</a></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="faq"><div class="wrap u-mw860">
+    <div class="sec-head"><p class="eyebrow">Questions</p><h2 class="h2">What people ask first.</h2></div>
+    <div class="faq">
+      <details><summary>Who does the checking?</summary><p>A machine. The math in what you paste is worked out exactly, and every Atlas fact was accepted by a proof checker (Lean 4). People write the rules, not the verdicts. Matching numbers to their sources and tracing arguments are being built; until then those claims say Not checked.</p></details>
+      <details><summary>What if you are wrong?</summary><p>Every receipt can be rerun by anyone. If a label breaks, the receipt shows where, and the label changes in public.</p></details>
+      <details><summary>Why not just say true or false?</summary><p>Because most claims are not proven either way. The label says how sure anyone can honestly be.</p></details>
+      <details><summary>Is my text kept?</summary><p>No. The check runs in your own browser, so what you paste is not sent anywhere. A stamp you pay for keeps a fingerprint of the file, not the file.</p></details>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap sec-head center u-mb0">
+    <h2 class="h2">Check the next thing you read.</h2>
+    <a class="btn btn-main" href="check.html">Check a claim</a>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
+  <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b628e88ec3</a></div></footer>
+</body></html>

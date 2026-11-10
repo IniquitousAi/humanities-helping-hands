@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy, Humanities Helping Hands</title>
+<link rel="canonical" href="https://humanitieshelpinghands.com/privacy/">
+<meta name="description" content="What Humanities Helping Hands collects (almost nothing), why, who holds it, how long, and how to reach us.">
+<meta property="og:title" content="Privacy, Humanities Helping Hands">
+<meta property="og:description" content="What Humanities Helping Hands collects (almost nothing), why, who holds it, how long, and how to reach us.">
+<meta property="og:url" content="https://humanitieshelpinghands.com/privacy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Humanities Helping Hands">
+<meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Privacy, Humanities Helping Hands"><meta name="twitter:description" content="What Humanities Helping Hands collects (almost nothing), why, who holds it, how long, and how to reach us."><meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="/v3-frame.css"><script type="module" src="/level.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
+
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="/v3/"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="/v3/check.html">Check</a><a href="/v3/atlas.html">Atlas</a><a href="/v3/open.html">Open problems</a><a href="/v3/plans.html">Plans</a><a href="/v3/book.html">The Book</a><a href="/v3/founders.html">Founders</a></nav>
+  <a class="btn btn-main" href="/v3/check.html">Check a claim</a>
+</div></header>
+<main class="page v3f" id="main">
+  <nav class="site-nav v3f-levels" aria-label="Reading level"><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav>
+  <header class="mast">
+    <div class="kicker">Humanities Helping Hands</div>
+    <h1>Privacy</h1>
+    <p class="sub"><span data-level="kids">We do not spy on you. We try to know as little about you as we can.</span><span data-level="everyone">We try to know as little about you as possible.</span><span data-level="technical">Zero telemetry by design: deterministic client-side execution, ephemeral MCP runtime, daily salted hashes with 2-day TTLs.</span></p>
+    <p class="meta">Draft, waiting on the founder's read. Written from what the site's code does today.</p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/charter/">The Charter</a> &middot; Last updated 8 November 2026</p>
+  </header>
+  <section>
+    <h2>What we collect</h2>
+    <div class="lv">
+      <div data-level="kids">
+        <p>Nothing personal from reading or using the checker. The checker runs on your own device and never sends your words to us.</p>
+        <p>If you join the newsletter: just your email address, to send you news.</p>
+        <p>If you join the Founders Circle: your GitHub name, strength, and weakness. We only show it if you tick the box. To stop people dodging the 3-a-day limit, a code is kept for 2 days, then deleted.</p>
+        <p>If an AI asks our helper: it answers once and forgets it. Nothing you ask is saved.</p>
+      </div>
+      <div data-level="everyone">
+        <p>Nothing personal from reading the site or using the checker. The checker runs in your own browser; what you type is checked on your device and never sent to us.</p>
+        <p>If you join the newsletter: your email address, nothing else.</p>
+        <p>If you join the Founders Circle (the form on /founders/): your strength, weakness, why you want to help, a link to something you built, your GitHub name, the trial task you were given and the day. No email and no address (IP). Only if you tick the box are your GitHub name, strength and weakness shown in the public strength finder, with any email, phone number or link in them removed first. To stop the 3-a-day limit being dodged, a one-way code made from your connection and a key that changes daily is kept for 2 days.</p>
+        <p>If your AI app uses the HHH connector (the MCP server at /mcp): the search words or sentence it asks about, used once to answer and then dropped. Your address (IP) is read only to keep a short in-memory count for rate limiting; it is never saved or put in an answer.</p>
+      </div>
+      <div data-level="technical">
+        <p>Zero tracking on static requests and deterministic checking. Verification occurs via WebAssembly/JS in the client sandbox; no payload leaves the origin.</p>
+        <p>Newsletter subscriptions collect email only, transmitted to Buttondown via API over TLS.</p>
+        <p>Founders Circle applications persist: applicant GitHub handle, strength, weakness, portfolio URI, and trial task id. Free-form text fields undergo sanitization stripping RFC 5322 emails, E.164 phone numbers, and URIs before persistence. Public directory display requires explicit consent (opt_in=true). Rate-limiting uses HMAC-SHA256(IP + daily_salt) stored in Cloudflare KV with a 2-day TTL enforcing the 3-a-day submission ceiling.</p>
+        <p>MCP endpoints at /mcp evaluate stateless JSON-RPC calls over HTTP; IP addresses are held in ephemeral memory for the 60 calls/minute bucket and never logged.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Why we use it</h2>
+    <div class="lv">
+      <p data-level="kids">Your email: only to send the newsletter. Computer helper: only to answer your question.</p>
+      <p data-level="everyone">Your email: only to send the newsletter. Connector requests: only to answer that one request. The rate-limit count: only to stop the connector being overloaded.</p>
+      <p data-level="technical">Email identifiers: routing of transactional and notification dispatches. Ephemeral RPC: payload computation. In-memory sliding buckets: DDoS mitigation and API quota preservation.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Who else sees it</h2>
+    <div class="lv">
+      <div data-level="kids">
+        <p>No ads, no data selling, no tracking cookies. Cloudflare hosts the site. Buttondown sends the emails. Lookups happen only when you click one. We do not track you.</p>
+      </div>
+      <div data-level="everyone">
+        <p>Cloudflare hosts the site and the connector, and may keep its own standard security logs under its own policy. Buttondown holds newsletter addresses and sends the emails.</p>
+        <p>Lookups happen only when you click one. Wikipedia and Wikidata get that one sentence from your browser. Grokipedia lookups go through a small relay on this site that asks for one article title, keeps no record of who asked, and may cache the article for a day.</p>
+        <p>No ads, no selling data and no tracking cookies. Our own visitor counter counts each device once a day for the front page. It keeps only a one-way code made from your address and browser name mixed with a random key that changes every day. It deletes that code after 2 days, never keeps the address itself, and skips bots. Cloudflare Web Analytics, which is cookieless, may also count. It counts visits and page views so the front page can show them, and it does not set a cookie or follow you to other sites. We never see or keep your address (IP), and we guess only how many visitors block the counter, never who. Browsers that block it are simply not counted.</p>
+      </div>
+      <div data-level="technical">
+        <p>Third-party processors: Cloudflare Pages / Workers (edge execution, L4/L7 termination under Cloudflare privacy standard). Buttondown Inc. (subscription registry under GDPR/CCPA compliance).</p>
+        <p>External resolution: Client-directed requests to MediaWiki APIs (Wikipedia/Wikidata) transmit solely the query term directly from user agent. Grokipedia proxy isolates client IPs, caching entity definitions with 86400s TTL.</p>
+        <p>Analytics: Cookieless edge beacons (Cloudflare Web Analytics, zero state persistence). First-party daily counter generates SHA-256(Client-IP + UserAgent + DailyRotatingSalt) with automatic TTL eviction at 172800s (2 days). No persistent identifier is written to storage.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>How long we keep it</h2>
+    <div class="lv">
+      <p data-level="kids">We keep your email only until you unsubscribe. If you joined the Founders Circle, email <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a> anytime to delete your name.</p>
+      <p data-level="everyone">Connector requests and the rate-limit count: not kept; the count lives in memory for about a minute. Newsletter addresses: until you unsubscribe or ask us to delete yours. Founders Circle applications: until you ask us to delete yours; email <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a> with your GitHub name and it is removed from storage and from the strength finder. Cloudflare and Buttondown keep their own logs for as long as their own policies say.</p>
+      <p data-level="technical">Retention bounds: MCP request contexts purge immediately upon stream termination (lifetime &lt; 60s). Newsletter subscriptions persist pending RFC 8058 one-click unsubscribe or deletion instruction. Founders Circle KV records persist until owner-initiated tombstone request to <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Your controls</h2>
+    <div class="lv">
+      <p data-level="kids">You can unsubscribe with one click. HHH is open to read with no account, and we do not collect personal info from kids.</p>
+      <p data-level="everyone">Unsubscribe from any newsletter email with one click, or ask us to delete your address. Disconnect the HHH connector in your AI app at any time; nothing of yours stays with us when you do. HHH is open to read with no account, and we do not knowingly collect anything from children.</p>
+      <p data-level="technical">Revocation interfaces: Automated List-Unsubscribe headers on all outbound mail. Stateless client MCP disconnection requires no server-side handshake. Zero authentication gate for read access.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Contact</h2>
+    <div class="lv">
+      <p data-level="kids">Email <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>. If this page changes, the date at the top changes too.</p>
+      <p data-level="everyone"><a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>. If this page changes, the date at the top changes too.</p>
+      <p data-level="technical">Security and compliance inquiries: <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>. Document changes are version-controlled and stamped in public git log.</p>
+    </div>
+  </section>
+  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v3/check.html">Check a claim</a></section>
+  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+</main>
+</body></html>

@@ -1,0 +1,48 @@
+{
+ "built": "2026-11-09T21:04:42-06:00",
+ "how": "python tools/proof5.py, run by every site update",
+ "unattended_at": "2026-11-09T20:55:29-06:00",
+ "checks": [
+  {
+   "n": 1,
+   "name": "Free",
+   "says": "Every public page and the AI tool door load signed out: no login, no paywall.",
+   "pass": true,
+   "receipt": "31 of 31 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-09T20:39:37-06:00)",
+   "blocks": false
+  },
+  {
+   "n": 2,
+   "name": "Open",
+   "says": "The site code and the whole library (facts.json) download freely, with the license.",
+   "pass": true,
+   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-09T20:39:37-06:00)",
+   "blocks": false
+  },
+  {
+   "n": 3,
+   "name": "Credited",
+   "says": "Every fact names who added it.",
+   "pass": true,
+   "receipt": "340 of 340 facts in both library files name who added them",
+   "blocks": false
+  },
+  {
+   "n": 4,
+   "name": "Shows its own mistakes",
+   "says": "Every upload our own checks stopped, rebuilt from the log on every update.",
+   "pass": true,
+   "receipt": "245 failed runs listed from the upload log, newest first",
+   "blocks": false
+  },
+  {
+   "n": 5,
+   "name": "Works when Daniel isn't there",
+   "says": "A scheduled job rebuilds, checks and uploads the site with nobody at the PC.",
+   "pass": false,
+   "receipt": "the last unattended run, 2026-11-09T20:55:29-06:00, ended with code a failed check",
+   "blocks": false
+  }
+ ],
+ "passed": 4
+}

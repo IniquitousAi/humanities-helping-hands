@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timestamp, Humanities Helping Hands</title>
+<link rel="canonical" href="https://humanitieshelpinghands.com/stamp/">
+<meta property="og:title" content="Timestamp, Humanities Helping Hands">
+<meta property="og:description" content="How to check, on your own computer, when this site's files existed.">
+<meta property="og:url" content="https://humanitieshelpinghands.com/stamp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Humanities Helping Hands">
+<meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Humanities Helping Hands: humanity's library of proven facts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timestamp, Humanities Helping Hands">
+<meta name="twitter:description" content="How to check, on your own computer, when this site's files existed.">
+<meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
+<meta name="description" content="How to check, on your own computer, when this site's files existed.">
+<link rel="icon" type="image/png" href="/favicon.png"><script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link href="/style.css" rel="stylesheet"><script type="module" src="/level.js"></script><link href="/site-nav.css" rel="stylesheet"><link href="/x-shell.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
+
+<div class="x-shell"><nav class="x-rail" aria-label="Site"><a class="x-mark" href="/"><span class="x-mark-big">HHH</span><span class="x-mark-small">Humanities Helping Hands</span></a><ul class="x-links"><li><a href="/atlas/">Atlas</a></li><li><a href="/open/">Open problems</a></li><li><a href="/book/">Book</a></li><li><a href="/charter/">Charter</a></li><li><a href="/founders/">Founders</a></li><li><a href="/check/done-for-you/">Plans</a></li></ul><a class="x-key" href="/#check">Check a claim</a><div class="x-rail-foot"><div class="theme-switch"><button type="button" class="theme-key" data-theme-key aria-pressed="false">Dark mode</button></div></div></nav><div class="x-center"><nav class="site-nav x-bar" aria-label="Reading level"><p class="x-title">Timestamp</p><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav><main class="page" id="main">
+  <header class="mast">
+    <div class="kicker">Humanities Helping Hands</div>
+    <h1>When did these files exist?</h1>
+    <p class="sub" data-level="kids">Every file here gets a stamp. A computer makes a code from each file. It puts the code in a public ledger. Nobody can change a page later without us seeing it. You can check the 256 number code yourself.</p>
+    <p class="sub" data-level="everyone">Every build of this site, with the Lean files behind its proofs, is fingerprinted (a 256-bit code) and the fingerprint is written into Bitcoin.
+      Nobody can change a file afterward without the fingerprint showing it. You can check it yourself, without trusting us.</p>
+    <p class="sub" data-level="technical">Each static deployment generates cryptographic SHA-256 digests across all repository assets and formal Lean verification files.
+      These hashes are anchored into the Bitcoin blockchain via OpenTimestamps, establishing a non-repudiable timestamp without trusted intermediaries.</p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/open/">Open problems</a> &middot; <a href="/check/">Re-check a proof</a> &middot; <a href="/charter/">The Charter</a></p>
+  </header>
+
+  <section>
+    <h2><span class="num">I.</span>The two files</h2>
+    <div class="row"><span class="tag measured">LIST</span><p><a href="manifest.txt">manifest.txt</a>: one line per file, its sha256 fingerprint and its path.</p></div>
+    <div class="row"><span class="tag proven">PROOF</span><p><a href="manifest.txt.ots">manifest.txt.ots</a>: the OpenTimestamps proof that the list existed by a Bitcoin block.</p></div>
+  </section>
+
+  <section>
+    <h2><span class="num">II.</span>Check it in three steps</h2>
+    <div class="row"><span class="tag guess">1</span><p>Download both files into one folder.</p></div>
+    <div class="row"><span class="tag guess">2</span><p>Install the OpenTimestamps client: <code>pip install opentimestamps-client</code>.
+      Or, with no install, drop the .ots file on the OpenTimestamps website (opentimestamps.org).</p></div>
+    <div class="row"><span class="tag guess">3</span><p>Run <code>ots verify manifest.txt.ots</code>. It names the Bitcoin block and its time.
+      A new build can say "pending" for a few hours, until Bitcoin confirms it.</p></div>
+    <p class="note" data-level="kids">This shows the file is real and old. It does not prove who wrote it. It does not prove if the text is right. That is why we run computer checks on every math fact.</p>
+    <p class="note" data-level="everyone">What this proves: the list, and so every file named in it, existed no later than that block. What it does not prove:
+      who wrote a file, or that a file is right. Being right is what the labels and the checkers are for.</p>
+    <p class="note" data-level="technical">Cryptographic timestamping attests solely to prior existence prior to block confirmation time; it does not assert authorship, semantic correctness, or formal validity. Proof validation is performed deterministically by kernel verifiers.</p>
+  </section>
+  <section class="closing" aria-label="Next step"><p>Want your own work checked and stamped?</p><a class="go" href="/check/done-for-you/">See the plans</a></section>
+  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open Problems</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+</main></div><aside class="x-side" aria-label="More"><form class="x-ask" action="/" method="get" role="search"><label class="visually-hidden" for="x-c">Check a claim</label><input id="x-c" name="c" type="search" placeholder="Check a claim" maxlength="600" enterkeyhint="go"></form><section class="x-box"><h2 class="x-h">Proven so far</h2><p class="x-big"><span class="x-n">142</span> math facts a machine proved</p><p class="x-big"><span class="x-n">28</span> real-world claims, arithmetic checked</p><p class="x-more"><a href="/atlas/list/">See every one</a></p></section><section class="x-box"><h2 class="x-h">Newest proven</h2><ul class="x-list"><li><a href="/atlas/#p56">the average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39</a></li><li><a href="/atlas/#p39">Random walk: expected highest point in 10 steps, not counting the starting point</a></li></ul></section></aside></div>
+</body></html>

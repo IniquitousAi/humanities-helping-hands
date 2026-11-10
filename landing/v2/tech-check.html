@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HHH technical, check a claim</title>
+<meta name="description" content="Run the public checker core: exact BigInt arithmetic and word-for-word Atlas matches, each with a SHA-256 receipt."><link rel="canonical" href="https://humanitieshelpinghands.com/v2/tech-check.html"><meta property="og:url" content="https://humanitieshelpinghands.com/v2/tech-check.html">
+<meta property="og:title" content="HHH technical, check a claim"><meta property="og:description" content="Run the public checker core: exact BigInt arithmetic and word-for-word Atlas matches, each with a SHA-256 receipt."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v2.css">
+<script type="module" src="site.js"></script><script type="module" src="check.js"></script>
+</head>
+<body data-site="2" data-page="tech-check" data-mode="technical">
+<a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="tech.html"><b>HHH</b><span>Technical</span></a>
+  <nav class="links" aria-label="Pages"><a href="tech.html">Console</a><a href="tech-check.html" aria-current="page">Check</a><a href="tech-atlas.html">Receipts</a><a href="tech-open.html">Open problems</a><a href="plans.html">Plans</a><a href="founders.html">Founders</a></nav>
+  <nav class="modes" aria-label="Reading level"><a href="kids.html">Kids</a><a href="check.html">Everyone</a><a href="tech-check.html" aria-current="page">Technical</a></nav>
+  <a class="btn btn-main" href="tech.html#api">Connect over MCP</a>
+</div></header>
+<main id="main">
+  <section class="page-hero grid-bg"><div class="wrap">
+    <p class="eyebrow">Check</p>
+    <h1 class="h1 h1-sm">Split into atoms, <span class="hl-blue">each with its evidence.</span></h1>
+    <p class="lede">Each sentence is an atom. Each atom gets a label, the checker that settled it, and a SHA-256 receipt over the claim, the label, the check and its output.</p>
+  </div></section>
+
+  <section class="u-pb72"><div class="wrap">
+    <div class="panel ticks checker">
+      <form class="form-grid" id="ask" novalidate>
+        <label class="skip" for="q">Text to check</label>
+        <textarea id="q" rows="3" placeholder="Paste a proof sketch, a paper's claims, an AI answer...">Euler's identity: e raised to pi times i equals -1. 366 * 86400 = 31,622,400. 2^10 = 1000.</textarea>
+        <div class="tries"><button class="btn btn-main" type="submit">Run the checker</button><span class="count">Ctrl + Enter also runs it</span></div>
+      </form>
+      <div class="tries"><span>Try one:</span>
+        <button type="button" data-try="2^10 = 1024. 3 * 7 = 22.">Powers and a slip</button>
+        <button type="button" data-try="The number e is bigger than 2.7182818283">A bound on e</button>
+        <button type="button" data-try="2^127 - 1 = 170141183460469231731687303715884105727">A Mersenne prime</button>
+        <button type="button" data-try="A set with n things has exactly 2 to the power n subsets">Subsets</button>
+      </div>
+      <p class="summary" id="summary" role="status"></p>
+      <div><div class="tabs" role="tablist" aria-label="How to show the result">
+        <button role="tab" id="t-side" aria-controls="p-side" aria-selected="true">Claim and checker</button>
+        <button role="tab" id="t-list" aria-controls="p-list" aria-selected="false" tabindex="-1">Receipts</button>
+        <button role="tab" id="t-inline" aria-controls="p-inline" aria-selected="false" tabindex="-1">Marked text</button>
+      </div></div>
+      <div role="tabpanel" id="p-side" aria-labelledby="t-side"><div class="side"><div><h5>Atom</h5><div id="left"></div></div><div><h5>Settled by</h5><div id="right"></div></div></div></div>
+      <div role="tabpanel" id="p-list" aria-labelledby="t-list" hidden><ol class="results" id="list"></ol></div>
+      <div role="tabpanel" id="p-inline" aria-labelledby="t-inline" hidden><div class="inline-text" id="inline"></div></div>
+      <div class="tries"><button type="button" id="json">Copy as JSON</button><button type="button" id="copy">Copy as text</button></div>
+      <p class="note">This runs the public checker core in your browser, the same code as <code>POST /api/check</code>: exact BigInt arithmetic (rules proven in <code>proof/Checker.lean</code>) and word-for-word matches to the 170 Atlas facts. Anything else returns <code>NOT CHECKED</code>, never false.</p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Label rules</p><h2 class="h2">How each label is earned.</h2></div>
+    <div class="panel table-scroll"><table class="rules">
+      <thead><tr><th>Label</th><th>Rule</th><th>Evidence kept</th><th>Rerun</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip proven">Proven</span></td><td>A machine proof the Lean 4 kernel accepts, with no <code>sorry</code> and no new axioms.</td><td>Source, toolchain version, proof hash</td><td><code>lake build</code></td></tr>
+        <tr><td><span class="chip measured">Measured</span></td><td>The arithmetic is proven; the inputs come from a named measurement within its stated uncertainty.</td><td>Source, value, uncertainty, unit trace</td><td>Recompute script</td></tr>
+        <tr><td><span class="chip reasoned">Reasoned</span></td><td>Follows from Proven or Measured facts by an explicit chain; any gap is named.</td><td>The chain, link by link</td><td>Read the chain</td></tr>
+        <tr><td><span class="chip guess">Guess</span></td><td>None of the above holds yet.</td><td>What is missing</td><td>None</td></tr>
+      </tbody>
+    </table></div>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
+  <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b628e88ec3</a></div></footer>
+</body></html>
