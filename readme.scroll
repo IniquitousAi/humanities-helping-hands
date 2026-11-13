@@ -1,0 +1,84 @@
+buildHtml
+permalink index.html
+title Humanities Helping Hands
+description Every claim, checked in the open. Paste a sentence, a machine works out the math in it, and the sentence comes back Proven, False or Not checked, with the working shown.
+editBaseUrl https://github.com/IniquitousAi/humanities-helping-hands/blob/main/
+metaTags
+theme gazette
+
+css
+ table { border-collapse: collapse; width: 100%; margin: 1.2em 0; }
+ th, td { border: 1px solid rgba(0,0,0,.2); padding: 8px 12px; text-align: left; vertical-align: top; }
+
+# Humanities Helping Hands
+
+Every claim, checked in the open. Paste a sentence, a machine works out the math in it, and the sentence comes back *Proven*, *False* or *Not checked*, with the working shown. The live site is humanitieshelpinghands.com.
+ https://humanitieshelpinghands.com humanitieshelpinghands.com
+
+This library belongs to everyone. Read it, run it, build on it.
+
+## Start with a real check
+
+You need Node.js 20 or newer. Nothing to install.
+ https://nodejs.org Node.js
+
+code
+ node landing-tests/known.mjs
+
+That runs a set of known answers through the checker and prints how many it missed (it should say 0).
+
+To check a sentence of your own, save this as `try.mjs` in this folder and run `node try.mjs`:
+
+code
+ import { findClaims, whole } from './landing/finder.js';
+ import { run } from './landing/checker.js';
+ 
+ for (const claim of findClaims('15% of 80 is 12. Double 2 + 3 is 9.')) {
+   const [label, , why] = whole(claim, run(claim.form, claim.said));
+   console.log(label, '|', claim.said, '|', why);
+ }
+
+It prints `PROVEN` for the first sentence and `FALSIFIED` for the second, each with the exact working.
+
+## What is here
+
+html
+ <table>
+  <thead>
+   <tr><th>Folder</th><th>What it is</th></tr>
+  </thead>
+  <tbody>
+   <tr><td><code>landing/</code></td><td>The website as it is served: the pages, the checker, and the library of facts with their labels.</td></tr>
+   <tr><td><code>landing-tests/</code></td><td>Three tests you can run with Node today.</td></tr>
+  </tbody>
+ </table>
+
+## You want to... go to...
+
+html
+ <table>
+  <thead>
+   <tr><th>You want to...</th><th>Go to...</th></tr>
+  </thead>
+  <tbody>
+   <tr><td>Check a sentence in your own code</td><td><code>landing/finder.js</code> reads the sentence, <code>landing/checker.js</code> settles it</td></tr>
+   <tr><td>See every fact and how it was checked</td><td><code>landing/facts.json</code> (each fact names its checker and the exact statement checked)</td></tr>
+   <tr><td>Re-run the proofs behind the facts</td><td><a href="https://github.com/IniquitousAi/lean-proofs">lean-proofs</a>, the Lean proofs with a one-line re-run</td></tr>
+   <tr><td>Run the site on your own machine</td><td>Serve the <code>landing/</code> folder with any static file server and open <code>/v3/</code></td></tr>
+   <tr><td>See what the checker gets right and wrong</td><td><code>landing-tests/percent_side_test.mjs</code> (hundreds of sentences with the label each must get)</td></tr>
+  </tbody>
+ </table>
+
+## What the labels mean
+
+- *PROVEN*: a machine worked the math out exactly, or a proof checker accepted the proof.
+- *FALSIFIED* (shown as False): the math, as written, does not hold. The exact value is shown.
+- *GUESS* (shown as Not checked): the checker could not settle it. Not checked never means false.
+
+## What it does not do
+
+- It reads math in sentences: sums, percents, shares, units, rates, primes. History, health and news come back Not checked.
+- When a sentence could mean two things, it does not pick one and call the other false. "Double 2 + 3 is 10." comes back Not checked, with a note to add brackets.
+- A wrong answer that was read from loose words is held back as Not checked, because the sentence may count something the checker does not read.
+- This folder is a copy made for reading and reuse. Every file in `landing/` is what the live site already serves. Not in it yet: the site's server parts (the door AI tools use, the counter, the forms), the tools that build and upload the live site, and most of its tests. Also left out: two run logs the live site shows (`mistakes.json`, `updated.json`), five old pages the live site now forwards to their newer versions, and its hosting settings file.
+- The notes inside the code were taken out of this copy. This page and the tests are the explanation for now.

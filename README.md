@@ -58,7 +58,3 @@ It prints `PROVEN` for the first sentence and `FALSIFIED` for the second, each w
 - A wrong answer that was read from loose words is held back as Not checked, because the sentence may count something the checker does not read.
 - This folder is a copy made for reading and reuse. Every file in `landing/` is what the live site already serves. Not in it yet: the site's server parts (the door AI tools use, the counter, the forms), the tools that build and upload the live site, and most of its tests. Also left out: two run logs the live site shows (`mistakes.json`, `updated.json`), five old pages the live site now forwards to their newer versions, and its hosting settings file.
 - The notes inside the code were taken out of this copy. This page and the tests are the explanation for now.
-
-## License
-
-Apache License 2.0. See `LICENSE`.
