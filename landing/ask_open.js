@@ -10,7 +10,8 @@ export function askButton(q) {
     const said = el('p', 'ask-done');
     if (r && r.ok) {
       said.append(d.added ? 'Added. ' : `Added again: ${d.n} searches asked this. `);
-      const a = el('a', null, 'See the list'); a.href = '/open/#asked'; said.append(a, '.');
+      if (d.shown === true) { said.append('It is on the list. '); const a = el('a', null, 'See the list'); a.href = '/open/#asked'; said.append(a, '.'); }
+      else said.append('It shows on the public list once a second visitor asks the same thing on the same day.');
     } else said.textContent = (d && d.error) || 'Could not add it. Try again in a minute.';
     box.replaceChildren(said);
   });

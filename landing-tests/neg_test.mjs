@@ -3,7 +3,8 @@ import { run } from '../landing/checker.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url)), src = fs.readFileSync(path.resolve(here, '../landing/finder.js'), 'utf8');
 const CASES = [['1-4 is -3', 'PROVEN'], ['1 - 4 = -3', 'PROVEN'], ['-3 = 1-4', 'PROVEN'], ['10-15 is -5', 'PROVEN'], ['1-4 is 3', 'FALSIFIED'],
-  ['2 * -3 = -6', 'PROVEN'], ['2^31 - 1 = 2,147,483,647 is prime.', 'PROVEN']];
+  ['2 * -3 = -6', 'PROVEN'], ['2^31 - 1 = 2,147,483,647 is prime.', 'PROVEN'],
+  ['The answer is --2 = 2.', 'PROVEN'], ['So --2 = -2', 'FALSIFIED'], ['Then ---2 = -2', 'PROVEN'], ['5--3 = 8', 'PROVEN']];
 const load = code => import('data:text/javascript;base64,' + Buffer.from(code.replace(/from '\.\/([\w.]+)'/g,
   (m, f) => `from '${pathToFileURL(path.resolve(here, '../landing', f)).href}'`)).toString('base64'));
 const misses = finder => CASES.flatMap(([text, want]) => {
@@ -13,7 +14,8 @@ const misses = finder => CASES.flatMap(([text, want]) => {
 
 const bad = misses(await load(src));
 for (const [text, want] of CASES) console.log(`${want.padEnd(9)} ${text}`);
-const PLANTS = [['leading minus taken out', s => s.replace('(?:(?<![\\d.)])-\\s*)?', '')],
+const PLANTS = [['leading minus taken out', s => s.replace('(?:(?<![\\d.)])(?:-\\s*){1,4})?', '')],
+                ['only one leading minus taken', s => s.replace('(?:(?<![\\d.)])(?:-\\s*){1,4})?', '(?:(?<![\\d.)])-\\s*)?')],
                 ['"is" taken out', s => s.replace('|\\bis\\b|\\bequals\\b', '')]];
 for (const [name, mutate] of PLANTS) {
   const code = mutate(src);

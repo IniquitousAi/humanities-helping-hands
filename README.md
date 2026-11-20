@@ -59,6 +59,32 @@ It prints `PROVEN` for the first sentence and `FALSIFIED` for the second, each w
 - This folder is a copy made for reading and reuse. Every file in `landing/` is what the live site already serves. Not in it yet: the site's server parts (the door AI tools use, the counter, the forms), the tools that build and upload the live site, and most of its tests. Also left out: two run logs the live site shows (`mistakes.json`, `updated.json`), five old pages the live site now forwards to their newer versions, and its hosting settings file.
 - The notes inside the code were taken out of this copy. This page and the tests are the explanation for now.
 
+## Host your own copy, free
+
+Every check runs in the reader's own browser: the sentence never leaves the page, so a copy needs no server and costs nothing
+however many people use it.
+
+1. Fork this repository.
+2. On [Cloudflare Pages](https://pages.cloudflare.com) (free plan), create a project from your fork, set the build command to
+   none and the output folder to `landing`, and deploy. Your copy is live at `<project>.pages.dev/v3/`.
+3. Any static host works the same way, as long as it serves the `landing` folder at the root of the address (some links start
+   at `/`, so a GitHub Pages project site under `/<repo>/` needs its own domain or a user site).
+
+## Add a fact or a proof
+
+The library grows by pull request, and nothing goes in surer than its check.
+
+1. Add one entry to `landing/facts.json`, in the shape of the ones there: `claim` in plain words, `label`, `checked_by`, and
+   `checked_as`, the exact statement the machine checked.
+2. A **PROVEN** fact needs a machine check anyone can re-run: a Lean proof with no `sorry` (open it in
+   [lean-proofs](https://github.com/IniquitousAi/lean-proofs) first and link its theorem in `theorem`), or a computation the
+   checker in `landing/checker.js` settles exactly. Anything else goes in as **GUESS** until it is checked.
+3. Run `node landing-tests/known.mjs` and `node landing-tests/percent_side_test.mjs`; both must still print 0 missed.
+4. Open the pull request with the source you checked against. A fact with no re-runnable check is labeled GUESS, never refused
+   for being one.
+
+Found a sentence the checker gets wrong? Open an issue with the sentence and the answer it should give: it becomes a test.
+
 ## License
 
 Apache License 2.0. See `LICENSE`.

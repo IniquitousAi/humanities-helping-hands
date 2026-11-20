@@ -23,11 +23,11 @@ const TEXTS = [
 const TYPOS = [
   ['3 plus geight = 11.', 'geight', 'eight', '3 + 8 = 11'], ['Fivve minus 2 = 3.', 'Fivve', 'five', '5 - 2 = 3'],
 ];
+let miss = 0;
 for (const [text, word, meant, form] of TYPOS) {
   const [c] = findClaims(text);
   if (c.form !== null || c.maybe?.word !== word || c.maybe?.meant !== meant || c.maybe?.form !== form) { miss++; console.log(`MISS typo "${text}": ${JSON.stringify(c)}`); }
 }
-let miss = 0;
 for (const [form, want] of FORMS) { const [got, , why] = run(form); if (got !== want) { miss++; console.log(`MISS form ${form}: want ${want}, got ${got} (${why})`); } }
 for (const [text, want] of TEXTS) {
   const cs = findClaims(text), verdicts = cs.map(c => run(c.form)[0]);

@@ -32,10 +32,10 @@ const save = () => store.set({ ...store.get(), ...Object.fromEntries(FIELDS.map(
 form.addEventListener('input', save); form.addEventListener('change', save);
 const key = () => { const d = store.get(); if (d.key) return d.key; const k = crypto.randomUUID().replace(/-/g, ''); store.set({ ...d, key: k }); return k; };
 
-const sitekey = document.querySelector('meta[name=turnstile-sitekey]')?.content;
+const sitekey = /(^|\.)humanitieshelpinghands\.com$/.test(location.hostname) && document.querySelector('meta[name=turnstile-sitekey]')?.content;
 if (sitekey) {
   const s = document.createElement('script'); s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-  s.onload = () => window.turnstile.render('#fc-turnstile', { sitekey }); s.async = true; document.head.append(s);
+  s.onload = () => window.turnstile.render('#fc-turnstile', { sitekey, 'error-callback': () => true }); s.async = true; document.head.append(s);
 }
 
 let busy = false;

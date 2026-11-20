@@ -13,7 +13,7 @@ async function run(file) {
     out.className = r.pass ? 'pass' : 'fail';
     detail.textContent = r.msg.slice(0, 600);
   } catch (e) {
-    out.textContent = `Could not run the checker in this browser: ${e.message}`;
+    out.textContent = `Could not run the checker in this browser: ${e.message}. Reload the page and try again, or use a newer browser.`;
     out.className = 'fail';
   }
 }
@@ -31,7 +31,7 @@ async function runTheorem(t) {
     o.className = `thm-out ${r.pass ? 'pass' : 'fail'}`;
     return r.pass;
   } catch (e) {
-    o.textContent = `Could not run the checker in this browser: ${e.message}`; o.className = 'thm-out fail';
+    o.textContent = `Could not run the checker in this browser: ${e.message}. Reload the page and try again, or use a newer browser.`; o.className = 'thm-out fail';
     return false;
   }
 }

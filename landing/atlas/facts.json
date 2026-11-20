@@ -1,5 +1,5 @@
 {
- "made": "2026-11-07T02:03:00.093Z",
+ "made": "2026-11-11T16:54:10.635Z",
  "rungs": [
   "The floor: proven math",
   "Quarks",
@@ -1892,7 +1892,7 @@
    "how": "lean",
    "check": "math",
    "question": "Which is bigger, 2^100 or 10^30? Show the reasoning.",
-   "proof": "Lean theorem Checked.fact_7258aa51ff (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: exact fractions: left is 1267650600228229401496703205376, right is 1000000000000000000000000000000.",
+   "proof": "Lean theorem Checked.fact_7258aa51ff (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: Worked out exactly: the left side is 1267650600228229401496703205376 and the right side is 1000000000000000000000000000000, so 2^100 > 10^30 holds.",
    "notProven": "",
    "cite": [],
    "source": "checked",
@@ -1928,7 +1928,7 @@
    "how": "lean",
    "check": "math",
    "question": "Which is bigger, 2^100 or 10^30? Show the reasoning.",
-   "proof": "Lean theorem Checked.fact_9aa214201b (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: exact fractions: left is 1024, right is 1000.",
+   "proof": "Lean theorem Checked.fact_9aa214201b (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: Worked out exactly: the left side is 1024 and the right side is 1000, so 2^10 > 10^3 holds.",
    "notProven": "",
    "cite": [],
    "source": "checked",
@@ -1964,7 +1964,7 @@
    "how": "lean",
    "check": "math",
    "question": "Which is bigger, 2^100 or 10^30? Show the reasoning.",
-   "proof": "Lean theorem Checked.fact_013633654f (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: exact fractions: left is 1267650600228229401496703205376, right is 1000000000000000000000000000000.",
+   "proof": "Lean theorem Checked.fact_013633654f (LeanProofs/Checked.lean) states exactly what the browser checker checks here, over exact fractions; it builds with no sorry and rests only on Lean's standard axioms. The browser checker re-ran it while this map was made: Worked out exactly: the left side is 1267650600228229401496703205376 and the right side is 1000000000000000000000000000000, so (2^10)^10 > (10^3)^10 holds.",
    "notProven": "",
    "cite": [],
    "source": "checked",

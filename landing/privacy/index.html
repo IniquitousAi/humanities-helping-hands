@@ -11,46 +11,52 @@
 <meta property="og:image" content="https://humanitieshelpinghands.com/og.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Privacy, Humanities Helping Hands"><meta name="twitter:description" content="What Humanities Helping Hands collects (almost nothing), why, who holds it, how long, and how to reach us."><meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="/v3-frame.css"><script type="module" src="/level.js"></script>
+<script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link rel="preload" href="/v3/fonts/InterTight-var.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="/v3-frame.css"><script type="module" src="/level.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
 
 <header class="bar"><div class="wrap bar-in">
-  <a class="brand" href="/v3/"><b>HHH</b><span>Humanities Helping Hands</span></a>
-  <nav class="links" aria-label="Pages"><a href="/v3/check.html">Check</a><a href="/v3/atlas.html">Atlas</a><a href="/v3/open.html">Open problems</a><a href="/v3/plans.html">Plans</a><a href="/v3/book.html">The Book</a><a href="/v3/founders.html">Founders</a></nav>
-  <a class="btn btn-main" href="/v3/check.html">Check a claim</a>
+  <a class="brand" href="/v4/"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="/v4/check">Check</a><a href="/v4/atlas">Atlas</a><a href="/v4/open">Open problems</a><a href="/v4/plans">Plans</a><a href="/v4/book">The Book</a><a href="/v4/founders">Founders</a></nav>
+  <a class="btn btn-main" href="/v4/check">Check a claim</a>
 </div></header>
 <main class="page v3f" id="main">
   <nav class="site-nav v3f-levels" aria-label="Reading level"><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav>
   <header class="mast">
     <div class="kicker">Humanities Helping Hands</div>
     <h1>Privacy</h1>
-    <p class="sub"><span data-level="kids">We do not spy on you. We try to know as little about you as we can.</span><span data-level="everyone">We try to know as little about you as possible.</span><span data-level="technical">Zero telemetry by design: deterministic client-side execution, ephemeral MCP runtime, daily salted hashes with 2-day TTLs.</span></p>
-    <p class="meta">Draft, waiting on the founder's read. Written from what the site's code does today.</p>
-    <p class="meta"><a href="/">Front page</a> &middot; <a href="/charter/">The Charter</a> &middot; Last updated 8 November 2026</p>
+    <p class="sub"><span data-level="kids">We do not spy on you. We try to know as little about you as we can.</span><span data-level="everyone">We try to know as little about you as possible.</span><span data-level="technical">Minimal telemetry by design: client-side checking by default, an ephemeral MCP runtime, daily salted hashes with 2-day TTLs.</span></p>
+    <p class="meta">Written from what the site's code does today, and checked against that code on every update.</p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/charter/">The Charter</a> &middot; Last updated 11 November 2026</p>
   </header>
   <section>
     <h2>What we collect</h2>
     <div class="lv">
       <div data-level="kids">
-        <p>Nothing personal from reading or using the checker. The checker runs on your own device and never sends your words to us.</p>
+        <p>Nothing personal from reading the site. Most checks run on your own device. One page, Check this yourself, sends your sentence to us so a machine can check it. If the machine can check it, the checked math or fact goes on a public list, with no name on it.</p>
+        <p>If you add a question to the Open Problems list: the words you type are saved, and everyone can see them once two visitors asked the same thing on the same day. Do not put your name in it.</p>
         <p>If you join the newsletter: just your email address, to send you news.</p>
-        <p>If you join the Founders Circle: your GitHub name, strength, and weakness. We only show it if you tick the box. To stop people dodging the 3-a-day limit, a code is kept for 2 days, then deleted.</p>
+        <p>If you join the Founders Circle: your GitHub name, strength, and weakness. We only show it if you tick the box. To stop people dodging the 3-a-day limit, a code is kept with your application. The key that made the code is deleted after 2 days, and then the code cannot be matched to anyone.</p>
         <p>If an AI asks our helper: it answers once and forgets it. Nothing you ask is saved.</p>
+        <p>On your own device: your browser remembers your reading level, your last check, your page in the Book and a Founders form you have not sent yet, so they are there when you come back. They stay on your device. We never get them. The Clear button wipes your last check.</p>
       </div>
       <div data-level="everyone">
-        <p>Nothing personal from reading the site or using the checker. The checker runs in your own browser; what you type is checked on your device and never sent to us.</p>
+        <p>Nothing personal from reading the site. Most checking runs in your own browser, and what you type there stays on your device. One page is different: Check this yourself (/check/yours/), like the check page of the older version 2, sends your sentence to our server so a machine can check it. When the machine can check it, one row is added to the public check log: the checked claim (the arithmetic, or the library fact it matched, never your own wording), the result and the time. No name, no address (IP) and no browser name. A one-way code made from your connection and a key that changes daily counts your logged checks, 20 a day at most, and is deleted after 2 days.</p>
+        <p>If a search finds nothing and you add your question to the public Open Problems list: the words you typed, how many times it was asked, and the first and last day. It shows publicly once 2 different visitors asked it on the same day, with any email, phone number or link taken out of what is shown. A one-way code made from your connection and a key that changes daily limits you to 10 adds a day and is deleted after 2 days. Each question also keeps a 12 character mark for up to 50 askers (the day and 5 characters of that day's code); they match nothing once that day's key is deleted, 2 days later.</p>
         <p>If you join the newsletter: your email address, nothing else.</p>
-        <p>If you join the Founders Circle (the form on /founders/): your strength, weakness, why you want to help, a link to something you built, your GitHub name, the trial task you were given and the day. No email and no address (IP). Only if you tick the box are your GitHub name, strength and weakness shown in the public strength finder, with any email, phone number or link in them removed first. To stop the 3-a-day limit being dodged, a one-way code made from your connection and a key that changes daily is kept for 2 days.</p>
+        <p>If you join the Founders Circle (the form on the Founders page): your strength, weakness, why you want to help, a link to something you built, your GitHub name, the trial task you were given and the day. No email and no address (IP). Only if you tick the box are your GitHub name, strength and weakness shown in the public strength finder, with any email, phone number or link in them removed first. To stop the 3-a-day limit being dodged, a one-way code made from your connection and a key that changes daily is kept with your application. The key is deleted after 2 days, and after that the code cannot be matched to a connection.</p>
         <p>If your AI app uses the HHH connector (the MCP server at /mcp): the search words or sentence it asks about, used once to answer and then dropped. Your address (IP) is read only to keep a short in-memory count for rate limiting; it is never saved or put in an answer.</p>
+        <p>Kept on your own device, where we never get them: your reading level, your light or dark choice and the way you like results shown. Also your last check on the check page (until you press Clear), your page in the Book, and the answers in a Founders form you have not sent yet (removed once it is sent). They sit in your browser's own storage for this site; clearing the site's data in your browser removes them. A link you copy to share a check carries the claim in the last part of the address, after its hash mark, and a browser never sends that part to a server.</p>
       </div>
       <div data-level="technical">
-        <p>Zero tracking on static requests and deterministic checking. Verification occurs via WebAssembly/JS in the client sandbox; no payload leaves the origin.</p>
+        <p>Static pages and the in-browser checker send no payload. POST /api/check (used by /check/yours/ and the version 2 check page) sends the claim to a Pages Function; a machine-checked result appends one row to the public check log: normalized claim, label, check id, hashes, run id and timestamp. No IP, user agent or free text is stored. Logged rows are capped at 20 a day per device, keyed by SHA-256(daily_salt | client network) with a 2-day TTL.</p>
+        <p>POST /api/asked persists the question text (200 characters at most), its count, first and last day, and up to 50 marks of 12 characters (the day plus 5 hex of that day's device hash). A row is public once it has 2 distinct marks from the same day, and a row whose key is on the hidden list is never public; display strips emails, phone numbers and URIs. Adds are capped at 10 a day per device, keyed by SHA-256(daily_salt | client network) with a 2-day TTL.</p>
         <p>Newsletter subscriptions collect email only, transmitted to Buttondown via API over TLS.</p>
-        <p>Founders Circle applications persist: applicant GitHub handle, strength, weakness, portfolio URI, and trial task id. Free-form text fields undergo sanitization stripping RFC 5322 emails, E.164 phone numbers, and URIs before persistence. Public directory display requires explicit consent (opt_in=true). Rate-limiting uses HMAC-SHA256(IP + daily_salt) stored in Cloudflare KV with a 2-day TTL enforcing the 3-a-day submission ceiling.</p>
+        <p>Founders Circle applications persist: applicant GitHub handle, strength, weakness, motivation text, portfolio URI, trial task, the day, and that day's device hash. Text is stored as written. Public directory display requires explicit consent (optin=true) and strips emails, phone numbers and URIs from the displayed fields. The 3-a-day submission ceiling uses a counter keyed by SHA-256(daily_salt | client network) in Cloudflare KV with a 2-day TTL; the same hash is stored with the application and is unlinkable once its salt expires, 2 days later.</p>
         <p>MCP endpoints at /mcp evaluate stateless JSON-RPC calls over HTTP; IP addresses are held in ephemeral memory for the 60 calls/minute bucket and never logged.</p>
+        <p>Client-side state only: localStorage holds the reading level (hhh-level), the theme (hhh-theme), the results view (hhh-view), the last checked text (hhh-last-check, removed by Clear), the Book page (hhh-book-page) and an unsent Founders form (hhh-fc-draft, removed on a successful send). None of it is transmitted. A shared check link and an Atlas search link carry their state in the URL fragment (q, find), which user agents do not put in a request.</p>
       </div>
     </div>
   </section>
@@ -66,17 +72,19 @@
     <h2>Who else sees it</h2>
     <div class="lv">
       <div data-level="kids">
-        <p>No ads, no data selling, no tracking cookies. Cloudflare hosts the site. Buttondown sends the emails. Lookups happen only when you click one. We do not track you.</p>
+        <p>No ads, no data selling, no tracking cookies. Cloudflare hosts the site. Buttondown sends the emails. If you pay, Stripe takes the payment on its own page, and we never see your card number. Lookups happen only when you click one, and then Wikipedia gets that one sentence. We do not track you.</p>
       </div>
       <div data-level="everyone">
         <p>Cloudflare hosts the site and the connector, and may keep its own standard security logs under its own policy. Buttondown holds newsletter addresses and sends the emails.</p>
-        <p>Lookups happen only when you click one. Wikipedia and Wikidata get that one sentence from your browser. Grokipedia lookups go through a small relay on this site that asks for one article title, keeps no record of who asked, and may cache the article for a day.</p>
-        <p>No ads, no selling data and no tracking cookies. Our own visitor counter counts each device once a day for the front page. It keeps only a one-way code made from your address and browser name mixed with a random key that changes every day. It deletes that code after 2 days, never keeps the address itself, and skips bots. Cloudflare Web Analytics, which is cookieless, may also count. It counts visits and page views so the front page can show them, and it does not set a cookie or follow you to other sites. We never see or keep your address (IP), and we guess only how many visitors block the counter, never who. Browsers that block it are simply not counted.</p>
+        <p>Stripe takes payments on its own page, under its own policy, and your card number never reaches this site. Today the pay buttons are in test mode and no real money moves. After a payment we keep Stripe's order numbers, the fingerprint of your file, the amount and the time. No name and no email is kept with a payment on this site; Stripe holds those. If you email your file to hello@humanitieshelpinghands.com, that email reaches our inbox like any other email.</p>
+        <p>Lookups happen only when you click one. Wikipedia and Wikidata get that one sentence from your browser. Grokipedia lookups go through a small relay on this site that asks for one article title and may cache the article for a day. The title is not saved with anything about you. A one-way code made from your connection and a key that changes daily counts lookups, 60 a day per device, and is deleted after 2 days.</p>
+        <p>No ads, no selling data and no tracking cookies. Our own visitor counter counts each device once a day. It keeps only a one-way code made from your address (for an IPv6 connection, its network part) mixed with a random key that changes every day. It deletes that code after 2 days, never keeps the address itself, and skips bots. Cloudflare Web Analytics, which is cookieless, may also count. It counts visits and page views so the front page can show them, and it does not set a cookie or follow you to other sites. We never keep your address (IP) itself, and we guess only how many visitors block the counter, never who. Browsers that block it are simply not counted.</p>
       </div>
       <div data-level="technical">
         <p>Third-party processors: Cloudflare Pages / Workers (edge execution, L4/L7 termination under Cloudflare privacy standard). Buttondown Inc. (subscription registry under GDPR/CCPA compliance).</p>
-        <p>External resolution: Client-directed requests to MediaWiki APIs (Wikipedia/Wikidata) transmit solely the query term directly from user agent. Grokipedia proxy isolates client IPs, caching entity definitions with 86400s TTL.</p>
-        <p>Analytics: Cookieless edge beacons (Cloudflare Web Analytics, zero state persistence). First-party daily counter generates SHA-256(Client-IP + UserAgent + DailyRotatingSalt) with automatic TTL eviction at 172800s (2 days). No persistent identifier is written to storage.</p>
+        <p>Payments: Stripe hosted Checkout, in test mode today; card data never transits this origin. The signature-verified webhook persists the Stripe event, session and payment-intent ids, the SHA-256 work hash, the amount in cents and a timestamp; no name, email or card field is stored.</p>
+        <p>External resolution: Client-directed requests to MediaWiki APIs (Wikipedia/Wikidata) transmit solely the query term directly from user agent. Grokipedia proxy isolates client IPs, caching entity definitions with 86400s TTL; a per-device counter keyed by the daily salted hash allows 60 lookups a day and expires after 2 days.</p>
+        <p>Analytics: Cookieless edge beacons (Cloudflare Web Analytics, zero state persistence). First-party daily counter generates SHA-256(DailyRotatingSalt | client address, the /64 network for IPv6) with automatic TTL eviction at 172800s (2 days). No persistent identifier is written to storage.</p>
       </div>
     </div>
   </section>
@@ -104,7 +112,7 @@
       <p data-level="technical">Security and compliance inquiries: <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>. Document changes are version-controlled and stamped in public git log.</p>
     </div>
   </section>
-  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v3/check.html">Check a claim</a></section>
-  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b628e88ec3</a></footer>
+  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v4/check">Check a claim</a></section>
+  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version a08d6028e9</a></footer>
 </main>
 </body></html>

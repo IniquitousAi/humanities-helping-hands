@@ -161,11 +161,16 @@ const show = v => { if (v instanceof Q) v = new V(v); if (v.exact && v.lo.int) r
   if (tiny || huge) return 'about ' + sci(v.exact ? v.lo : v.lo.add(v.hi).div(new Q(2n)));
   return (v.exact ? '' : 'about ') + String(+m.toPrecision(12)); };
 
-const SOFT = /\beach\s+of\s+(?:the\s+)?\d|\bfor\s+a\s+total\s+of\b|\btotall?ing\b|,\s*(?:earning|making|costing)\b|\b(?:refunds?|discounts?|credits?|rebates?|overtime|(?<!simple\s)interest|compound\w*|each|side|monthly|weekly|annual\w*|yearly|later)\b/i;
-const softReading = (left, said, claim) => said && said !== claim && /^\s*\([^()]*\)\s*$/.test(left) && /[a-z]{3}/i.test(said)
-  && (SOFT.test(said) || !(OTHER_MONEY.test(said) ? /\d\s*[.!;]?\s*$/ : /\d\s*(?:(?:dollars?|bucks)\s*)?[.!;]?\s*$/i).test(said.trim()));
-const OTHER_MONEY = /\b(?:cents?|pennies|penny|pence|yen|euros?|pounds?|pesos?|rupees?|yuan|francs?|quarters?|dimes?|nickels?|cad|aud|gbp|eur|jpy|usd|canadian|australian)\b|[€£¥₹¢]/i;
-const GROUP_WORD = /\b(?:double|twice|triple|thrice|half|thirds?|quarters?|fourths?|fifths?|tenths?|times|percent)\b|%\s+of\b/i;
+const SOFT = /\bper\s+diem\b|,\s*or\s+[$€£]?\d|\beach\s+of\s+(?:the\s+)?\d|\bfor\s+a\s+total\s+of\b|\btotall?ing\b|,\s*(?:earning|making|costing)\b|\b(?:refunds?|discounts?|credits?|rebates?|overtime|(?<!simple\s)interest|compound\w*|each|side|monthly|weekly|annual\w*|yearly|later)\b/i;
+const CLOSED_TAIL = [[/^\s*\(\s*\d[\d,]*(?:\.\d+)?\s*-\s*\d[\d,]*(?:\.\d+)?\s*\)\s*$/,
+  /\d\s+(?:remains|is\s+left|is\s+still\s+owed|is\s+owed|is\s+due)\s*[.!;]?$/i],
+  [/^\s*\(\s*(\d[\d,]*(?:\.\d+)?)\s*-\s*\d+(?:\.\d+)?\/100\s*\*\s*\1\s*\)\s*$/,
+  /\d\s+(?:from|of|out\s+of)\s+(?:the|a|an|my|his|her|their|our|your)\s+[$€£]?\d[\d,]*(?:\.\d+)?(?:\s+[a-z]+)?\s+after\s+(?:the|a|an|my|his|her|their|our|your)\s+\d+(?:\.\d+)?\s*(?:%|percent)\s+(?:(?:contingency|attorney'?s?|legal)\s+)?(?:fee|commission|cut)\s*[.!;]?$/i]];
+const closedTail = (left, said) => !OTHER_MONEY.test(said) && CLOSED_TAIL.some(([form, tail]) => form.test(left) && tail.test(said.trim()));
+const softReading = (left, said, claim) => said && said !== claim && /^\s*\([^()]*\)\s*$/.test(left) && /[a-z]{3}|\d\s+in\s+[$€£]?\d/i.test(said)
+  && (SOFT.test(said) || !((OTHER_MONEY.test(said) ? /\d\s*[.!;]?\s*$/ : /\d\s*(?:(?:dollars?|bucks)\s*)?[.!;]?\s*$/i).test(said.trim()) || closedTail(left, said)));
+const OTHER_MONEY = /\b(?:cents?|pennies|penny|pence|yen|euros?|pounds?|pesos?|rupees?|yuan|francs?|quarters?(?!\s+of\b)|dimes?|nickels?|cad|aud|gbp|eur|jpy|usd|canadian|australian)\b|[€£¥₹¢]/i;
+const GROUP_WORD = /\b(?:double|twice|triple|thrice|half|thirds?|quarters?|fourths?|fifths?|tenths?|times|percent)\b|%\s+of\b|\d\s*\/\s*\d+\s+of\b/i;
 function checkMath(claim, said) {
   const body = claim.trim().replace(/\.$/, '').replace('==', '=');
   let op, left, right;
@@ -177,6 +182,19 @@ function checkMath(claim, said) {
   if (op === 'eq' && !ok && /^\s*\(?\s*-?\s*[\d,]*\.\d+\s*\)?\s*$/.test(right)) {
     let r = null; try { r = checkRounded(`${left} ~= ${right.trim()}`); } catch (e) { r = null; }
     if (r && r[0] === PROVEN) return [GUESS, 'rounded', `the exact value is ${show(a)}; ${right.trim()} is that rounded to its last digit, but "=" says exactly equal: write ≈ for a rounded answer and it is PROVEN`];
+  }
+  const part = op === 'eq' && !ok && /^\s*-?\d[\d,]*\s*$/.test(right) && /^\s*\(\s*(?:(\d[\d,]*)\s*-\s*)?\d+\/(?!100\b)\d+\s*\*\s*(\d[\d,]*)\s*\)\s*$/.exec(left);
+  const share = !part && op === 'eq' && !ok && said && said !== claim && GROUP_WORD.test(said) && /^\s*-?\d[\d,]*\s*$/.test(right)
+    && /^\s*\(\s*\d[\d,]*\s*\/\s*(?:2|3|4|5|10)\s*\)\s*$/.test(left);
+  if ((part && (!part[1] || part[1] === part[2])) || share) {
+    let held = false;
+    try { const w = Number(right.replace(/[\s,]/g, '')), v = a.lo.num(); held = a.exact && Number.isFinite(w) && Math.abs(v - w) <= 0.5 && Math.abs(v - w) <= 0.02 * Math.abs(v); } catch (e) { held = false; }
+    if (held) { let r = null; try { r = checkRounded(`${left} ~= ${right.trim()}`); } catch (e) { r = null; } held = !!r && r[0] === PROVEN; }
+    if (held) return [GUESS, 'rounded', `the exact value is ${show(a)}; ${right.trim()} is that rounded to the whole number, but "is" says exactly: write ≈ for a rounded answer and it is PROVEN`];
+  }
+  if (op === 'eq' && !ok && a.exact && !a.lo.int && b.exact && b.lo.int && /^[\s(]*-?\d[\d,]*[\s)]*\/[\s(]*-?\d[\d,]*[\s)]*$/.test(left) && /^[\s\d+\-*/^().,=÷:]+$/.test(said || claim)) {
+    const down = a.lo.floor(), cut = a.lo.n < 0n ? down + 1n : down;
+    if (b.lo.n === down || b.lo.n === cut) return [GUESS, 'reading', `exactly, the left side is ${show(a)}; ${right.trim()} is right only by the convention that a division of whole numbers drops the remainder, as "/" does in many programming languages, so it is not called false: write the exact value, or say "rounded down"`];
   }
   const THIRD = /(?<![\d.])(33(?:\.3+)?|66(?:\.6+)?|67|66\.7)\/100\s*\*/g;
   if (op === 'eq' && !ok && THIRD.test(left)) {
@@ -195,9 +213,17 @@ function checkMath(claim, said) {
     let held = false;
     if (alt) { try { held = expr(alt).cmp(b) === 0; } catch (e) { held = false; } }
     if (held) return [GUESS, 'grouping', `read in the usual order, the math gives ${show(a)}, not ${right.trim()}; ${right.trim()} is right if the sum is worked out first: write brackets, as in "${alt.replace(/\s+/g, ' ')} = ${right.trim()}", and it is PROVEN`];
+    const pd = left.match(new RegExp(String.raw`^\s*\(\s*${n}\^(\d+)\s*\/\s*${n}\s*\)\s*$`)), pm = left.match(new RegExp(String.raw`^\s*\(\s*((?:${n}\/${n}|${n})\s*\*)\s*${n}\^(\d+)\s*\)\s*$`));
+    const altPow = pd ? `(${pd[1]} / ${pd[3]})^${pd[2]}` : pm ? `(${pm[1]} ${pm[5]})^${pm[6]}` : null;
+    let heldPow = false;
+    if (altPow) { try { heldPow = expr(altPow).cmp(b) === 0; } catch (e) { heldPow = false; } }
+    if (heldPow) return [GUESS, 'grouping', `read in the usual order, the power is worked out first and the math gives ${show(a)}, not ${right.trim()}; ${right.trim()} is right if the power comes last: write brackets, as in "${altPow} = ${right.trim()}", and it is PROVEN`];
   }
   if (op === 'eq' && !ok && softReading(left, said, claim))
     return [GUESS, 'reading', `read from the words, the math gives ${show(a)}, not ${right.trim()}; the sentence may count something this check does not read (other shares, overtime, more items, a refund, interest, a different period), so it is not called false: write the math out and it is checked`];
+  const how = a.exact && b.exact ? 'Worked out exactly' : 'Worked out';
+  if (op !== 'eq' && ok) return [PROVEN, 'math', `${how}: the left side is ${show(a)} and the right side is ${show(b)}, so ${body.trim()} holds`];
+  if (op === 'ne') return [FALSIFIED, 'math', `${how}: both sides come to ${show(a)}, so ${body.trim()} does not hold`];
   return [ok ? PROVEN : FALSIFIED, 'math', `exact fractions: left is ${show(a)}, right is ${show(b)}`];
 }
 
@@ -253,6 +279,9 @@ function nearEnough(exact, off, said) {
   if (offLo.cmp(r.mul(exHi)) > 0) return false;
   throw new Cant('the value sits too close to the edge of how far a rounded answer may be off to tell without exact algebra');
 }
+const SPAN_UNIT = String.raw`(?:seconds?|secs?|minutes?|mins?|hours?|hrs?|days?|weeks?|wks?|fortnights?|months?|years?|yrs?|decades?|century|centuries|millennium|millennia|millenniums)\b`;
+const SPAN_GLOSS = new RegExp(String.raw`(?<![\w.,])\d[\d,]*(?:\.\d+)?\s*${SPAN_UNIT}\s*\(\s*(\d[\d,]*)\s+${SPAN_UNIT}\s*\)`, 'gi');
+const wholeSpan = (text, digits) => [...String(text).matchAll(SPAN_GLOSS)].some(g => g[1].replace(/,/g, '') === digits);
 
 function checkRounded(claim, text = claim) {
   const m = claim.trim().match(FORMS.approx); if (!m) return null;
@@ -268,11 +297,66 @@ function checkRounded(claim, text = claim) {
   if (off.lo.cmp(nhalf) >= 0 && off.hi.cmp(half) <= 0) ok = true;
   else if (off.lo.cmp(half) > 0 || off.hi.cmp(nhalf) < 0) ok = false;
   else throw new Cant('the value sits too close to the edge of the rounding to tell without exact algebra');
+  if (!neg && power === 0n && !digits.includes('.') && said.cmp(new Q(1n)) >= 0 && exact.lo.cmp(said) >= 0 && exact.hi.cmp(said.add(new Q(1n))) < 0
+    && !HEDGE.test(text) && wholeSpan(text, digits) && !(ok && nearEnough(exact, off, text))) {
+    const pct = Math.round(100 * Math.abs(off.lo.add(off.hi).num() / 2 / ((exact.lo.add(exact.hi).num() / 2) || 1)));
+    return [GUESS, 'reading', `two readings: the exact value is ${show(exact)}; counted in whole units, as a span is said, it is ${show(said)}, so it is right that way, but ${ok ? `as a close value it is ${pct}% off` : `rounded to the nearest whole it is ${show(said.add(new Q(1n)))}`}, so it is not called false: say which you mean`];
+  }
   if (ok && !nearEnough(exact, off, text)) {
     const pct = Math.round(100 * Math.abs(off.lo.add(off.hi).num() / 2 / ((exact.lo.add(exact.hi).num() / 2) || 1)));
+    if (HEDGE.test(text) && unit.cmp(new Q(1n)) <= 0) {
+      const step = { 0: 'whole number', 1: 'tenth', 2: 'hundredth', 3: 'thousandth' }[String(unit.d.toString().length - 1)] || `${show(unit)}`;
+      return [GUESS, 'reading', `two readings: the exact value is ${show(exact)}; rounded to the nearest ${step} it is ${show(said)}, so as a rounding it is right, but as a close value it is ${pct}% off, more than the 10% "about" allows, so it is not called false: say which you mean`];
+    }
     return [FALSIFIED, 'rounded', `exact value ${show(exact)}; the answer said ${show(said)}, which is ${pct}% off, more than a rounded answer may be (${HEDGE.test(text) ? '10% when it says about' : '2%, or 10% when it says about'})`];
   }
   return [ok ? PROVEN : FALSIFIED, 'rounded', `exact value ${show(exact)}; the answer said ${show(said)}, which allows up to ${show(half)} either way`];
+}
+
+const smallValue = src => {
+  const s = src.replace(/\s+/g, ''); let i = 0;
+  if (!s || s.length > 60 || /[^\d+\-*()]/.test(s)) return null;
+  const atom = () => { if (s[i] === '-') { i++; const v = atom(); return v === null ? null : -v; } if (s[i] === '+') { i++; return atom(); }
+    if (s[i] === '(') { i++; const v = sum(); if (v === null || s[i] !== ')') return null; i++; return v; }
+    const m = /^\d{1,15}/.exec(s.slice(i)); if (!m) return null; i += m[0].length; return BigInt(m[0]); };
+  const prod = () => { let v = atom(); while (v !== null && s[i] === '*' && s[i + 1] !== '*') { i++; const w = atom(); v = w === null ? null : v * w; } return v; };
+  const sum = () => { let v = prod(); while (v !== null && (s[i] === '+' || s[i] === '-')) { const op = s[i++], w = prod(); v = w === null ? null : op === '+' ? v + w : v - w; } return v; };
+  const v = sum(); return v !== null && i === s.length ? v : null;
+};
+const operandLeft = (t, end) => {
+  let j = end - 1; while (j >= 0 && t[j] === ' ') j--;
+  if (t[j] === ')') { let depth = 0; for (let k = j; k >= 0; k--) { if (t[k] === ')') depth++; else if (t[k] === '(') { depth--; if (!depth) return t.slice(k, j + 1); } } return null; }
+  let k = j; while (k >= 0 && /\d/.test(t[k])) k--; return k < j && !/[.\d]/.test(t[k] || '') ? t.slice(k + 1, j + 1) : null;
+};
+const operandRight = (t, start) => {
+  let j = start; while (t[j] === ' ') j++;
+  let k = j; while (t[k] === '-' || t[k] === '+' || t[k] === ' ') k++;
+  if (t[k] === '(') { let depth = 0; for (let m = k; m < t.length; m++) { if (t[m] === '(') depth++; else if (t[m] === ')') { depth--; if (!depth) return t.slice(j, m + 1); } } return null; }
+  let m = k; while (m < t.length && /\d/.test(t[m])) m++; return m > k && t[m] !== '.' ? t.slice(j, m) : null;
+};
+export function zeroToZero(t) {
+  t = String(t).slice(0, 2000);
+  for (const m of t.matchAll(/\^|\*\*/g)) {
+    const base = operandLeft(t, m.index), exp = operandRight(t, m.index + m[0].length);
+    if (base !== null && exp !== null && smallValue(base) === 0n && smallValue(exp) === 0n) return true;
+  }
+  return false;
+}
+export function twoWays(claim, door = false) {
+  if (globalThis.HHH_NO_TWO_WAYS) return '';
+  const s = String(claim ?? '');
+  if (/(?<=[\d)])[²³¹⁰-ₜ]/.test(s)) return 'small raised or lowered digits could be a power or plain digits (a raised 24 after 10 reads as 10 to the 24th, or as 1024)';
+  const t = s.normalize('NFKC').replace(/[‐-―−]/g, '-').replace(/[❗❕]/g, '!');
+  if (/\b\d{1,2}-\d{1,2}-\d{4}\b/.test(t)) return 'it looks like a date (01-02-2000), which reads two ways';
+  if (door && /\b\d{4}-\d{1,2}-\d{1,2}\b|(?<![\d\s-])\d{1,2}-\d{2}(?![\d-])/.test(t)) return 'it looks like a date (2024-01-15, 12-25), which reads two ways';
+  if ((t.match(/(?<![\d-])\d{1,2}-\d{2}(?![\d-])/g) || []).filter(p => { const [a, b] = p.split('-').map(Number); return a && b && ((a < 13 && b < 32) || (b < 13 && a < 32)); }).length > 1)
+    return 'two number pairs joined by a dash (12-25 and 12-24) could be two dates or two subtractions; put a space on each side of a minus';
+  if (/(?<![\d.])0\s*(\^|\*\*)\s*[(\s+-]*0[)\s]*(?![\d.])/.test(t) || zeroToZero(t)) return '0^0 is 1 by one convention and has no value by another';
+  if (/\d\s+!(?!=)|[\d)]\s*!+[\s"'”’)\]?.!͏]*$/.test(t)) return 'a "!" after a number could be a factorial or just punctuation';
+  if (/(?<![\p{L}\p{N})\]"'”’.!?])!\s*[(\d]|¬|~\s*\(/u.test(t)) return 'a "!", "¬" or "~" in front could be a "not", which this checker does not read';
+  if (/(?<![\w.])0x[0-9a-f]+\b/i.test(t)) return 'a number that starts 0x could be hexadecimal or 0 times something';
+  if ((t.match(/(?<!\d)\d+(,\d+)+/g) || []).some(n => !/^[1-9]\d?\d?(,\d{3})+$/.test(n))) return 'a comma in a number that is no thousands mark (0,5 or 1,2) could be a decimal comma or a list, and this checker does not read either';
+  return '';
 }
 
 const WEB = { page: 'page', wiki: 'wiki', wikidata: 'wikidata', wikidataNamed: 'wikidata', event: 'event' };
@@ -281,6 +365,8 @@ export function run(form, said = form) {
   const open = openProblem(said);
   if (open) return [OPEN, 'open', open];
   if (!form) return [GUESS, 'none', guessWhy(said)];
+  const two = twoWays(said) || twoWays(form);
+  if (two) return [GUESS, 'none', `two readings, so not checked: ${two}`];
   const SOURCE = { page: 'web page', wiki: 'Wikipedia', wikidata: 'Wikidata', event: 'Wikidata' };
   for (const [k, name] of Object.entries(WEB)) if (FORMS[k].test(form.trim())) return [GUESS, name, `${SOURCE[name]} claim: settled by a lookup, not by math; look it up below`];
   for (const [check, name] of [[checkDate, 'date'], [checkPrime, 'prime'], [checkRounded, 'rounded'], [checkMath, 'math']]) {

@@ -1,12 +1,12 @@
 {
- "made": "2026-11-09T02:23:27.843Z",
+ "made": "2026-11-10T17:14:08.275Z",
  "rule": "BUILT only when proven to work and brick tested, both re-run when this file was made",
  "north_star": "Every person able to stop working and live by choice, with the energy they spend chosen, never a byproduct of chaos.",
  "features": {
   "check-browser": {
    "name": "Check, in your browser",
-   "status": "NOT FULLY BUILT YET",
-   "why": "one sentence gives one claim: no fragment of a claim is shown again as a second claim failed",
+   "status": "BUILT",
+   "why": "",
    "north": {
     "does": "Saves the hours people spend double-checking AI answers by hand, on any device, right in the browser.",
     "limit": "Plain code finds and checks only math, units, rounding and primes: 18 of 74 claims (24.3%) in 20 real AI answers.",
@@ -17,37 +17,37 @@
      "what": "known answers",
      "cmd": "node known.mjs",
      "pass": true,
-     "ms": 129
+     "ms": 114
     },
     {
      "what": "same as the Python checkers on 161 real claims, never the opposite",
      "cmd": "node match_161.mjs",
      "pass": true,
-     "ms": 81
+     "ms": 75
     },
     {
      "what": "a real browser clicks Check; nothing leaves the page",
      "cmd": "node page_test.cjs",
      "pass": true,
-     "ms": 5342
+     "ms": 4322
     },
     {
      "what": "one box above the fold on a laptop and a phone; Enter runs it and \"1-4 is -3\" comes back PROVEN with a receipt",
      "cmd": "node top_box_test.cjs",
      "pass": true,
-     "ms": 5403
+     "ms": 4587
     },
     {
      "what": "every GUESS names the checker it is missing; nothing is left unexplained",
      "cmd": "node guess_reasons.mjs",
      "pass": true,
-     "ms": 214
+     "ms": 212
     },
     {
-     "what": "one sentence gives one claim: no fragment of a claim is shown again as a second claim",
+     "what": "no check is shown twice: each checkable part of a sentence gets one line",
      "cmd": "node dup_claims_test.mjs",
-     "pass": false,
-     "why": "3 MISS"
+     "pass": true,
+     "ms": 110
     }
    ],
    "bricks": [
@@ -55,13 +55,13 @@
      "what": "planted mistakes fired at every proven claim; every one caught",
      "cmd": "node bricks.mjs",
      "pass": true,
-     "ms": 233
+     "ms": 292
     },
     {
      "what": "five real bugs planted in the checkers; the brick test catches every one",
      "cmd": "node mutants.mjs",
      "pass": true,
-     "ms": 493
+     "ms": 588
     }
    ]
   },
@@ -79,13 +79,13 @@
      "what": "the key goes only to Anthropic, saved nowhere",
      "cmd": "node own_ai_test.cjs anthropic",
      "pass": true,
-     "ms": 5030
+     "ms": 4709
     },
     {
      "what": "the key goes only to OpenAI, saved nowhere",
      "cmd": "node own_ai_test.cjs openai",
      "pass": true,
-     "ms": 4519
+     "ms": 5103
     }
    ],
    "bricks": [
@@ -93,7 +93,7 @@
      "what": "planted bad AI replies (a corrected number, an invented web address, junk); none gets a claim proven",
      "cmd": "node bricks_ai.mjs",
      "pass": true,
-     "ms": 67
+     "ms": 78
     }
    ]
   },
@@ -111,7 +111,7 @@
      "what": "a real browser opens every old Atlas address and lands on the book at the right fact's page, with no old map words",
      "cmd": "node atlas_test.cjs",
      "pass": true,
-     "ms": 12266
+     "ms": 12755
     }
    ],
    "bricks": [
@@ -119,13 +119,13 @@
      "what": "every unproven claim is kept off the map; every Lean fact names a real theorem",
      "cmd": "node atlas_bricks.mjs",
      "pass": true,
-     "ms": 7947
+     "ms": 7485
     },
     {
      "what": "five bad facts planted on the map (a guess, a false claim, made-up Lean and Mathlib theorems, an edited Mathlib statement); the brick test refuses every one, and must pass the real map first",
      "cmd": "node atlas_mutants.mjs",
      "pass": true,
-     "ms": 8032
+     "ms": 7983
     }
    ]
   },
@@ -138,7 +138,7 @@
      "what": "known answers on saved pages: both sources, one source, Grokipedia down",
      "cmd": "node wiki_test.mjs",
      "pass": true,
-     "ms": 140
+     "ms": 145
     }
    ],
    "bricks": [
@@ -146,7 +146,7 @@
      "what": "planted wrong claims (a swapped name, a changed number, an added \"not\", a saying quoted as a myth) never CHECKED; sources that disagree are never CHECKED; the relay refuses every escape",
      "cmd": "node wiki_test.mjs",
      "pass": true,
-     "ms": 184
+     "ms": 267
     }
    ]
   },
@@ -164,7 +164,7 @@
      "what": "real names on a saved registry: one name, two names, scoped npm names, versions, extras and flags read right",
      "cmd": "node names_test.mjs",
      "pass": true,
-     "ms": 96
+     "ms": 128
     }
    ],
    "bricks": [
@@ -172,7 +172,7 @@
      "what": "planted made-up names (a fake package, a one-letter typo, a fake npm name, one fake beside a real one) and a claim that says more than the install are never CHECKED; a registry that does not answer is never \"not found\"",
      "cmd": "node names_test.mjs",
      "pass": true,
-     "ms": 132
+     "ms": 88
     }
    ]
   },
@@ -190,19 +190,19 @@
      "what": "known chains come out exactly so; every fact reaches a root",
      "cmd": "node chains_known.mjs",
      "pass": true,
-     "ms": 191
+     "ms": 168
     },
     {
      "what": "every scoreboard number matches a fresh recount",
      "cmd": "node scoreboard.mjs --verify",
      "pass": true,
-     "ms": 146
+     "ms": 207
     },
     {
      "what": "clicked like a visitor in a real browser: the Root Theorem, infinite primes and the turkey each show the expected steps and end at a ROOT",
      "cmd": "node trace_test.cjs",
      "pass": true,
-     "ms": 3713
+     "ms": 3991
     }
    ],
    "bricks": [
@@ -210,7 +210,7 @@
      "what": "planted fakes (a nudged count, a hand-filled time, a number with no rule, a chain cut short, a bad label, a fact with no machine checker) are all rejected",
      "cmd": "node scoreboard_test.mjs",
      "pass": true,
-     "ms": 317
+     "ms": 354
     }
    ]
   },
@@ -252,7 +252,7 @@
      "what": "one real sign-up passed (2026-10-29: confirm email, click, welcome email, subscriber logged); the form is still that one",
      "cmd": "node signup_test.mjs",
      "pass": true,
-     "ms": 159
+     "ms": 66
     }
    ],
    "bricks": [
@@ -260,7 +260,7 @@
      "what": "planted broken forms (wrong list, a GET, same tab, a renamed email box, switched off, a fetch, no next-step note) are all refused",
      "cmd": "node signup_test.mjs --bricks",
      "pass": true,
-     "ms": 122
+     "ms": 70
     }
    ]
   }

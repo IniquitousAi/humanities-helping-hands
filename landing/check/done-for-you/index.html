@@ -12,15 +12,15 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Get your work checked, Humanities Helping Hands"><meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script>
-<link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="look.css"><script type="module" src="/level.js"></script>
+<link rel="preload" href="/v3/fonts/InterTight-var.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="look.css"><script type="module" src="/level.js"></script>
 </head>
 <body data-site="2" data-page="plans" data-mode="everyone">
 <a class="skip" href="#main">Skip to the page</a>
 <p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p><div class="ambient" aria-hidden="true"></div>
 <header class="bar"><div class="wrap bar-in">
-  <a class="brand" href="/v3/"><b>HHH</b><span>Humanities Helping Hands</span></a>
-  <nav class="links" aria-label="Pages"><a href="/v3/check.html">Check</a><a href="/v3/atlas.html">Atlas</a><a href="/v3/open.html">Open problems</a><a href="/v3/plans.html" aria-current="page">Plans</a><a href="/v3/book.html">The Book</a><a href="/v3/founders.html">Founders</a></nav>
-  <a class="btn btn-main" href="/v3/check.html">Check a claim</a>
+  <a class="brand" href="/v4/"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="/v4/check">Check</a><a href="/v4/atlas">Atlas</a><a href="/v4/open">Open problems</a><a href="/v4/plans" aria-current="page">Plans</a><a href="/v4/book">The Book</a><a href="/v4/founders">Founders</a></nav>
+  <a class="btn btn-main" href="/v4/check">Check a claim</a>
 </div></header>
 <main id="main">
   <section class="page-hero grid-bg"><div class="wrap">
@@ -50,10 +50,15 @@
 
   <section>
     <h2>Price (buying opens soon)</h2>
+    <form id="pay-file" hidden>
+      <p><b>First, pick the file you want stamped.</b> Your browser works out its SHA-256 fingerprint here; the file never leaves your computer, and the pay link carries only the fingerprint.</p>
+      <label for="pay-pick">Your file</label> <input type="file" id="pay-pick">
+    </form>
+    <p id="pay-said" role="status" aria-live="polite"></p><script type="module" src="/check/done-for-you/pay.js"></script>
     <p>One Stamp: $1. One claim: we check your file and, only if it passes with no sorry, sign a stamp for its hash.</p>
     <p>Checker: $10 a month. 100 checks a month, each with the stamp and the full receipt above.</p>
     <p>Proven Standing: $99 a month. A company's public claims kept checked.</p>
-    <p>You pay on Stripe's own page; your card number never touches this site. When real paying opens, the pay link will carry only the SHA-256 hash of your file, never the file. After you pay, email your file to <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a> with your payment receipt. If the check cannot run at all, you get a full refund. A file that fails gets no stamp and a full refund.</p>
+    <p>You pay on Stripe's own page; your card number never touches this site. When real paying opens, the pay link will carry only the SHA-256 hash of your file, never the file. After you pay, send that same file on the thank-you page, or email it to <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a> with your payment receipt. If the check cannot run at all, you get a full refund. A file that fails gets no stamp and a full refund.</p>
     <p><b>Cancel any time with one email</b> to <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>: no call, no form. Your plan runs to the end of the month you already paid for (<a href="/terms/">the terms</a>).</p>
     <p><b>Your stamp does not need us.</b> It is an Ed25519 signature. Save <a href="/.well-known/hhh-stamp-key.json">our public key</a> and anyone can check your stamp with it, even if this site is ever gone.</p>
   </section>
@@ -62,10 +67,10 @@
     <h2>What we will never claim</h2>
     <p>We never call anything PROVEN unless a machine check passed with no sorry. Everything else on the receipt is labeled MEASURED, CHECKED, REASONED or GUESS.</p>
   </section>
-  <p class="back"><a href="/v3/plans.html">Back to all plans</a></p>
+  <p class="back"><a href="/v4/plans">Back to all plans</a></p>
   </div>
 </main>
 <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b628e88ec3</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version a08d6028e9</a></div></footer>
 </body></html>

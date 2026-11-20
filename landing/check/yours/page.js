@@ -20,7 +20,7 @@ export function render(a) {
     a = { error: 'The checker sent back an answer this page cannot read. Nothing was checked. Try again in a minute.' };
   if (a.error) return `<p>${tag('NOT CHECKED')} ${esc(a.error)}</p>`;
   let h = `<p>${tag(a.label)} ${esc(a.plain)}</p>`;
-  const l = String(a.link || ''), own = (l[0] === '/' && l[1] !== '/') || l.startsWith('https://humanitieshelpinghands.com/');
+  const l = String(a.link || ''), own = !/[\\\s\u0000-\u001f\u007f]/.test(l) && ((l[0] === '/' && l[1] !== '/') || l.startsWith('https://humanitieshelpinghands.com/'));
   if (a.kind === 'library') h += `<p>Words: ${tag(a.words_label)}${own ? ` <a href="${esc(a.link)}">See the fact</a>` : ''}</p>`;
   if (a.receipt) h += `<details class="layer"><summary>Receipt</summary><pre>${esc(JSON.stringify(a.receipt, null, 1))}</pre></details>`;
   return h;

@@ -245,7 +245,7 @@ async function check() {
     if (settled && !found) $('trace-none').hidden = true;
     $('ask-open').replaceChildren(...(found || settled ? [] : [askButton(text)]));
   } catch (e) {
-    $('status').textContent = 'Could not finish: ' + (e && e.message ? e.message : e) + '.';
+    $('status').textContent = 'Could not finish: ' + (e && e.message ? e.message : e) + '. Press Check again; if it keeps happening, reload the page.';
   } finally { $('go').disabled = false; }
 }
 

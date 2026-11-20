@@ -13,7 +13,7 @@ export function rows(questions) {
 export async function show(box) {
   let d = null;
   try { d = await getJSON('/api/asked', { shape: d => Array.isArray(d?.questions) }); } catch { failed(box, 'The list of asked questions', '/api/asked', () => show(box)); return; }
-  if (!d.questions.length) { box.replaceChildren(el('p', null, 'Nobody has added a search yet. When the box on the front page finds no fact, it offers to add it here.')); return; }
+  if (!d.questions.length) { box.replaceChildren(el('p', null, 'No question is showing yet. When the box on the front page finds no fact, it offers to add it here, and a question shows once two visitors ask the same thing on the same day.')); return; }
   box.replaceChildren(...rows(d.questions));
 }
 

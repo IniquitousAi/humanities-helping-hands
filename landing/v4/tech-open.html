@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HHH technical, open problems</title>
+<meta name="description" content="Every published P vs NP attempt, traced to the step that fails, with the source of each break."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://humanitieshelpinghands.com/v4/tech-open"><meta property="og:url" content="https://humanitieshelpinghands.com/v4/tech-open">
+<meta property="og:title" content="HHH technical, open problems"><meta property="og:description" content="Every published P vs NP attempt, traced to the step that fails, with the source of each break."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v3.css">
+<script type="module" src="site.js"></script><script type="module" src="open.js"></script>
+</head>
+<body data-site="2" data-page="tech-open" data-mode="technical">
+<a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
+<header class="bar"><div class="wrap bar-in">
+  <a class="brand" href="tech"><b>HHH</b><span>Technical</span></a>
+  <nav class="links" aria-label="Pages"><a href="tech">Console</a><a href="tech-check">Check</a><a href="tech-atlas">Receipts</a><a href="tech-open" aria-current="page">Open problems</a><a href="plans">Plans</a><a href="founders">Founders</a></nav>
+  <nav class="modes" aria-label="Reading level"><a href="kids">Kids</a><a href="open">Everyone</a><a href="tech-open" aria-current="page">Technical</a></nav>
+  <a class="btn btn-main" href="tech#api">Connect over MCP</a>
+</div></header>
+<main id="main">
+  <section class="page-hero grid-bg"><div class="wrap">
+    <p class="eyebrow">Open problems &middot; P vs NP</p>
+    <h1 class="h1 h1-sm">Every published attempt, <span class="hl-blue">traced to the step that fails.</span></h1>
+    <p class="lede">From Gerhard Woeginger's P-versus-NP list and published arXiv critiques. Each traced row says where the attempt broke and links the paper that shows it; the rest are open for anyone to trace.</p>
+    <div class="kpis u-mw820">
+      <div class="kpi"><b data-n="">126</b><span>Attempts</span></div>
+      <div class="kpi"><b data-n="SOURCED">28</b><span>Break sourced</span></div>
+      <div class="kpi"><b data-n="NOT TRACED">93</b><span>Open to trace</span></div>
+      <div class="kpi"><b data-n="GUESS">5</b><span>Unclear</span></div>
+    </div>
+  </div></section>
+
+  <section class="u-pb48"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Settled</p><h2 class="h2">One piece checked by machine, four roads closed by theorem.</h2></div>
+    <div class="rows settled">
+      <div class="row"><span class="yr">Lean</span><div><p><b>Checking a SAT answer is fast and right.</b> For any CNF formula and any assignment, the checker accepts exactly when every clause is satisfied, in at most one step per literal occurrence and per clause, plus one: the verification half of NP.</p><span class="card-note">Theorem PvsNP.sat_check_is_fast_and_right, checked by Lean with no sorry, standard axioms only. A planted false bound (one step too few) was refused.</span></div><span class="chip proven">Proven</span></div>
+      <div class="row"><span class="yr">1975</span><div><p><b>Relativization.</b> Baker, Gill and Solovay: there are oracles A and B with P^A = NP^A and P^B &ne; NP^B, so no relativizing argument (pure diagonalization or simulation) settles P vs NP.</p><span class="card-note">doi 10.1137/0204037 (SIAM Journal on Computing, 1975).</span></div><span class="chip plain">Closed road</span></div>
+      <div class="row"><span class="yr">1993</span><div><p><b>Natural proofs.</b> Razborov and Rudich: a natural, constructive and large, circuit lower bound argument against P/poly would break pseudorandom functions, so if strong one-way functions exist, natural proofs cannot separate P from NP.</p><span class="card-note">doi 10.1006/jcss.1997.1494 (journal version, Journal of Computer and System Sciences, 1997).</span></div><span class="chip plain">Closed road</span></div>
+      <div class="row"><span class="yr">2008</span><div><p><b>Algebrization.</b> Aaronson and Wigderson: the arithmetization techniques behind IP = PSPACE algebrize, and algebrizing techniques cannot resolve P vs NP.</p><span class="card-note">doi 10.1145/1490270.1490272 (journal version, ACM Transactions on Computation Theory, 2009).</span></div><span class="chip plain">Closed road</span></div>
+      <div class="row"><span class="yr">2016</span><div><p><b>Occurrence obstructions in GCT.</b> Burgisser, Ikenmeyer and Panova: occurrence obstructions cannot separate the permanent from the determinant, so the simplest obstructions Geometric Complexity Theory hoped for do not exist; multiplicity obstructions remain open. A block on one program, not a general barrier.</p><span class="card-note">doi 10.1090/jams/908 (journal version, Journal of the American Mathematical Society, volume 32, 2019; online 2018).</span></div><span class="chip plain">Closed road</span></div>
+    </div>
+  </div></section>
+
+  <section class="u-pb96"><div class="wrap">
+    <div class="toolbar"><input class="search" id="find" type="search" placeholder="Search author, year, claim or barrier" aria-label="Search the attempts"><span class="count" id="shown" role="status"></span></div>
+    <div class="panel table-scroll" id="log"><noscript><p class="muted">This log is drawn by a script. With scripts off, read every attempt as data: <a href="/attempts/attempts.json">attempts.json</a>.</p></noscript></div>
+    <div class="u-more"><button class="btn btn-line" id="more" type="button" hidden>Show 20 more</button></div>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
+  <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version a08d6028e9</a></div></footer>
+</body></html>
