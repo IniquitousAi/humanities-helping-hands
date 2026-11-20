@@ -1,14 +1,14 @@
 {
- "built": "2026-11-20T09:01:14-06:00",
+ "built": "2026-11-20T11:01:18-06:00",
  "how": "python tools/proof5.py, run by every site update",
- "unattended_at": "2026-11-20T07:00:57-06:00",
+ "unattended_at": "2026-11-20T09:00:57-06:00",
  "checks": [
   {
    "n": 1,
    "name": "Free",
    "says": "Every public page and the AI tool door load signed out: no login, no paywall.",
    "pass": true,
-   "receipt": "31 of 31 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-20T07:11:35-06:00)",
+   "receipt": "31 of 31 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-20T09:12:16-06:00)",
    "blocks": false
   },
   {
@@ -16,7 +16,7 @@
    "name": "Open",
    "says": "The site code and the whole library (facts.json) download freely, with the license.",
    "pass": true,
-   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-20T07:11:35-06:00)",
+   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-20T09:12:16-06:00)",
    "blocks": false
   },
   {
@@ -40,7 +40,7 @@
    "name": "Works when Daniel isn't there",
    "says": "A scheduled job rebuilds, checks and uploads the site with nobody at the PC.",
    "pass": true,
-   "receipt": "\"HHH Update\" ran by itself at 2026-11-20T07:00:57-06:00, exit 0 in Windows Task Scheduler (every 2 h)",
+   "receipt": "\"HHH Update\" ran by itself at 2026-11-20T09:00:57-06:00, exit 0 in Windows Task Scheduler (every 2 h)",
    "blocks": false
   }
  ],
