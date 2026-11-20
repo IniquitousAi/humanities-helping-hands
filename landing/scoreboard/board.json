@@ -1,0 +1,19 @@
+{
+ "v": 2,
+ "built": "2026-11-20T18:45:42.313Z",
+ "id": "c78533f0b6036a918c1c599554aa95dcdb2db70d24c164eddcfbe48419c499bd",
+ "rule": "points by label (proven 8, measured 4, reasoned 2, guess 1), half of each piece passed down what it built on; money, signup, predictions and taste never move rank",
+ "limit": "Credit is automatic and permanent. Rings and fake accounts are reduced and flagged, not made impossible; detection misses careful rings and sometimes flags honest pairs, which is why holds expire.",
+ "boards": {
+  "all": {
+   "title": "All proven work",
+   "rows": []
+  },
+  "built_on": {
+   "title": "Most built on",
+   "rows": []
+  }
+ },
+ "impact": {},
+ "predictions": []
+}

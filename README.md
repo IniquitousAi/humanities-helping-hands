@@ -1,5 +1,7 @@
 # Humanities Helping Hands
 
+HHH was started by Daniel Steadham, with a big hand from its [founders](https://humanitieshelpinghands.com/founders/). It is free for everyone and built for all of humanity. Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 Every claim, checked in the open. Paste a sentence, a machine works out the math in it, and the sentence comes back **Proven**, **False** or **Not checked**, with the working shown. The live site is [humanitieshelpinghands.com](https://humanitieshelpinghands.com).
 
 This library belongs to everyone. Read it, run it, build on it.

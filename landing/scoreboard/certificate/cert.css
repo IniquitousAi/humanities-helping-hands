@@ -1,0 +1,39 @@
+.cert-page { max-width:860px; margin:0 auto; padding:24px 16px 48px; }
+.cert-back a { color:var(--blue, #4d8dff); }
+.cert { position:relative; margin:18px 0 22px; padding:56px 48px 44px; border:1px solid #fff; text-align:center; }
+.cert::after { content:''; position:absolute; inset:6px; border:1px solid #fff; pointer-events:none; }
+.cert-kicker { margin:0; font:500 13px/1 var(--sans); letter-spacing:.32em; text-transform:uppercase; color:var(--blue, #4d8dff); }
+.cert-title { margin:14px 0 26px; font:600 34px/1.1 var(--sans); color:#fff; }
+.cert-name { margin:4px 0 6px; font:600 48px/1.05 var(--sans); color:#fff; overflow-wrap:anywhere; }
+.cert-line { margin:0 auto 6px; max-width:52ch; font:400 17px/1.5 var(--sans); color:#e6e6e6; }
+.cert-rank { margin:22px 0 4px; font:600 72px/1 var(--mono, var(--sans)); color:var(--blue, #4d8dff); font-variant-numeric:tabular-nums; }
+.cert-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin:20px 0 6px; }
+.cert-fine { margin:22px auto 0; max-width:60ch; font:400 12.5px/1.5 var(--sans); color:#c8c8c8; }
+.cert-actions { text-align:center; }
+.v3f .cert p, .v3f .cert div, .v3f .cert h1 { margin-left:auto; margin-right:auto; text-align:center; }
+.v3f .cert .cert-tags { justify-content:center; }
+@media (max-width:560px) { .cert { padding:36px 18px 30px; } .cert-name { font-size:34px; } .cert-rank { font-size:54px; } .cert-title { font-size:26px; } }
+.cert-hash { margin:8px auto 0; font:400 11px/1.4 var(--mono, var(--sans)); color:#9a9a9a; overflow-wrap:anywhere; }
+@font-face { font-family:'EB Garamond'; font-weight:400; font-display:swap; src:url(/fonts/eb-garamond-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family:'EB Garamond'; font-weight:600; font-display:swap; src:url(/fonts/eb-garamond-latin-600-normal.woff2) format('woff2'); }
+@media print {
+  @page { size:Letter; margin:0; }
+  html, body { background:#fbf6ea !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .skip, .bar, .cert-back, .cert-actions, .foot { display:none !important; }
+  .cert-page { padding:0; max-width:none; }
+  .cert { width:8.5in; height:11in; margin:0; padding:1.6in 0.95in 0.8in; border:0; background:#fbf6ea; color:#1d1a2e; font-family:'EB Garamond', Garamond, Georgia, serif; }
+  .cert::before { content:''; position:absolute; pointer-events:none; inset:0.36in; border:1.2pt solid #1f3fbf; }
+  .cert::after { inset:calc(0.36in + 4pt); border:0.5pt solid #1f3fbf; }
+  .cert-kicker { font:400 10.5pt/1 'EB Garamond', Georgia, serif; letter-spacing:.32em; color:#1f3fbf !important; }
+  .cert-title { font:600 31pt/1.08 'EB Garamond', Georgia, serif; color:#1d1a2e !important; margin:8pt 0 26pt; }
+  .cert-name { font:600 40pt/1.1 'EB Garamond', Georgia, serif; color:#1d1a2e !important; }
+  .cert-line { font:400 14pt/1.4 'EB Garamond', Georgia, serif; color:#1d1a2e !important; }
+  .cert-rank { font:600 64pt/1 'EB Garamond', Georgia, serif; color:#1f3fbf !important; margin-top:24pt; }
+  .cert-fine { font:400 10.5pt/1.4 'EB Garamond', Georgia, serif; color:#4f4a62 !important; margin-top:30pt; }
+  .cert-hash { font:400 9pt/1.4 'EB Garamond', Georgia, serif; color:#4f4a62 !important; }
+  .cert .tag { font:600 8.4pt/1 'EB Garamond', Georgia, serif; letter-spacing:.1em; padding:2pt 6pt; border:0.8pt solid; border-radius:2pt; }
+  .cert .tag.proven { color:#00733f; background:#d9f7e6; border-color:#00733f; }
+  .cert .tag.measured { color:#3a3000; background:#ffe94d; border-color:#c9a800; }
+  .cert .tag.reasoned { color:#5a1f00; background:#ffc2a3; border-color:#ff7a52; }
+  .cert .tag.guess { color:#c4001d; background:#ffe0e4; border-color:#c4001d; }
+}

@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Real checks by real visitors, counted by a machine. No number on this page is typed by hand.">
 <meta name="twitter:image" content="https://humanitieshelpinghands.com/og.png">
 <meta name="description" content="Real checks by real visitors, counted by a machine. No number on this page is typed by hand.">
-<link rel="icon" type="image/png" href="/favicon.png"><script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="/v3-frame.css"><script type="module" src="/level.js"></script><script type="module" src="page.js"></script>
+<link rel="icon" type="image/png" href="/favicon.png"><script>(function(){var h=document.documentElement,k=['kids','everyone','technical'],l=new URLSearchParams(location.search).get('level');h.dataset.js='';if(k.indexOf(l)==-1){l=null;try{l=localStorage.getItem('hhh-level')}catch(e){}}if(k.indexOf(l)!=-1)h.dataset.level=l;var t=null;try{t=localStorage.getItem('hhh-theme')}catch(e){}h.dataset.theme=t=='light'?'light':'dark'})()</script><link rel="stylesheet" href="/v3/modes.css"><link rel="stylesheet" href="/v3/v3.css"><link rel="stylesheet" href="/v3-frame.css"><link rel="stylesheet" href="board.css"><script type="module" src="/level.js"></script><script type="module" src="page.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -24,7 +24,7 @@
 
 <header class="bar"><div class="wrap bar-in">
   <a class="brand" href="/v4/"><b>HHH</b><span>Humanities Helping Hands</span></a>
-  <nav class="links" aria-label="Pages"><a href="/v4/check">Check</a><a href="/v4/atlas">Atlas</a><a href="/v4/open">Open problems</a><a href="/v4/plans">Plans</a><a href="/v4/book">The Book</a><a href="/v4/founders">Founders</a></nav>
+  <nav class="links" aria-label="Pages"><a href="/v4/check">Check</a><a href="/v4/atlas">Atlas</a><a href="/v4/open">Open problems</a><a href="/v4/plans">Plans</a><a href="/v4/book">The Book</a><a href="/v4/founders">Founders</a><a href="/scoreboard/" aria-current="page">Scoreboard</a></nav>
   <a class="btn btn-main" href="/v4/check">Check a claim</a>
 </div></header>
 <main class="page v3f" id="main">
@@ -35,9 +35,16 @@
     <p class="sub"><span data-level="kids">We count every math fact checked here. A machine does the counting. Nobody types these numbers.</span><span data-level="everyone">Only checks a machine finished on <a href="/check/yours/">Check your own claim</a> count here. Every row is checked again each time this page loads, and none is typed by hand.</span><span data-level="technical">MEASURED from the append-only KV check log via GET /api/scoreboard: each row's arithmetic is re-run, library rows must match facts.json, and each receipt SHA-256 is recomputed. Rows that fail are shown as rejected, never counted.</span></p>
     <p class="meta"><a href="/">Front page</a> &middot; <a href="/check/yours/">Check your own claim</a></p>
   </header>
+  <section class="lb" aria-labelledby="lb-title">
+    <div class="lb-head"><h2 id="lb-title">The board</h2>
+      <div class="lb-tabs" role="group" aria-label="Which board"><button type="button" data-board="all" aria-pressed="true">All proven work</button><button type="button" data-board="built_on" aria-pressed="false">Most built on</button></div></div>
+    <p class="sub"><span data-level="kids">Prove something true and you get a spot here. Nobody can buy a spot.</span><span data-level="everyone">Ranked by stamped work a machine checked: proven work scores most, and work others build on keeps paying its maker. Money and sign-up date never change a rank.</span><span data-level="technical">Points by label (PROVEN 8, MEASURED 4, REASONED 2, GUESS 1); half of each piece's value passes down what it built on, split equally among parents. Rank reads work rows only; the rules are proven in Lean (Credit.lean, Impact.lean, no sorry).</span></p>
+    <div id="lb-out" role="status" aria-live="polite">Loading the board...</div>
+    <p class="lb-rule">Every spot comes with a <a href="/scoreboard/certificate/">printable certificate</a>, read straight from the board.</p>
+  </section>
   <section class="glance"><div id="sb-out" role="status" aria-live="polite">Loading the log...</div></section>
   <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v4/check">Check a claim</a></section>
-  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open problems, piece by piece</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version d3cce66388</a></footer>
+  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open problems, piece by piece</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version bd0962b33a</a></footer>
 </main>
 
 </body></html>
