@@ -1,0 +1,37 @@
+name: The checker got this sentence wrong
+description: A sentence the checker labeled wrong. It becomes a test.
+title: "Wrong label: "
+body:
+  - type: textarea
+    id: sentence
+    attributes:
+      label: The sentence
+      description: Paste it exactly as you checked it.
+      placeholder: 15% of 80 is 12.
+    validations:
+      required: true
+  - type: dropdown
+    id: gave
+    attributes:
+      label: The label it gave
+      options:
+        - Proven
+        - "False"
+        - Not checked
+    validations:
+      required: true
+  - type: dropdown
+    id: should
+    attributes:
+      label: The label it should give
+      options:
+        - Proven
+        - "False"
+        - Not checked
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why (optional)
+      description: The right answer, or where it comes from.
