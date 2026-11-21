@@ -19,7 +19,7 @@ function mixBar(mix = {}) {
   const words = MIX.filter(([k]) => mix[k] > 0).map(([k, , w]) => `${mix[k]} ${w}`).join(', ');
   return `<div class="lb-mix" aria-hidden="true">${bar}</div><div class="lb-mixwords">${esc(words)}</div>`;
 }
-export function renderBoard(s, which = 'all') {
+export function renderBoard(s, which = 'all', shown = FIRST) {
   if (!s || s.board_label !== 'MEASURED') return `<p><span class="tag guess">NOT MEASURED</span> The board could not be read right now. No rank is shown rather than an old one.</p>`;
   const b = (s.boards || {})[which] || { rows: [] }, rows = Array.isArray(b.rows) ? b.rows : [];
   const rule = `<p class="lb-rule">${esc(s.board_rule || '')}. ${esc(s.board_limit || '')}</p>`;
@@ -30,11 +30,34 @@ export function renderBoard(s, which = 'all') {
     const m = imp[String(who).toLowerCase()];
     return m && Number.isFinite(m.estimate) && Number.isFinite(m.band) ? `<div class="lb-impact">Impact ${num(m.estimate)} &plusmn; ${num(m.band)}</div>` : '';
   };
-  const list = rows.map(r => `<li class="lb-row${r.rank <= 3 ? ' top' : ''}${r.pruned ? ' pruned' : ''}"><div class="lb-rank">${esc(r.rank)}</div>`
-    + `<div class="lb-who"><div class="lb-name">${esc(r.who)}${r.pruned ? ' <span class="lb-flag">has pruned work</span>' : ''}</div>${mixBar(r.mix)}${impact(r.who)}</div>`
-    + `<div class="lb-score"><span class="lb-points">${num(r.score)}</span><span class="lb-unit">points</span>`
-    + `<a class="lb-cert" href="/scoreboard/certificate/?board=${encodeURIComponent(which)}&amp;who=${encodeURIComponent(r.who)}">Print certificate</a></div></li>`).join('');
-  return `<ol class="lb-list">${list}</ol>` + rule;
+  const list = rows.slice(0, shown).map(r => row(r, which, impact)).join('');
+  const more = rows.length > shown ? `<button type="button" class="lb-more" data-more="${Math.min(rows.length, shown + PAGE)}">Show more (${rows.length - shown} more)</button>` : '';
+  return `<ol class="lb-list">${list}</ol>${more}` + rule;
+}
+
+export const FIRST = 10, PAGE = 50;
+const CHIP = { PROVEN: 'proven', MEASURED: 'measured', REASONED: 'reasoned', GUESS: 'guess', PENDING: 'pending' };
+const chip = l => `<span class="lb-chip ${CHIP[l] || 'pending'}">${esc(l === 'PENDING' ? 'Waiting for stamp' : l)}</span>`;
+const initials = n => String(n || '?').split(/\s+/).map(w => w[0] || '').join('').slice(0, 2).toUpperCase();
+function detail(i) {
+  const src = i.source ? `<a href="${esc(i.source)}" rel="noopener">Source</a>` : (i.source_text ? `<span>${esc(i.source_text)}</span>` : '');
+  const pts = i.label === 'PENDING' ? (i.seeks ? `would score ${esc(num(POINTS_OF[i.seeks] || 0))} as ${esc(i.seeks)} once stamped` : 'no stamp yet')
+    : `${esc(num(i.points))} points, ${esc(num(i.kept))} kept, ${esc(num(i.passed))} passed to what it built on`;
+  return `<li>${chip(i.label)} <b>${esc(i.title)}</b><span class="lb-pts">${pts}</span>${src}${i.date ? `<span class="lb-when">Stamped ${esc(i.date)}</span>` : ''}</li>`;
+}
+const POINTS_OF = { PROVEN: 8, MEASURED: 4, REASONED: 2, GUESS: 1 };
+function row(r, which, impact) {
+  const name = r.name || r.who, x = r.x || '', t = r.top || null;
+  const pic = x ? `<img class="lb-pic" src="/api/avatar?x=${encodeURIComponent(x)}" alt="" width="48" height="48" loading="lazy" decoding="async" data-i="${esc(initials(name))}">` : `<span class="lb-pic lb-ini">${esc(initials(name))}</span>`;
+  const handle = x ? `<a class="lb-handle" href="https://x.com/${encodeURIComponent(x)}" rel="noopener">@${esc(x)}</a>` : '';
+  const cert = r.score > 0 ? `<a class="lb-cert" href="/scoreboard/certificate/?board=${encodeURIComponent(which)}&amp;who=${encodeURIComponent(r.who)}">Print certificate</a>` : '';
+  return `<li class="lb-row${r.rank === 1 && r.score > 0 ? ' first' : ''}${r.pending ? ' zero' : ''}${r.pruned ? ' pruned' : ''}"><details><summary>`
+    + `<span class="lb-rank">${esc(r.rank)}</span>${pic}`
+    + `<span class="lb-who"><span class="lb-name">${esc(name)}</span> ${handle}${r.role ? ` <span class="lb-role">${esc(r.role)}</span>` : ''}`
+    + `${r.pruned ? ' <span class="lb-flag">has pruned work</span>' : ''}`
+    + `<span class="lb-top">${t ? chip(t.label) + ' ' + esc(t.title) : ''}</span></span>`
+    + `<span class="lb-score"><span class="lb-points">${num(r.score)}</span><span class="lb-unit">points</span></span></summary>`
+    + `<div class="lb-open-row">${mixBar(r.mix)}${impact(r.who)}<ul class="lb-items">${(r.items || []).map(detail).join('')}</ul>${cert}</div></details></li>`;
 }
 
 export async function load(fetchFn = fetch, ms = 8000) {
@@ -46,7 +69,13 @@ if (typeof document !== 'undefined') {
   if (o) load().then(s => {
     o.innerHTML = render(s);
     if (!lb) return;
-    const show = which => { lb.innerHTML = renderBoard(s, which); lb.querySelectorAll('.lb-mix i[data-w]').forEach(i => { i.style.width = i.dataset.w + '%'; }); tabs.forEach(t => t.setAttribute('aria-pressed', String(t.dataset.board === which))); };
+    const show = (which, n = FIRST) => {
+      lb.innerHTML = renderBoard(s, which, n);
+      lb.querySelectorAll('.lb-mix i[data-w]').forEach(i => { i.style.width = i.dataset.w + '%'; });
+      lb.querySelectorAll('img.lb-pic').forEach(img => img.addEventListener('error', () => { const b = document.createElement('span'); b.className = 'lb-pic lb-ini'; b.textContent = img.dataset.i; img.replaceWith(b); }, { once: true }));
+      const m = lb.querySelector('.lb-more'); if (m) m.addEventListener('click', () => show(which, Number(m.dataset.more)));
+      tabs.forEach(t => t.setAttribute('aria-pressed', String(t.dataset.board === which)));
+    };
     tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.board)));
     show('all');
   });

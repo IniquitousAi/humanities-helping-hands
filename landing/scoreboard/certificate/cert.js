@@ -6,6 +6,7 @@ export function certificate(s, board, who) {
   const b = s.boards && s.boards[board];
   const row = b && (b.rows || []).find(r => String(r.who).toLowerCase() === String(who).toLowerCase());
   if (!row) return { ok: false, msg: 'That name holds no spot on this board, so there is no certificate to print.' };
+  if (!(Number(row.score) > 0)) return { ok: false, msg: 'This seat is waiting for its first stamp, so there is no certificate to print yet.' };
   const when = s.board_built ? new Date(s.board_built).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'today';
   return { ok: true, who: String(row.who), board: `holds a place on the board "${String(b.title || board)}", earned by work a machine checked and stamped.`, rank: `#${Number(row.rank)}`,
     points: `${(Math.round(Number(row.score) * 10) / 10).toLocaleString('en-US')} points`,

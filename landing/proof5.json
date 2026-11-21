@@ -1,14 +1,14 @@
 {
- "built": "2026-11-20T13:18:38-06:00",
+ "built": "2026-11-21T00:27:00-06:00",
  "how": "python tools/proof5.py, run by every site update",
- "unattended_at": "2026-11-20T13:01:52-06:00",
+ "unattended_at": "2026-11-21T00:26:56-06:00",
  "checks": [
   {
    "n": 1,
    "name": "Free",
    "says": "Every public page and the AI tool door load signed out: no login, no paywall.",
    "pass": true,
-   "receipt": "31 of 31 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-20T11:11:52-06:00)",
+   "receipt": "32 of 32 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-20T13:28:31-06:00)",
    "blocks": false
   },
   {
@@ -16,7 +16,7 @@
    "name": "Open",
    "says": "The site code and the whole library (facts.json) download freely, with the license.",
    "pass": true,
-   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-20T11:11:52-06:00)",
+   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-20T13:28:31-06:00)",
    "blocks": false
   },
   {
@@ -32,7 +32,7 @@
    "name": "Shows its own mistakes",
    "says": "Every upload our own checks stopped, rebuilt from the log on every update.",
    "pass": true,
-   "receipt": "289 failed runs listed from the upload log, newest first",
+   "receipt": "290 failed runs listed from the upload log, newest first",
    "blocks": false
   },
   {
@@ -40,7 +40,7 @@
    "name": "Works when Daniel isn't there",
    "says": "A scheduled job rebuilds, checks and uploads the site with nobody at the PC.",
    "pass": false,
-   "receipt": "the last unattended run, 2026-11-20T13:01:52-06:00, ended with code a failed check",
+   "receipt": "the last unattended run, 2026-11-21T00:26:56-06:00, ended with code -2147020576",
    "blocks": false
   }
  ],
