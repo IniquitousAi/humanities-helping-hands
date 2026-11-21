@@ -1,6 +1,6 @@
 {
- "sha256": "a3c8b58fee98decb595337058c1e975c1931066698986a185fa247d16a2afebc",
- "files": 233,
+ "sha256": "ef13a3864f5a9499daaf4253d7f21c304583eefd83828596fd049dad278d378c",
+ "files": 239,
  "day": "2026-11-21",
  "model": "claude-opus-5-5",
  "hashes": "sha256 of each file exactly as uploaded (the published copy, tools/publish_copy.py). Cloudflare then rewrites pages on the way out (email addresses, its analytics script), so a served page matches once those are taken out: tools/ship_gate.py norm()",

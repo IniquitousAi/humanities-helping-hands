@@ -1,7 +1,7 @@
 {
  "v": 2,
- "built": "2026-11-20T20:00:22.805Z",
- "id": "f49df58a343b342de6cf404d99fae528e08b640e3105eefd59130c8677f51a2c",
+ "built": "2026-11-21T07:48:57.222Z",
+ "id": "5ff15c63a86bbe2bc58b1cbe80b0932162e03e766cd90a70e5cb36bcd9332eb8",
  "rule": "points by label (proven 8, measured 4, reasoned 2, guess 1), half of each piece passed down what it built on; money, signup, predictions and taste never move rank",
  "limit": "Credit is automatic and permanent. Rings and fake accounts are reduced and flagged, not made impossible; detection misses careful rings and sometimes flags honest pairs, which is why holds expire.",
  "boards": {
@@ -10,6 +10,91 @@
    "rows": [
     {
      "rank": 1,
+     "who": "IniquitousAi",
+     "score": 16,
+     "mix": {
+      "PROVEN": 2,
+      "MEASURED": 0,
+      "REASONED": 0,
+      "GUESS": 0
+     },
+     "pruned": 0,
+     "name": "Daniel",
+     "x": "IniquitousAi",
+     "role": "Founder",
+     "top": {
+      "title": "Root Theorem (Lean proof)",
+      "label": "PROVEN",
+      "points": 8,
+      "kept": 8,
+      "passed": 0,
+      "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Root.lean",
+      "date": "2026-11-21",
+      "pruned": false
+     },
+     "items": [
+      {
+       "title": "Root Theorem (Lean proof)",
+       "label": "PROVEN",
+       "points": 8,
+       "kept": 8,
+       "passed": 0,
+       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Root.lean",
+       "date": "2026-11-21",
+       "pruned": false
+      },
+      {
+       "title": "Founder's Claim (Lean proof)",
+       "label": "PROVEN",
+       "points": 8,
+       "kept": 8,
+       "passed": 0,
+       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Founder.lean",
+       "date": "2026-11-21",
+       "pruned": false
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "who": "FavDeeSocials",
+     "score": 2,
+     "mix": {
+      "PROVEN": 0,
+      "MEASURED": 0,
+      "REASONED": 1,
+      "GUESS": 0
+     },
+     "pruned": 0,
+     "name": "Faviee",
+     "x": "FavDeeSocials",
+     "role": "Community manager",
+     "top": {
+      "title": "Made the HHH Discord",
+      "label": "REASONED",
+      "points": 2,
+      "kept": 2,
+      "passed": 0,
+      "source": "",
+      "date": "2026-11-21",
+      "pruned": false
+     },
+     "items": [
+      {
+       "title": "Made the HHH Discord",
+       "label": "REASONED",
+       "points": 2,
+       "kept": 2,
+       "passed": 0,
+       "source": "",
+       "date": "2026-11-21",
+       "pruned": false
+      }
+     ],
+     "pic": "/scoreboard/avatars/favdeesocials.jpg"
+    },
+    {
+     "rank": 3,
      "who": "breckyunits",
      "score": 0,
      "mix": {
@@ -40,10 +125,11 @@
        "source_text": "",
        "date": ""
       }
-     ]
+     ],
+     "pic": "/scoreboard/avatars/breckyunits.jpg"
     },
     {
-     "rank": 2,
+     "rank": 4,
      "who": "ELWillis10",
      "score": 0,
      "mix": {
@@ -74,86 +160,8 @@
        "source_text": "No commit on the HHH repos yet",
        "date": ""
       }
-     ]
-    },
-    {
-     "rank": 3,
-     "who": "FavDeeSocials",
-     "score": 0,
-     "mix": {
-      "PROVEN": 0,
-      "MEASURED": 0,
-      "REASONED": 0,
-      "GUESS": 0
-     },
-     "pruned": 0,
-     "name": "Faviee",
-     "x": "FavDeeSocials",
-     "role": "Community manager",
-     "pending": true,
-     "top": {
-      "title": "Made the HHH Discord",
-      "label": "PENDING",
-      "points": 0
-     },
-     "items": [
-      {
-       "title": "Made the HHH Discord",
-       "label": "PENDING",
-       "seeks": "REASONED",
-       "points": 0,
-       "kept": 0,
-       "passed": 0,
-       "source": "",
-       "source_text": "Discord server, invite on request",
-       "date": ""
-      }
-     ]
-    },
-    {
-     "rank": 4,
-     "who": "IniquitousAi",
-     "score": 0,
-     "mix": {
-      "PROVEN": 0,
-      "MEASURED": 0,
-      "REASONED": 0,
-      "GUESS": 0
-     },
-     "pruned": 0,
-     "name": "Daniel",
-     "x": "IniquitousAi",
-     "role": "Founder",
-     "pending": true,
-     "top": {
-      "title": "Root Theorem (Lean proof)",
-      "label": "PENDING",
-      "points": 0
-     },
-     "items": [
-      {
-       "title": "Root Theorem (Lean proof)",
-       "label": "PENDING",
-       "seeks": "PROVEN",
-       "points": 0,
-       "kept": 0,
-       "passed": 0,
-       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Root.lean",
-       "source_text": "",
-       "date": ""
-      },
-      {
-       "title": "Founder's Claim (Lean proof)",
-       "label": "PENDING",
-       "seeks": "PROVEN",
-       "points": 0,
-       "kept": 0,
-       "passed": 0,
-       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Founder.lean",
-       "source_text": "",
-       "date": ""
-      }
-     ]
+     ],
+     "pic": "/scoreboard/avatars/elwillis10.jpg"
     }
    ]
   },

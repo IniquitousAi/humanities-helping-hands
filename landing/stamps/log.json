@@ -31,6 +31,36 @@
    "kid": "2026-1",
    "sig": "zn93NDTu9Yw1ZoIB-yCG8a6j3NzDae9ElnErIov96rqaMab9mQcAsitZeKT8rAk0HmOwK6ljSNpivpwmisH4AA",
    "prev": "45c8b3ceede2d8b900bea6170bd91d0808c2c0e5028c1e307d2573e0fc61800c"
+  },
+  {
+   "n": 4,
+   "hash": "fcc120571a44b7dbb21676c86d2f3500b823d5817dbada14e17cdb5a0d9020ce",
+   "label": "PROVEN",
+   "gate": "ba4693075f4e3c1a23d1052fb43593798e25919b5a56f0504d1a3d56863c5a49",
+   "date": "2026-11-21",
+   "kid": "2026-1",
+   "sig": "yukHYSnvhy8ihlOrScnZsQdQlphq3I0xg01ZOFD4eedDR5WtkzqT7UMDcEAPnIn-3o4oF21E_VDGdlobcKooCQ",
+   "prev": "5dd70724da32fa6ef41beb6f4f2cdf02b70891cb4655d4d78ade1cad657c409a"
+  },
+  {
+   "n": 5,
+   "hash": "322d361d4798819043a58a64ba4584de24e6e0a961169117b07899a109245d3e",
+   "label": "PROVEN",
+   "gate": "ba4693075f4e3c1a23d1052fb43593798e25919b5a56f0504d1a3d56863c5a49",
+   "date": "2026-11-21",
+   "kid": "2026-1",
+   "sig": "ah-oPxxbmVwgcrltzEeIXBfrZlLVSuq-YyJEMcR3jkdDRmEflG9BmPgrODSjSq2RPPPy0hxBbfqAb60zzogdCA",
+   "prev": "ea252ca33ab0fec65fc8703ad4d63ce99f33f2aed14573f1d4a2ccc0e1063643"
+  },
+  {
+   "n": 6,
+   "hash": "ec584189e01914e51d3e877b1b0042fbb01bfd4a91c51754ebce96c37b3d5424",
+   "label": "REASONED",
+   "gate": "ba4693075f4e3c1a23d1052fb43593798e25919b5a56f0504d1a3d56863c5a49",
+   "date": "2026-11-21",
+   "kid": "2026-1",
+   "sig": "I6B3_kHxruD2BatJC-qojWoYRfRx1sqmKZMXLK0cY9EbomPcvchdwzYBrV6y52wb-Zb4mKyr4pcJ8xxzw0JBAQ",
+   "prev": "e201397c9a7185f69414499040605de8950df2b97693dcf420bbfccc862e373b"
   }
  ]
 }

@@ -48,7 +48,7 @@ function detail(i) {
 const POINTS_OF = { PROVEN: 8, MEASURED: 4, REASONED: 2, GUESS: 1 };
 function row(r, which, impact) {
   const name = r.name || r.who, x = r.x || '', t = r.top || null;
-  const pic = x ? `<img class="lb-pic" src="/api/avatar?x=${encodeURIComponent(x)}" alt="" width="48" height="48" loading="lazy" decoding="async" data-i="${esc(initials(name))}">` : `<span class="lb-pic lb-ini">${esc(initials(name))}</span>`;
+  const pic = /^\/scoreboard\/avatars\/[a-z0-9_]{1,15}\.jpg$/.test(r.pic || '') ? `<img class="lb-pic" src="${r.pic}" alt="" width="48" height="48" loading="lazy" decoding="async" data-i="${esc(initials(name))}">` : `<span class="lb-pic lb-ini">${esc(initials(name))}</span>`;
   const handle = x ? `<a class="lb-handle" href="https://x.com/${encodeURIComponent(x)}" rel="noopener">@${esc(x)}</a>` : '';
   const cert = r.score > 0 ? `<a class="lb-cert" href="/scoreboard/certificate/?board=${encodeURIComponent(which)}&amp;who=${encodeURIComponent(r.who)}">Print certificate</a>` : '';
   return `<li class="lb-row${r.rank === 1 && r.score > 0 ? ' first' : ''}${r.pending ? ' zero' : ''}${r.pruned ? ' pruned' : ''}"><details><summary>`
