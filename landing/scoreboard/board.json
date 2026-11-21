@@ -1,7 +1,7 @@
 {
  "v": 2,
- "built": "2026-11-21T07:48:57.222Z",
- "id": "5ff15c63a86bbe2bc58b1cbe80b0932162e03e766cd90a70e5cb36bcd9332eb8",
+ "built": "2026-11-21T08:44:18.053Z",
+ "id": "4612be2f6f04d9be2148ea46ec0bbb0b04a75f12377e35df2a7d5c7a18dbc785",
  "rule": "points by label (proven 8, measured 4, reasoned 2, guess 1), half of each piece passed down what it built on; money, signup, predictions and taste never move rank",
  "limit": "Credit is automatic and permanent. Rings and fake accounts are reduced and flagged, not made impossible; detection misses careful rings and sometimes flags honest pairs, which is why holds expire.",
  "boards": {
@@ -22,6 +22,7 @@
      "name": "Daniel",
      "x": "IniquitousAi",
      "role": "Founder",
+     "about": "Started Humanities Helping Hands: a place where any claim gets checked in the open and labeled proven, measured, reasoned or guess. Built the foundation, then handed it to everyone.",
      "top": {
       "title": "Root Theorem (Lean proof)",
       "label": "PROVEN",
@@ -53,7 +54,8 @@
        "date": "2026-11-21",
        "pruned": false
       }
-     ]
+     ],
+     "pic": "/scoreboard/avatars/iniquitousai.jpg"
     },
     {
      "rank": 2,
@@ -69,6 +71,7 @@
      "name": "Faviee",
      "x": "FavDeeSocials",
      "role": "Community manager",
+     "about": "Part of the foundation: helped shape the ideas and started the HHH community on Discord.",
      "top": {
       "title": "Made the HHH Discord",
       "label": "REASONED",
@@ -107,6 +110,7 @@
      "name": "Breck Yunits",
      "x": "breckyunits",
      "role": "Founding friend",
+     "about": "Part of the foundation: helped shape the ideas behind HHH early on.",
      "pending": true,
      "top": {
       "title": "Pending stamp",
@@ -142,6 +146,7 @@
      "name": "Ethan Willis",
      "x": "ELWillis10",
      "role": "Programmer",
+     "about": "Part of the foundation: helped shape the ideas and the build. Carries the code forward.",
      "pending": true,
      "top": {
       "title": "First commit to the HHH code",

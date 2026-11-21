@@ -51,6 +51,15 @@
 .v3f .lb-items .lb-pts, .v3f .lb-items .lb-when, .v3f .lb-items a, .v3f .lb-items li > span:not(.lb-chip) { display:block; color:#c8c8c8; font-size:13px; }
 .v3f .lb-items a { color:#6f9bff; }
 .v3f .lb-more { margin:6px 0 0; background:#000; color:#fff; border:1px solid #fff; font:500 14px/1 var(--sans); padding:12px 16px; min-height:44px; cursor:pointer; }
+.v3f .lb-about { margin:0 0 10px; font:400 15px/1.45 var(--sans); color:#e6e6e6; max-width:64ch; }
+.v3f .lb-steps { margin-top:40px; }
+.v3f .lb-steps h2 { margin:0 0 16px; font:600 26px/1.15 var(--sans); color:#fff; }
+.v3f .lb-steps ol { list-style:none; margin:0; padding:0; border-top:1px solid var(--hair-2, #3a3a3a); }
+.v3f .lb-steps li { display:grid; grid-template-columns:48px 1fr; gap:12px; align-items:baseline; padding:16px 4px; border-bottom:1px solid var(--hair-2, #3a3a3a); font:400 16px/1.45 var(--sans); color:#e6e6e6; }
+.v3f .lb-steps .n { font:600 26px/1 var(--mono, var(--sans)); color:var(--blue, #4d8dff); }
+.v3f .lb-steps b { color:#fff; font-weight:600; }
+.v3f .lb-steps a { color:var(--blue, #4d8dff); }
+.v3f .soon { display:inline-block; margin-left:8px; padding:4px 8px; border:1px solid var(--blue, #4d8dff); color:var(--blue, #4d8dff); font:500 11.5px/1 var(--sans); letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r, 4px); }
 @media (max-width:560px) {
   .v3f .lb-row details > summary { grid-template-columns:30px 40px 1fr auto; gap:10px; padding:10px 18px; }
   .v3f .lb-pic { width:40px; height:40px; }

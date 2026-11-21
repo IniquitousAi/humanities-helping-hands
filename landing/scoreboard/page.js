@@ -57,7 +57,7 @@ function row(r, which, impact) {
     + `${r.pruned ? ' <span class="lb-flag">has pruned work</span>' : ''}`
     + `<span class="lb-top">${t ? chip(t.label) + ' ' + esc(t.title) : ''}</span></span>`
     + `<span class="lb-score"><span class="lb-points">${num(r.score)}</span><span class="lb-unit">points</span></span></summary>`
-    + `<div class="lb-open-row">${mixBar(r.mix)}${impact(r.who)}<ul class="lb-items">${(r.items || []).map(detail).join('')}</ul>${cert}</div></details></li>`;
+    + `<div class="lb-open-row">${r.about ? `<p class="lb-about">${esc(r.about)}</p>` : ''}${mixBar(r.mix)}${impact(r.who)}<ul class="lb-items">${(r.items || []).map(detail).join('')}</ul>${cert}</div></details></li>`;
 }
 
 export async function load(fetchFn = fetch, ms = 8000) {
