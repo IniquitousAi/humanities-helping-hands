@@ -25,6 +25,7 @@
 .kpi-note { margin-top:12px; }
 .center-note { margin-top:14px; text-align:center; }
 .note a, .kpi-note a { color:var(--blue); }
+.hero .ask + .note, .hero form + .note { font:400 14px/1.5 var(--sans); letter-spacing:0; color:var(--ink-2); }
 .dlg-claim { color:var(--ink); }
 .book-code { font:12.5px/1.6 var(--mono); color:var(--ink); }
 @media (max-width:900px) { .u-two { grid-template-columns:1fr; } }

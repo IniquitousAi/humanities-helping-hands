@@ -294,6 +294,9 @@ p { margin:0; }
 .dialog-box .btn { justify-self:start; }
 
 .links a { white-space:nowrap; }
+.brand span, .bar-in > .btn { white-space:nowrap; }
+.brand, .bar-in > .modes, .bar-in > .btn { flex-shrink:0; }
+@media (max-width:1400px) { .bar-in { gap:20px; } .links { gap:18px; } }
 @media (max-width:1180px) {
   .bar-in { flex-wrap:wrap; height:auto; padding-top:12px; padding-bottom:0; row-gap:4px; }
   .bar-in > .modes { margin-left:auto; }
