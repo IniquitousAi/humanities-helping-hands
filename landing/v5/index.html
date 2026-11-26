@@ -4,7 +4,7 @@
 <meta name="description" content="Paste any claim or AI answer. A machine checks each part and gives it a label, with a receipt anyone can rerun."><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://humanitieshelpinghands.com/v5/"><meta property="og:url" content="https://humanitieshelpinghands.com/v5/">
 <meta property="og:title" content="Humanities Helping Hands, every claim checked in the open"><meta property="og:description" content="Paste any claim or AI answer. A machine checks each part and gives it a label, with a receipt anyone can rerun."><meta property="og:image" content="https://humanitieshelpinghands.com/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="stylesheet" href="modes.css"><link rel="stylesheet" href="v3.css">
-<script type="module" src="site.js"></script><script type="module" src="join.js"></script>
+<script type="module" src="site.js"></script><script type="module" src="join.js"></script><script type="module" src="cases.js"></script>
 </head>
 <body data-site="2" data-page="index" data-mode="everyone">
 <a class="skip" href="#main">Skip to the page</a><div class="ambient" aria-hidden="true"></div>
@@ -19,7 +19,7 @@
     <div class="hero-l">
       <p class="eyebrow">The proof stamp</p>
       <h1 class="h1">Every claim,<br><span class="hl-red">checked in the open.</span></h1>
-      <p class="lede">Paste a claim or an AI answer. A machine works out the math in it and checks it against the facts in the Atlas. Each claim comes back <b>Proven, False or Not checked</b>, with a receipt anyone can rerun.</p>
+      <p class="lede">Paste a claim or an AI answer. A machine works out the math in it and checks it against the Atlas, our library of proven facts. Each claim comes back <b>Proven, False or Not checked</b>, with a receipt anyone can rerun.</p>
       <form class="ask" action="check" method="get"><input id="home-q" enterkeyhint="go" autocomplete="off" aria-label="A claim to check" placeholder="Try: 15% of 80 is 12"><button class="btn btn-main" type="submit">Check</button></form>
       <p class="note">Today it checks sums, percents, units, primes and the <span data-fact-n></span> Atlas facts. History, health and news say Not checked, which never means false. You pay only for a signed stamp.</p>
     </div>
@@ -31,9 +31,9 @@
       <div class="kpi"><b data-fact-n="">170</b><span>Facts in the Atlas</span></div>
       <div class="kpi"><b data-fact-n="PROVEN">142</b><span>Proven by a proof checker</span></div>
       <div class="kpi"><b data-fact-n="ARITHMETIC-CHECKED">28</b><span>Math checked</span></div>
-      <div class="kpi"><b data-attempts-n="">126</b><span>P vs NP attempts logged</span></div>
+      <div class="kpi"><b data-attempts-n="">126</b><span>Tries at P vs NP, logged</span></div>
     </div>
-    <p class="note kpi-note">The box above replays real facts from the Atlas, each one accepted by the Lean proof checker. <a href="atlas">See every fact</a> or <a href="open">every attempt</a>.</p>
+    <p class="note kpi-note">The box above replays real facts from the Atlas, each one accepted by Lean, a program that checks math proofs step by step. P vs NP is a famous math problem nobody has solved yet. <a href="atlas">See every fact</a> or <a href="open">every attempt</a>.</p>
   </div></section>
 
   <section class="sec" id="how"><div class="wrap">
@@ -43,6 +43,12 @@
       <div class="panel step"><span class="n">02</span><h3 class="h3">The machine checks</h3><p>The math is worked out exactly, with fractions, units and primes, or matched word for word to a fact a proof checker accepted.</p></div>
       <div class="panel step"><span class="n">03</span><h3 class="h3">You get the receipt</h3><p>Each claim gets its label and a receipt anyone can rerun. Nothing is hidden.</p></div>
     </div>
+  </div></section>
+
+  <section class="sec" id="cases"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Live examples</p><h2 class="h2">See it on real claims.</h2><p class="lede">We took real arguments and split them into single claims. Each claim gets a label that says how sure anyone can honestly be, and a plain reason why. Names and details are changed and the wording is ours, so nobody can be singled out. The four labels are explained just below.</p></div>
+    <div class="cases-tabs"><div class="tabs" role="tablist" aria-label="Examples" id="cases-tabs"></div></div>
+    <div role="tabpanel" id="cases-body"><noscript><p class="muted">These examples are drawn by a script; read them as data: <a href="cases.json">cases.json</a>.</p></noscript></div>
   </div></section>
 
   <section class="sec" id="labels"><div class="wrap">
@@ -98,5 +104,5 @@
 </main>
 <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version e997e74d58</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version 50b6c55a6d</a></div></footer>
 </body></html>

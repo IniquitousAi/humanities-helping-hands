@@ -1,0 +1,45 @@
+{
+ "about": "Live case studies on the front page. Each case is data: add an entry to a case's entries and the page shows it, no HTML to touch. People are never named: anonymizeHandles stays true and an entry's who is a role, never a handle. Every case explains itself for someone with no background: what happened, any hard word explained, and one lesson.",
+ "anonymizeHandles": true,
+ "cases": [
+  {
+   "id": "everyday",
+   "tab": "Everyday claim",
+   "title": "Is this sign-up button confusing?",
+   "status": "open",
+   "summary": "Someone visited a website for the first time and said its sign-up button was confusing. Fans of the site replied that it must be fine, because lots of people already use it. Who is right? Here is each claim from the replies, one at a time.",
+   "takeaway": "A big number of happy users does not prove a design is easy. It only counts the people who made it through. To know if the button is confusing, you have to count the people who gave up, and nobody has.",
+   "entries": [
+    {"who": "A regular user", "said": "The site has tens of thousands of users, so it works.", "label": "MEASURED", "why": "The site's own public counter really does show that many. So the number is true. But it only counts people who signed up, not people who tried and gave up."},
+    {"who": "A regular user", "said": "If the button were confusing, people would have complained.", "label": "GUESS", "why": "Most people who get confused just leave without saying anything. Nobody counted them, so this is a guess. Only hearing from the people who made it is a common trap, called survivorship bias."},
+    {"who": "A regular user", "said": "A first-time visitor could easily misunderstand it.", "label": "REASONED", "why": "This makes sense: one new visitor already did. Nothing in the replies shows otherwise. But one person is not a measurement, so it is not Measured."},
+    {"who": "The site's maker", "said": "Lots of happy users means the design is fine.", "label": "GUESS", "why": "Same trap as above. Happy users who stayed tell you nothing about the ones who left at the button."}
+   ]
+  },
+  {
+   "id": "science",
+   "tab": "Science headline",
+   "title": "\"Scientists reverse aging in the eye\"",
+   "status": "closed",
+   "summary": "In 2026 a company started the first test in people of a gene treatment meant to make old eye cells act young again. News headlines made big promises. Here is what the test really showed, claim by claim.",
+   "takeaway": "The treatment is real and the early result is good news. But 3 people over 8 weeks is a first safety test, not proof that aging was reversed. Big headlines often run far ahead of small tests.",
+   "entries": [
+    {"who": "The company", "said": "US regulators (the FDA) cleared us to start our first test in people.", "label": "MEASURED", "why": "Being cleared to start a test does not mean the treatment works or can be sold. The clearance was announced in January 2026 and the test is on the public list of medical trials.", "source": "the company's announcement, January 2026", "sourceLink": "https://www.biospace.com/press-releases/life-biosciences-announces-fda-clearance-of-ind-application-for-er-100-in-optic-neuropathies"},
+    {"who": "The first results", "said": "Eyesight got better in 2 of 3 patients after 8 weeks.", "label": "MEASURED", "why": "That is what the company reported in October 2026, before any outside review. It is only 3 people, and nobody got a fake treatment to compare against, so luck cannot be ruled out yet.", "source": "the company's early results, as reported in October 2026", "sourceLink": "https://eyewire.news/news/life-biosciences-announces-first-in-human-data-from-ongoing-phase-1-trial-evaluating-er-100-in-optic-neuropathies"},
+    {"who": "News headlines", "said": "The treatment reverses aging in the eye.", "label": "GUESS", "why": "3 people over 8 weeks cannot show that. This first test was built to check the treatment is safe. A bigger test with a comparison group would settle it."},
+    {"who": "News headlines", "said": "This means people will live longer.", "label": "GUESS", "why": "The test treats one eye disease. It does not measure how long anyone lives."}
+   ]
+  },
+  {
+   "id": "math",
+   "tab": "Math proof",
+   "title": "The birthday puzzle",
+   "status": "closed",
+   "summary": "Put 23 random people in a room. What are the odds that two of them share a birthday? Most people guess it is very unlikely. The real answer is better than 50/50. It sounds wrong, so we had a computer prove it.",
+   "takeaway": "Your gut can be badly wrong about chances. A math proof settles it for good: it holds every time, and anyone can rerun it. That is the only kind of claim that earns Proven.",
+   "entries": [
+    {"who": "The puzzle", "said": "With 23 people, the chance that two share a birthday is more than 50 percent.", "label": "PROVEN", "why": "Checked step by step by a proof-checking program called Lean. It works because 23 people make 253 different pairs, and each pair is a new chance for a match.", "link": "/v5/atlas#p05"}
+   ]
+  }
+ ]
+}
