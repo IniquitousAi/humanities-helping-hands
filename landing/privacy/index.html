@@ -18,9 +18,9 @@
 <p class="level-links">Read this page for: <a href="?level=kids">Kids</a> <a href="?level=everyone">Everyone</a> <a href="?level=technical">Technical</a></p>
 
 <header class="bar"><div class="wrap bar-in">
-  <a class="brand" href="/v4/"><b>HHH</b><span>Humanities Helping Hands</span></a>
-  <nav class="links" aria-label="Pages"><a href="/v4/check">Check</a><a href="/v4/atlas">Atlas</a><a href="/v4/open">Open problems</a><a href="/v4/plans">Plans</a><a href="/v4/book">The Book</a><a href="/v4/founders">Founders</a><a href="/scoreboard/">Scoreboard</a></nav>
-  <a class="btn btn-main" href="/v4/check">Check a claim</a>
+  <a class="brand" href="/v5/"><b>HHH</b><span>Humanities Helping Hands</span></a>
+  <nav class="links" aria-label="Pages"><a href="/v5/check">Check</a><a href="/v5/atlas">Atlas</a><a href="/v5/open">Open problems</a><a href="/v5/plans">Plans</a><a href="/v5/book">The Book</a><a href="/v5/founders">Founders</a><a href="/scoreboard/">Scoreboard</a></nav>
+  <a class="btn btn-main" href="/v5/check">Check a claim</a>
 </div></header>
 <main class="page v3f" id="main">
   <nav class="site-nav v3f-levels" aria-label="Reading level"><div class="level-switch" role="group" aria-label="Reading level"><p class="level-keys"><button type="button" data-pick="kids" aria-pressed="false">Kids</button><button type="button" data-pick="everyone" aria-pressed="true">Everyone</button><button type="button" data-pick="technical" aria-pressed="false">Technical</button></p></div></nav>
@@ -29,7 +29,7 @@
     <h1>Privacy</h1>
     <p class="sub"><span data-level="kids">We do not spy on you. We try to know as little about you as we can.</span><span data-level="everyone">We try to know as little about you as possible.</span><span data-level="technical">Minimal telemetry by design: client-side checking by default, an ephemeral MCP runtime, daily salted hashes with 2-day TTLs.</span></p>
     <p class="meta">Written from what the site's code does today, and checked against that code on every update.</p>
-    <p class="meta"><a href="/">Front page</a> &middot; <a href="/charter/">The Charter</a> &middot; Last updated 11 November 2026</p>
+    <p class="meta"><a href="/">Front page</a> &middot; <a href="/charter/">The Charter</a> &middot; Last updated 26 November 2026</p>
   </header>
   <section>
     <h2>What we collect</h2>
@@ -56,7 +56,7 @@
         <p>Newsletter subscriptions collect email only, transmitted to Buttondown via API over TLS.</p>
         <p>Founders Circle applications persist: applicant GitHub handle, strength, weakness, motivation text, portfolio URI, trial task, the day, and that day's device hash. Text is stored as written. Public directory display requires explicit consent (optin=true) and strips emails, phone numbers and URIs from the displayed fields. The 3-a-day submission ceiling uses a counter keyed by SHA-256(daily_salt | client network) in Cloudflare KV with a 2-day TTL; the same hash is stored with the application and is unlinkable once its salt expires, 2 days later.</p>
         <p>MCP endpoints at /mcp evaluate stateless JSON-RPC calls over HTTP; IP addresses are held in ephemeral memory for the 60 calls/minute bucket and never logged.</p>
-        <p>Client-side state only: localStorage holds the reading level (hhh-level), the theme (hhh-theme), the results view (hhh-view), the last checked text (hhh-last-check, removed by Clear), the Book page (hhh-book-page) and an unsent Founders form (hhh-fc-draft, removed on a successful send). None of it is transmitted. A shared check link and an Atlas search link carry their state in the URL fragment (q, find), which user agents do not put in a request.</p>
+        <p>Client-side state only: localStorage holds the reading level (hhh-level), the theme (hhh-theme), the results view (hhh-view), the last checked text (hhh-last-check, removed by Clear), the Book page (hhh-book-page) and an unsent Founders form (hhh-fc-draft, removed on a successful send). None of it is transmitted. One more name ships with the newest version and is not in use: hhh-fc-answer. That version's Founders page would write it after a successful send, but visitors cannot open that page today, because its address forwards to the scoreboard. The record would hold the trial task (kind, title, body), its GitHub issue link, the typed answer and a timestamp, rewritten on each keystroke in the answer box. It would be read back for 24 hours after the last write and deleted on the next load of that page after that. It would never be posted to this origin; the answer would leave the browser only in the query string of the GitHub link, when the visitor presses Open it on GitHub. A shared check link and an Atlas search link carry their state in the URL fragment (q, find), which user agents do not put in a request.</p>
       </div>
     </div>
   </section>
@@ -112,7 +112,7 @@
       <p data-level="technical">Security and compliance inquiries: <a href="mailto:hello@humanitieshelpinghands.com">hello@humanitieshelpinghands.com</a>. Document changes are version-controlled and stamped in public git log.</p>
     </div>
   </section>
-  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v4/check">Check a claim</a></section>
-  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version c8487390be</a></footer>
+  <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v5/check">Check a claim</a></section>
+  <footer class="foot"><a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version 33ca3a6c57</a></footer>
 </main>
 </body></html>

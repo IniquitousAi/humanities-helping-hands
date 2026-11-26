@@ -1,22 +1,22 @@
 {
- "built": "2026-11-25T09:22:33-06:00",
+ "built": "2026-11-26T06:32:46-06:00",
  "how": "python tools/proof5.py, run by every site update",
- "unattended_at": "2026-11-25T09:02:11-06:00",
+ "unattended_at": "2026-11-25T09:22:18-06:00",
  "checks": [
   {
    "n": 1,
    "name": "Free",
    "says": "Every public page and the AI tool door load signed out: no login, no paywall.",
-   "pass": false,
-   "receipt": "the last signed-out live fetch is 101 h old",
+   "pass": true,
+   "receipt": "31 of 31 sitemap pages and /mcp answered 200 signed out, no login or paywall (fetched 2026-11-25T09:33:39-06:00)",
    "blocks": false
   },
   {
    "n": 2,
    "name": "Open",
    "says": "The site code and the whole library (facts.json) download freely, with the license.",
-   "pass": false,
-   "receipt": "the last signed-out live fetch is 101 h old",
+   "pass": true,
+   "receipt": "facts.json (170 facts), the site's code and LICENSE.txt (Apache 2.0) downloaded signed out (fetched 2026-11-25T09:33:39-06:00)",
    "blocks": false
   },
   {
@@ -39,10 +39,10 @@
    "n": 5,
    "name": "Works when Daniel isn't there",
    "says": "A scheduled job rebuilds, checks and uploads the site with nobody at the PC.",
-   "pass": false,
-   "receipt": "the last unattended run, 2026-11-25T09:02:11-06:00, ended with code a failed check",
+   "pass": true,
+   "receipt": "\"HHH Update\" ran by itself at 2026-11-25T09:22:18-06:00, exit 0 in Windows Task Scheduler (every 2 h)",
    "blocks": false
   }
  ],
- "passed": 2
+ "passed": 5
 }

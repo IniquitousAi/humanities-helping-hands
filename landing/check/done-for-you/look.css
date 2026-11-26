@@ -20,3 +20,11 @@ html[data-js] .level-links { display:none; }
 .dfy .plan-go { display:inline-block; margin-left:8px; }
 .dfy .back { margin:8px 0 0; }
 @media (max-width:560px) { .dfy section { padding:20px 18px; } }
+
+.page-hero .wrap { text-align:center; }
+.page-hero .eyebrow { justify-content:center; }
+.page-hero .eyebrow::after { content:""; width:18px; height:1px; background:currentColor; }
+.page-hero .level-keys { justify-content:center; }
+@media (max-width:1180px) { .bar-in > .btn { margin-left:auto; } }
+@media (min-width:601px) and (max-width:1180px) { .bar .links > a:first-child { margin-left:auto; } .bar .links > a:last-child { margin-right:auto; } }
+@media (max-width:600px) { .bar .links { justify-content:center; } }

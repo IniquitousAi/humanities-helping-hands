@@ -66,3 +66,8 @@
   .v3f .lb-rank { font-size:22px; } .v3f .lb-points { font-size:24px; } .v3f .lb-name { font-size:17px; }
   .v3f .lb-open-row { padding:4px 18px 14px; }
 }
+
+.v3f .lb-chip.proven { background:var(--k-green); color:#000; }
+.v3f .lb-chip.measured { background:var(--k-yellow); color:#000; }
+.v3f .lb-chip.reasoned { background:var(--k-orange); color:#000; }
+.v3f .lb-chip.guess { background:var(--k-red); color:#000; }

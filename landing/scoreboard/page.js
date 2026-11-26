@@ -25,7 +25,7 @@ export function renderBoard(s, which = 'all', shown = FIRST) {
   const rule = `<p class="lb-rule">${esc(s.board_rule || '')}. ${esc(s.board_limit || '')}</p>`;
   if (!rows.length) return `<div class="lb-open"><div class="lb-seat">#1</div><h3>The first seat is open.</h3>`
     + `<p>Prove one thing and your name goes here for good, with a certificate you can print. Proven work scores most; work others build on keeps paying you.</p>`
-    + `<a class="go" href="/v4/check">Check a claim</a></div>` + rule;
+    + `<a class="go" href="/v5/check">Check a claim</a></div>` + rule;
   const imp = s.impact || {}, impact = who => {
     const m = imp[String(who).toLowerCase()];
     return m && Number.isFinite(m.estimate) && Number.isFinite(m.band) ? `<div class="lb-impact">Impact ${num(m.estimate)} &plusmn; ${num(m.band)}</div>` : '';
