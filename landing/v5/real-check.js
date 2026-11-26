@@ -159,7 +159,7 @@ export function render(rs, out) {
     : 'Type or paste something to check.';
   drawSorter(rs, out);
   const atlas = r => r.kind === 'library' ? ` &middot; <a href="atlas#${esc(r.id)}">open it in the Atlas</a>` : '';
-  const rec = r => r.receipt ? `<span class="rc-sep"> &middot; </span><button type="button" class="rcpt" data-receipt="${esc(r.receipt.sha256)}" title="Copy the whole receipt code">receipt <code>${esc(r.receipt.sha256.slice(0, 12))}</code></button>` : '';
+  const rec = r => r.receipt ? `<span class="rc-sep"> &middot; </span><button type="button" class="rcpt" data-receipt="${esc(r.receipt.sha256)}" title="Copy the whole receipt code. It covers the claim, its label, the check that ran and when it ran, so every run gets its own code; run the same check again and the label comes back the same.">receipt <code>${esc(r.receipt.sha256.slice(0, 12))}</code></button>` : '';
   const sug = r => r.suggest?.length ? `<span class="suggest">Did you mean ${r.suggest.length > 1 ? 'one of these' : 'this'}? ${r.suggest.map(f => `<button type="button" data-try="${esc(f)}">${esc(shown(f))}</button>`).join(' ')}</span>` : '';
   const near = r => r.near ? `<span class="suggest">The closest fact in the Atlas: <a href="atlas#${esc(r.near.id)}">${esc(r.near.claim.length > 110 ? r.near.claim.slice(0, 108) + '…' : r.near.claim)}</a></span>` : '';
   const groups = ORDER.map(w => [w, rs.filter(r => word(r) === w)]).filter(([, g]) => g.length);
