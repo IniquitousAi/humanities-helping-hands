@@ -8,6 +8,11 @@ html[data-js] .level-links { display:none; }
 .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
 .v3f { max-width:860px; margin:0 auto; padding:48px max(16px, env(safe-area-inset-left, 0px)) 96px; display:flex; flex-direction:column; gap:20px; }
+.bar .modes .level-switch, .bar .modes .level-keys { display:flex; margin:0; }
+.bar .modes button { font:inherit; letter-spacing:inherit; text-transform:inherit; padding:9px 12px; color:var(--ink-3); background:transparent; border:0; cursor:pointer; }
+.bar .modes button + button { border-left:1px solid var(--hair); }
+.bar .modes button[aria-pressed="true"] { color:#000; background:var(--ink); }
+.bar .modes button:not([aria-pressed="true"]):hover { color:var(--ink); }
 .v3f-levels .level-keys { display:flex; gap:8px; margin:0; flex-wrap:wrap; }
 .v3f-levels button { font:inherit; font-size:.95rem; color:var(--ink); background:transparent; border:1px solid var(--hair-2); border-radius:var(--r); padding:8px 18px; cursor:pointer; }
 .v3f-levels button:hover, .v3f-levels button[aria-pressed="true"] { border-color:var(--blue); color:var(--blue); }
@@ -108,5 +113,4 @@ html[data-js] .level-links { display:none; }
 .v3f > section.cert-actions { justify-content:center; }
 @media (max-width:1180px) { .bar-in > .btn { margin-left:auto; } }
 @media (min-width:601px) and (max-width:1180px) { .bar .links > a:first-child { margin-left:auto; } .bar .links > a:last-child { margin-right:auto; } }
-@media (max-width:600px) { .bar .links { justify-content:center; } }
-@media (max-width:620px) { .v3f > section.closing { justify-content:center; text-align:center; } }
+@media (max-width:600px) { .bar .links { justify-content:flex-start; } }   @media (max-width:620px) { .v3f > section.closing { justify-content:center; text-align:center; } }
