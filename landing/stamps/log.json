@@ -62,5 +62,14 @@
    "sig": "I6B3_kHxruD2BatJC-qojWoYRfRx1sqmKZMXLK0cY9EbomPcvchdwzYBrV6y52wb-Zb4mKyr4pcJ8xxzw0JBAQ",
    "prev": "e201397c9a7185f69414499040605de8950df2b97693dcf420bbfccc862e373b"
   }
+ ],
+ "builds_rule": "\"builds\" lists every build sent to the live site, oldest first, by the same build hash as \"entries\". signed true: an entry above carries its signature. signed false: its signature waits on the agree chain (tools/gate_pass.py), so /verify/ reads no stamp over it VALID yet. A row is only ever added, and signed only ever goes from false to true. The manifest of each is /stamps/<hash>.txt.",
+ "builds": [
+  {
+   "hash": "bc64826a331b77a258c723bad0683e0d35411f82c0bc92e7b7699f00c6956f01",
+   "date": "2026-11-26",
+   "manifest": "/stamps/bc64826a331b77a258c723bad0683e0d35411f82c0bc92e7b7699f00c6956f01.txt",
+   "signed": false
+  }
  ]
 }

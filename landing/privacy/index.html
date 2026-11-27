@@ -73,18 +73,21 @@
     <div class="lv">
       <div data-level="kids">
         <p>No ads, no data selling, no tracking cookies. Cloudflare hosts the site. Buttondown sends the emails. If you pay, Stripe takes the payment on its own page, and we never see your card number. Lookups happen only when you click one, and then Wikipedia gets that one sentence. We do not track you.</p>
+        <p>The Founders form uses Cloudflare Turnstile to check you are a person. The scoreboard shows each person's public X picture, which we get from unavatar.io. If you pay for a stamp, we keep your file for 90 days so it can be checked, then it is gone.</p>
       </div>
       <div data-level="everyone">
         <p>Cloudflare hosts the site and the connector, and may keep its own standard security logs under its own policy. Buttondown holds newsletter addresses and sends the emails.</p>
         <p>Stripe takes payments on its own page, under its own policy, and your card number never reaches this site. Today the pay buttons are in test mode and no real money moves. After a payment we keep Stripe's order numbers, the fingerprint of your file, the amount and the time. No name and no email is kept with a payment on this site; Stripe holds those. If you email your file to hello@humanitieshelpinghands.com, that email reaches our inbox like any other email.</p>
         <p>Lookups happen only when you click one. Wikipedia and Wikidata get that one sentence from your browser. Grokipedia lookups go through a small relay on this site that asks for one article title and may cache the article for a day. The title is not saved with anything about you. A one-way code made from your connection and a key that changes daily counts lookups, 60 a day per device, and is deleted after 2 days.</p>
         <p>No ads, no selling data and no tracking cookies. Our own visitor counter counts each device once a day. It keeps only a one-way code made from your address (for an IPv6 connection, its network part) mixed with a random key that changes every day. It deletes that code after 2 days, never keeps the address itself, and skips bots. Cloudflare Web Analytics, which is cookieless, may also count. It counts visits and page views so the front page can show them, and it does not set a cookie or follow you to other sites. We never keep your address (IP) itself, and we guess only how many visitors block the counter, never who. Browsers that block it are simply not counted.</p>
+        <p>The Founders form uses Cloudflare Turnstile, under Cloudflare's own policy, to tell a person from a bot before it takes an application. The scoreboard's pictures are each person's public X profile picture, fetched through unavatar.io by their X handle; your own browser does not contact unavatar.io. If you pay for a stamp and send your file on the thank-you page, the file itself is kept for 90 days so the check can run and run again, and is then deleted. Today that door is open only in test mode.</p>
       </div>
       <div data-level="technical">
         <p>Third-party processors: Cloudflare Pages / Workers (edge execution, L4/L7 termination under Cloudflare privacy standard). Buttondown Inc. (subscription registry under GDPR/CCPA compliance).</p>
         <p>Payments: Stripe hosted Checkout, in test mode today; card data never transits this origin. The signature-verified webhook persists the Stripe event, session and payment-intent ids, the SHA-256 work hash, the amount in cents and a timestamp; no name, email or card field is stored.</p>
         <p>External resolution: Client-directed requests to MediaWiki APIs (Wikipedia/Wikidata) transmit solely the query term directly from user agent. Grokipedia proxy isolates client IPs, caching entity definitions with 86400s TTL; a per-device counter keyed by the daily salted hash allows 60 lookups a day and expires after 2 days.</p>
         <p>Analytics: Cookieless edge beacons (Cloudflare Web Analytics, zero state persistence). First-party daily counter generates SHA-256(DailyRotatingSalt | client address, the /64 network for IPv6) with automatic TTL eviction at 172800s (2 days). No persistent identifier is written to storage.</p>
+        <p>Bot screening: Cloudflare Turnstile on the Founders form, under Cloudflare's policy. Avatars: the server fetches each board handle's public X picture from unavatar.io; no visitor data is sent. Paid stamp files (/api/stamp-file): the file bytes are stored in KV under their SHA-256 with a 90-day TTL, written only for a paid, unrefunded order; the door answers in test mode only today.</p>
       </div>
     </div>
   </section>
@@ -115,6 +118,6 @@
   <section class="closing" aria-label="Next step"><p>Have a claim to check?</p><a class="go" href="/v5/check">Check a claim</a></section>
   <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version a5d5b8a72d</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version 77069900c8</a></div></footer>
 </main>
 </body></html>

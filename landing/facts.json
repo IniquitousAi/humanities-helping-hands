@@ -1,6 +1,6 @@
 {
  "name": "Humanities Helping Hands: the library of proven facts",
- "made": "2026-11-27T00:00:55.974Z",
+ "made": "2026-11-27T03:01:23.922Z",
  "count": 170,
  "labels": {
   "PROVEN": "a machine checked the statement in checked_as",
@@ -239,7 +239,7 @@
    "checked_as": "1/1000",
    "theorem": "TowerBatch.p21_rare_one_in_1000",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p21",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -486,7 +486,7 @@
    "checked_as": "exp(2)",
    "theorem": "WaitingLane.p56_lognormal_mean",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p56",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -499,7 +499,7 @@
    "checked_as": "608383/1000000",
    "theorem": "CheapLane.p63_trap_coprime_pair_finite",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p63",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -525,7 +525,7 @@
    "checked_as": "11/122",
    "theorem": "TowerBatch.p65_trap_medical_test_positive",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p65b",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -538,7 +538,7 @@
    "checked_as": "10000000999/10000000000000",
    "theorem": "TowerBatch.p68_trap_common_shock_failure",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p68",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -564,7 +564,7 @@
    "checked_as": "1/10100",
    "theorem": "TowerBatch.p69_trap_two_records_in_row",
    "not_proven": null,
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#p69b",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -941,7 +941,7 @@
    "checked_as": "Fintype.card_perm.{u_1} {α : Type u_1} [DecidableEq α] [Fintype α] : Fintype.card (Equiv.Perm α) = (Fintype.card α).factorial",
    "theorem": "Fintype.card_perm",
    "not_proven": "Lean checks the statement shown above, not the plain English line, which a person wrote to match it.",
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#m17",
    "credit": "the Mathlib community; added by Daniel Steadham with Claude"
   },
@@ -1552,7 +1552,7 @@
    "checked_as": "Real.exp_pos (x : ℝ) : 0 < Real.exp x",
    "theorem": "Real.exp_pos",
    "not_proven": "Lean checks the statement shown above, not the plain English line, which a person wrote to match it.",
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#m64",
    "credit": "the Mathlib community; added by Daniel Steadham with Claude"
   },
@@ -1773,7 +1773,7 @@
    "checked_as": "c / mile ~= 186282",
    "theorem": "Checked.fact_c5f17bbea5",
    "not_proven": "Only the numbers in it are proven (the arithmetic, the rounding, the unit conversion), not the measured fact they describe.",
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#c14",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -1786,7 +1786,7 @@
    "checked_as": "384400000 / c ~= 1.3",
    "theorem": "Checked.fact_0408b364e3",
    "not_proven": "Only the numbers in it are proven (the arithmetic, the rounding, the unit conversion), not the measured fact they describe.",
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#c15",
    "credit": "Daniel Steadham, with Claude"
   },
@@ -2046,7 +2046,7 @@
    "checked_as": "165000000 / 1.609344^2 ~= 64000000",
    "theorem": "Checked.fact_0b44015d6d",
    "not_proven": "Only the numbers in it are proven (the arithmetic, the rounding, the unit conversion), not the measured fact they describe.",
-   "added": "2026-10-29",
+   "added": "2026-11-26",
    "link": "https://humanitieshelpinghands.com/atlas/#c35",
    "credit": "Daniel Steadham, with Claude"
   },

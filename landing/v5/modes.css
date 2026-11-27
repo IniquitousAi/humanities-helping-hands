@@ -321,6 +321,7 @@ p, li, dd, .card-note { text-wrap:pretty; }
   .k-robot .k-claim, .k-robot .k-answer { overflow-wrap:anywhere; }
   .k-robot .arrow { transform:rotate(90deg); justify-self:center; }
   .cols-3, .cols-4 { grid-template-columns:1fr 1fr; }
+    .cols-3 > :last-child:nth-child(odd), .cols-4 > :last-child:nth-child(odd) { grid-column:1 / -1; justify-self:center; width:calc(50% - 8px); }
   .kpis { grid-template-columns:1fr 1fr; }
   .kpi:nth-child(3) { border-left:0; }
   .kpi:nth-child(n+3) { border-top:1px solid var(--hair); }
@@ -333,6 +334,7 @@ p, li, dd, .card-note { text-wrap:pretty; }
   .modes { margin-left:auto; }
   .modes a { padding:9px 8px; letter-spacing:.08em; }
   .cols-3, .cols-4 { grid-template-columns:1fr; }
+  .cols-3 > :last-child:nth-child(odd), .cols-4 > :last-child:nth-child(odd) { grid-column:auto; justify-self:stretch; width:auto; }
   .sec { padding:64px 0; }
   .ask { flex-direction:column; }
   .k-ask { flex-direction:column; }

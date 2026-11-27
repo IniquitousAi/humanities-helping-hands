@@ -1,7 +1,7 @@
 {
  "v": 2,
- "built": "2026-11-21T08:44:18.053Z",
- "id": "4612be2f6f04d9be2148ea46ec0bbb0b04a75f12377e35df2a7d5c7a18dbc785",
+ "built": "2026-11-27T01:04:46.208Z",
+ "id": "2e7574e94384b4296eb65797750f76d8d71c388f88bf4d5b5e97a0b222aed095",
  "rule": "points by label (proven 8, measured 4, reasoned 2, guess 1), half of each piece passed down what it built on; money, signup, predictions and taste never move rank",
  "limit": "Credit is automatic and permanent. Rings and fake accounts are reduced and flagged, not made impossible; detection misses careful rings and sometimes flags honest pairs, which is why holds expire.",
  "boards": {
@@ -10,7 +10,7 @@
    "rows": [
     {
      "rank": 1,
-     "who": "IniquitousAi",
+     "who": "33_SI_Agents",
      "score": 16,
      "mix": {
       "PROVEN": 2,
@@ -20,7 +20,7 @@
      },
      "pruned": 0,
      "name": "Daniel",
-     "x": "IniquitousAi",
+     "x": "33_SI_Agents",
      "role": "Founder",
      "about": "Started Humanities Helping Hands: a place where any claim gets checked in the open and labeled proven, measured, reasoned or guess. Built the foundation, then handed it to everyone.",
      "top": {
@@ -29,7 +29,7 @@
       "points": 8,
       "kept": 8,
       "passed": 0,
-      "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Root.lean",
+      "source": "https://github.com/humanityhelpinghands/lean-proofs/blob/master/LeanProofs/Root.lean",
       "date": "2026-11-21",
       "pruned": false
      },
@@ -40,7 +40,7 @@
        "points": 8,
        "kept": 8,
        "passed": 0,
-       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Root.lean",
+       "source": "https://github.com/humanityhelpinghands/lean-proofs/blob/master/LeanProofs/Root.lean",
        "date": "2026-11-21",
        "pruned": false
       },
@@ -50,12 +50,12 @@
        "points": 8,
        "kept": 8,
        "passed": 0,
-       "source": "https://github.com/IniquitousAi/lean-proofs/blob/master/LeanProofs/Founder.lean",
+       "source": "https://github.com/humanityhelpinghands/lean-proofs/blob/master/LeanProofs/Founder.lean",
        "date": "2026-11-21",
        "pruned": false
       }
      ],
-     "pic": "/scoreboard/avatars/iniquitousai.jpg"
+     "pic": "/scoreboard/avatars/33_si_agents.jpg"
     },
     {
      "rank": 2,
