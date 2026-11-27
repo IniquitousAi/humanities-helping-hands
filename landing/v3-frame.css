@@ -112,4 +112,4 @@ html[data-js] .level-links { display:none; }
 .v3f .cert-back { text-align:center; }
 .v3f > section.cert-actions { justify-content:center; }
 @media (max-width:1199px) { .bar-in > .btn { margin-left:auto; } .bar-in > .modes + .btn { margin-left:0; } }   @media (min-width:601px) and (max-width:1199px) { .bar .links > a:first-child { margin-left:auto; } .bar .links > a:last-child { margin-right:auto; } }
-@media (max-width:600px) { .bar .links { justify-content:flex-start; } }   @media (max-width:620px) { .v3f > section.closing { justify-content:center; text-align:center; } }
+@media (max-width:600px) { .bar .links { justify-content:space-evenly; } }   @media (max-width:620px) { .v3f > section.closing { justify-content:center; text-align:center; } }

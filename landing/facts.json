@@ -1,6 +1,6 @@
 {
  "name": "Humanities Helping Hands: the library of proven facts",
- "made": "2026-11-11T16:54:10.635Z",
+ "made": "2026-11-27T00:00:55.974Z",
  "count": 170,
  "labels": {
   "PROVEN": "a machine checked the statement in checked_as",
@@ -232,7 +232,7 @@
   },
   {
    "id": "p21",
-   "claim": "one specified outcome in 1,000",
+   "claim": "Drawing one whole number at random from 0 to 999 lands on one chosen number, such as 0, with chance exactly 1 in 1,000",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
@@ -479,20 +479,20 @@
   },
   {
    "id": "p56",
-   "claim": "the average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39",
+   "claim": "The average of a lognormal payout e^(2X), where X is a standard bell-curve number (mean 0, spread 1), is exactly e^2, about 7.39",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
    "checked_as": "exp(2)",
    "theorem": "WaitingLane.p56_lognormal_mean",
    "not_proven": null,
-   "added": "2026-11-01",
+   "added": "2026-10-29",
    "link": "https://humanitieshelpinghands.com/atlas/#p56",
    "credit": "Daniel Steadham, with Claude"
   },
   {
    "id": "p63",
-   "claim": "two numbers up to 1,000 share no common factor",
+   "claim": "Two whole numbers drawn at random from 1 to 1,000 share no common factor with chance exactly 608,383 in 1,000,000",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
@@ -518,7 +518,7 @@
   },
   {
    "id": "p65b",
-   "claim": "chance of disease after a positive 99%-sensitive test",
+   "claim": "If 1 person in 1,000 has a disease and a test is positive for 99% of the sick and 1% of the healthy, a positive test means an 11 in 122 chance, about 9%, of having it",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
@@ -531,7 +531,7 @@
   },
   {
    "id": "p68",
-   "claim": "all five backup units fail, with a rare common shock",
+   "claim": "Five backup units that each fail 1 day in 100, plus a 1 in 1,000 shock that knocks out all five, all fail on the same day with chance exactly 10,000,000,999 in 10,000,000,000,000, just over 1 in 1,000",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
@@ -557,7 +557,7 @@
   },
   {
    "id": "p69b",
-   "claim": "days 100 and 101 are both rainfall records",
+   "claim": "With random rainfall on days 1 to 101, days 100 and 101 are both new records with chance exactly 1 in 10,100",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean",
@@ -934,7 +934,7 @@
   },
   {
    "id": "m17",
-   "claim": "n different things can be put in order in exactly n factorial ways",
+   "claim": "Any n different things can be put in order in exactly n factorial ways",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean (Mathlib)",
@@ -1545,7 +1545,7 @@
   },
   {
    "id": "m64",
-   "claim": "e to any real power is always positive",
+   "claim": "The number e raised to any real power is always positive",
    "label": "PROVEN",
    "claim_label": "GUESS",
    "checked_by": "Lean (Mathlib)",
@@ -1766,7 +1766,7 @@
   },
   {
    "id": "c14",
-   "claim": "that is about 186,282 miles/s",
+   "claim": "The speed of light, 299,792,458 meters a second, is about 186,282 miles a second",
    "label": "ARITHMETIC-CHECKED",
    "claim_label": "OPEN",
    "checked_by": "Lean",
@@ -1779,7 +1779,7 @@
   },
   {
    "id": "c15",
-   "claim": "light takes roughly 1.3 seconds to get from the Moon to us",
+   "claim": "Light takes roughly 1.3 seconds to get from the Moon to us",
    "label": "ARITHMETIC-CHECKED",
    "claim_label": "OPEN",
    "checked_by": "Lean",
@@ -2039,7 +2039,7 @@
   },
   {
    "id": "c35",
-   "claim": "roughly 64 million square miles",
+   "claim": "The Pacific, the largest ocean, covers about 165 million square kilometers, roughly 64 million square miles",
    "label": "ARITHMETIC-CHECKED",
    "claim_label": "OPEN",
    "checked_by": "Lean",

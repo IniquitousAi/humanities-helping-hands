@@ -27,6 +27,7 @@
 .v3f .lb-open h3 { margin:12px 0 8px; font:600 24px/1.2 var(--sans); color:#fff; }
 .v3f .lb-open p { margin:0 auto 18px; max-width:46ch; color:#e6e6e6; }
 .v3f .lb-rule { margin:14px 0 0; font:400 13.5px/1.5 var(--sans); color:#c8c8c8; }
+.v3f .lb > .lb-rule:first-child { margin:0 0 12px; }
 .v3f .lb-list { border-top:0; }
 .v3f .lb-row { display:block; padding:0; margin:0 0 8px; border:0; background:#0a0a0f; clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%); }
 .v3f .lb-row details > summary { list-style:none; display:grid; grid-template-columns:52px 48px 1fr auto; align-items:center; gap:14px; padding:12px 26px; cursor:pointer; border-left:3px solid #7a3cff; }

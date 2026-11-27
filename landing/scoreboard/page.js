@@ -22,7 +22,7 @@ function mixBar(mix = {}) {
 export function renderBoard(s, which = 'all', shown = FIRST) {
   if (!s || s.board_label !== 'MEASURED') return `<p><span class="tag guess">NOT MEASURED</span> The board could not be read right now. No rank is shown rather than an old one.</p>`;
   const b = (s.boards || {})[which] || { rows: [] }, rows = Array.isArray(b.rows) ? b.rows : [];
-  const rule = `<p class="lb-rule">${esc(s.board_rule || '')}. ${esc(s.board_limit || '')}</p>`;
+  const rule = s.board_rule ? `<p class="lb-rule">How the points work: ${esc(s.board_rule)}. ${esc(s.board_limit || '')}</p>` : '';
   if (!rows.length) return `<div class="lb-open"><div class="lb-seat">#1</div><h3>The first seat is open.</h3>`
     + `<p>Prove one thing and your name goes here for good, with a certificate you can print. Proven work scores most; work others build on keeps paying you.</p>`
     + `<a class="go" href="/v5/check">Check a claim</a></div>` + rule;
