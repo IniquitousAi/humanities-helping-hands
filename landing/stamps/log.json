@@ -76,6 +76,12 @@
    "date": "2026-11-26",
    "manifest": "/stamps/f98b21ec325de83a6814cb62362be650a74b8b82cb9a436e87068ac338a8a19f.txt",
    "signed": false
+  },
+  {
+   "hash": "d703dad23d3acd7c13b899f93cf152c030fcd7f1fb1a908ff57afde2cd8cdf3c",
+   "date": "2026-11-27",
+   "manifest": "/stamps/d703dad23d3acd7c13b899f93cf152c030fcd7f1fb1a908ff57afde2cd8cdf3c.txt",
+   "signed": false
   }
  ]
 }
