@@ -48,7 +48,7 @@
     <ol>
       <li><b>The files.</b> Download <a href="/stamp/manifest.txt">manifest.txt</a>: one line per published file, its SHA-256 and its path. Fetch any file (for example <a href="/facts.json">/facts.json</a>), run <code>sha256sum</code> on it, and the number must match its line. Data files and scripts match byte for byte. Pages match once Cloudflare's additions are taken out: it adds its analytics script and hides email addresses on the way out.</li>
       <li><b>When.</b> <a href="/stamp/manifest.txt.ots">manifest.txt.ots</a> anchors the manifest's fingerprint in Bitcoin. Check it at opentimestamps.org, or run <code>ots verify manifest.txt.ots</code>. <a href="/stamp/">More on the stamp</a>.</li>
-      <li><b>The proofs.</b> Clone <a href="https://github.com/IniquitousAi/lean-proofs">lean-proofs</a> and run <code>./RERUN.sh</code> (<code>RERUN.cmd</code> on Windows). The first run takes 20 to 40 minutes while Lean fetches Mathlib, then prints PASS or FAIL for each claim. The Lean files are in the manifest too, so you can see they are the ones we stamped. The Root Theorem also re-checks in your browser on <a href="/check/">the check page</a>.</li>
+      <li><b>The proofs.</b> Clone <a href="https://github.com/humanityhelpinghands/lean-proofs">lean-proofs</a> and run <code>./RERUN.sh</code> (<code>RERUN.cmd</code> on Windows). The first run takes 20 to 40 minutes while Lean fetches Mathlib, then prints PASS or FAIL for each claim. The Lean files are in the manifest too, so you can see they are the ones we stamped. The Root Theorem also re-checks in your browser on <a href="/check/">the check page</a>.</li>
       <li><b>A stamp.</b> Paste it in the box above. Your browser checks our signature with <a href="/.well-known/hhh-stamp-key.json">our public key</a> and finds it in <a href="/stamps/log.json">the public log</a>.</li>
     </ol>
     <p class="note">The site's own test suite is not public yet, so that check cannot be repeated from outside today.</p>
@@ -59,7 +59,7 @@
   <section class="closing" aria-label="Next step"><p>Want your own work checked and stamped?</p><a class="go" href="/check/done-for-you/">See the plans</a></section>
   <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version ea4c5ec0ac</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version 23480ac6a8</a></div></footer>
 </main>
 
 </body></html>

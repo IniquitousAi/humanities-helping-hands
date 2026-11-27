@@ -1,4 +1,4 @@
-export const REPO = 'https://github.com/IniquitousAi/lean-proofs';
+export const REPO = 'https://github.com/humanityhelpinghands/lean-proofs';
 const HANDLE = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/;
 
 export function issueUrl(task) {

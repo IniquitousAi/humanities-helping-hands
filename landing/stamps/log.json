@@ -94,6 +94,12 @@
    "date": "2026-11-27",
    "manifest": "/stamps/2f30a166241eb416857c956fb53b41f26cecb57071cc0fe09777cdbec87cef09.txt",
    "signed": false
+  },
+  {
+   "hash": "b8cbcc587f6ffbb1a03a51eccafde44396390efe5a366671993e172c281cbdfc",
+   "date": "2026-11-27",
+   "manifest": "/stamps/b8cbcc587f6ffbb1a03a51eccafde44396390efe5a366671993e172c281cbdfc.txt",
+   "signed": false
   }
  ]
 }
