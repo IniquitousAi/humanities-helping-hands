@@ -45,11 +45,11 @@ export function checkKeeper(claim, data) {
   const ref = { id: p[0], name }, src = `USDA FSIS FoodKeeper (product ${p[0]}, data from Sept 2018): ${name}, ${usda} ${where}${tip ? ` (${tip})` : ''}`;
   if (min == null) {
     const agrees = not && /not recommended/i.test(unit);
-    return { verdict: agrees ? 'CHECKED' : 'GUESS', why: agrees ? src : `USDA FSIS FoodKeeper does not back that: ${src.slice(src.indexOf(': ') + 2)}`, product: ref, place, usda };
+    return { verdict: agrees ? 'REASONED' : 'GUESS', why: agrees ? src : `USDA FSIS FoodKeeper does not back that: ${src.slice(src.indexOf(': ') + 2)}`, product: ref, place, usda };
   }
   if (!t) return { verdict: 'GUESS', why: `USDA FSIS FoodKeeper gives a time, not a no: ${src.slice(src.indexOf(': ') + 2)}`, product: ref, place, usda };
   const per = DAYS[t[3].toLowerCase()], lo = num(t[1]) * per, hi = num(t[2] ?? t[1]) * per, u = DAYS[String(unit).toLowerCase().replace(/s$/, '')];
   if (!u) return null;
   const inside = lo >= min * u && hi <= max * u;
-  return { verdict: inside ? 'CHECKED' : 'GUESS', why: inside ? src : `USDA FSIS FoodKeeper does not back ${t[0].trim()}: ${src.slice(src.indexOf(': ') + 2)}`, product: ref, place, usda };
+  return { verdict: inside ? 'REASONED' : 'GUESS', why: inside ? src : `USDA FSIS FoodKeeper does not back ${t[0].trim()}: ${src.slice(src.indexOf(': ') + 2)}`, product: ref, place, usda };
 }

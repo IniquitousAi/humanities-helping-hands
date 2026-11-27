@@ -1,5 +1,5 @@
 {
- "made": "2026-11-27T09:09:09.769Z",
+ "made": "2026-11-27T13:04:12.718Z",
  "source": "landing-tests/scoreboard.mjs",
  "rules": {
   "proven_facts": "facts in facts.json: the PROVEN ones, plus the ARITHMETIC-CHECKED ones whose numbers alone a machine checked (their real-world part is still open)",
@@ -18,7 +18,6 @@
   "agent_test_wrong_latest": "calls in each test agent's latest round whose label was not the expected one",
   "label_proven": "label pills reading PROVEN on the site's built pages, counted by their word",
   "label_measured": "label pills reading MEASURED on the site's built pages, counted by their word",
-  "label_checked": "label pills reading CHECKED on the site's built pages, counted by their word",
   "label_reasoned": "label pills reading REASONED on the site's built pages, counted by their word",
   "label_guess": "label pills reading GUESS on the site's built pages, counted by their word",
   "label_blocked": "label pills reading BLOCKED on the site's built pages, counted by their word",
@@ -41,8 +40,7 @@
   "agent_test_wrong_latest": 0,
   "label_proven": 17,
   "label_measured": 10,
-  "label_checked": 2,
-  "label_reasoned": 40,
+  "label_reasoned": 41,
   "label_guess": 10,
   "label_blocked": 5,
   "label_open": 10
@@ -665,8 +663,7 @@
    "agent_test_wrong_latest": 0,
    "label_proven": 17,
    "label_measured": 10,
-   "label_checked": 2,
-   "label_reasoned": 40,
+   "label_reasoned": 41,
    "label_guess": 10,
    "label_blocked": 5,
    "label_open": 10

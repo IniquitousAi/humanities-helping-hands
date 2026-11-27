@@ -55,6 +55,6 @@ export async function checkNames(said, get) {
   if (missing.length) return { verdict: 'GUESS', names: seen,
     why: `${REGISTRY[missing[0].registry]} has no package named ${list(missing)}: this name may be made up; still a guess, which never means false` };
   const where = [...new Set(seen.map(n => REGISTRY[n.registry]))].join(' and ');
-  if (onlyInstall(said, names)) return { verdict: 'CHECKED', names: seen, why: `${where} lists ${list(seen)}: the package name is real` };
+  if (onlyInstall(said, names)) return { verdict: 'REASONED', names: seen, why: `${where} lists ${list(seen)}: the package name is real` };
   return { verdict: 'GUESS', names: seen, why: `${where} lists ${list(seen)}, so the name is real; the rest of the claim is still a guess` };
 }

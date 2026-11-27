@@ -70,7 +70,7 @@ export function checkFood(claim, data) {
   const vals = portions.map(([label, g]) => ({ label, g, v: per100 * g / 100 })), hit = vals.filter(x => fits(x.v)).sort((a, b) => Math.abs(a.v - want) - Math.abs(b.v - want))[0];
   const show = x => `${x.label === '100 g' ? '100 g' : `${x.label} (${x.g} g)`} has ${fmt(x.v)} ${key === 'kcal' ? 'calories' : `${unit} of ${key}`}`;
   const ref = { id: food[0], name: food[1], url: data.url + food[0] };
-  if (hit) return { verdict: 'CHECKED', why: `USDA FoodData Central: ${food[1]}, ${show(hit)}`, food: ref, value: fmt(hit.v), basis: hit.label };
+  if (hit) return { verdict: 'REASONED', why: `USDA FoodData Central: ${food[1]}, ${show(hit)}`, food: ref, value: fmt(hit.v), basis: hit.label };
   const lo = vals.reduce((a, b) => (a.v < b.v ? a : b)), hi = vals.reduce((a, b) => (a.v > b.v ? a : b));
   const range = lo === hi ? show(lo) : `${show(lo)} up to ${show(hi)}`;
   return { verdict: 'GUESS', why: `USDA FoodData Central does not back ${m[0].trim()}: ${food[1]}, ${range}`, food: ref, value: fmt(lo.v), basis: lo.label };

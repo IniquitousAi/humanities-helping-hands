@@ -22,7 +22,7 @@ const EXAMPLE = 'Most adults need about 3.7 liters of water a day, which is roug
 const TAG = { PROVEN: ['proven', 'PROVEN'], FALSIFIED: ['falsified', 'CHECK FAILED'], GUESS: ['guess', 'GUESS'], OPEN: ['guess', 'OPEN PROBLEM'] };
 const TIP = { PROVEN: 'A machine check ran and held. It does not cover anything past that check.',
   FALSIFIED: 'The check did not match. It does not mean the rest of the answer is wrong.',
-  CHECKED: 'A trusted source says the same thing, and its words are shown. Sources can be wrong, so never PROVEN.',
+  MATCH: 'A trusted source says the same thing, and its words are shown. Sources can be wrong, so never PROVEN.',
   REASONED: 'Sources were read and their words are shown, but they do not back the claim as written. It does not mean false.',
   GUESS: 'Not machine checked, and no source found so far. It does not mean false: the lookup on the row can check it.',
   OPEN: 'An unsolved problem: nobody has proved or disproved it. It does not mean true or false, and no lookup settles it.' };
@@ -93,14 +93,14 @@ async function foodCheck(said, li, tag, body) {
     const r = checkFood(said, await foodData); if (!r) return;
     body.querySelector('.whyguess')?.remove(); body.querySelector('.lookup-box')?.remove();
     const out = document.createElement('div'), head = document.createElement('span'), line = document.createElement('span'), a = document.createElement('a');
-    if (r.verdict === 'CHECKED') {
-      tag.className = 'tag checked'; tag.textContent = 'CHECKED'; tag.title = TIP.CHECKED; delete tag.dataset.grade;
+    if (r.verdict === 'REASONED') {
+      tag.className = 'tag reasoned'; tag.textContent = 'REASONED'; tag.title = TIP.MATCH; tag.dataset.grade = 'source match';
       const how = li.querySelector('.how');
-      if (how) addReceipt(how, said, 'CHECKED', `food: USDA FoodData Central ${r.food.id} "${r.food.name}", ${r.basis}`, r.why);
+      if (how) addReceipt(how, said, 'REASONED', `food: USDA FoodData Central ${r.food.id} "${r.food.name}", ${r.basis}`, r.why);
     } else reasoned(tag);
-    head.className = r.verdict === 'CHECKED' ? 'source-head' : 'whyguess';
-    head.textContent = r.verdict === 'CHECKED' ? `(${r.why}. A lab table is a source, and one food is not every food, so never PROVEN)` : `(${r.why}. Read the source below; this never means false)`;
-    line.className = 'source ' + (r.verdict === 'CHECKED' ? 'supports' : 'opposes');
+    head.className = r.verdict === 'REASONED' ? 'source-head' : 'whyguess';
+    head.textContent = r.verdict === 'REASONED' ? `(${r.why}. A lab table is a source, and one food is not every food, so never PROVEN)` : `(${r.why}. Read the source below; this never means false)`;
+    line.className = 'source ' + (r.verdict === 'REASONED' ? 'supports' : 'opposes');
     a.href = r.food.url; a.rel = 'noopener'; a.target = '_blank'; a.textContent = `USDA FoodData Central, "${r.food.name}" (food ${r.food.id})`;
     line.append(a); out.append(head, line); body.append(out);
     tally();
@@ -114,14 +114,14 @@ async function keeperCheck(said, li, tag, body) {
     const d = await keeperData, r = checkKeeper(said, d); if (!r) return;
     body.querySelector('.whyguess')?.remove(); body.querySelector('.lookup-box')?.remove();
     const out = document.createElement('div'), head = document.createElement('span'), line = document.createElement('span'), a = document.createElement('a');
-    if (r.verdict === 'CHECKED') {
-      tag.className = 'tag checked'; tag.textContent = 'CHECKED'; tag.title = TIP.CHECKED; delete tag.dataset.grade;
+    if (r.verdict === 'REASONED') {
+      tag.className = 'tag reasoned'; tag.textContent = 'REASONED'; tag.title = TIP.MATCH; tag.dataset.grade = 'source match';
       const how = li.querySelector('.how');
-      if (how) addReceipt(how, said, 'CHECKED', `storage: USDA FSIS FoodKeeper product ${r.product.id} "${r.product.name}", ${r.usda} (${r.place})`, r.why);
+      if (how) addReceipt(how, said, 'REASONED', `storage: USDA FSIS FoodKeeper product ${r.product.id} "${r.product.name}", ${r.usda} (${r.place})`, r.why);
     } else reasoned(tag);
-    head.className = r.verdict === 'CHECKED' ? 'source-head' : 'whyguess';
-    head.textContent = r.verdict === 'CHECKED' ? `(${r.why}. A food safety guideline is a source, not a law of nature, so never PROVEN)` : `(${r.why}. Read the source below; this never means false)`;
-    line.className = 'source ' + (r.verdict === 'CHECKED' ? 'supports' : 'opposes');
+    head.className = r.verdict === 'REASONED' ? 'source-head' : 'whyguess';
+    head.textContent = r.verdict === 'REASONED' ? `(${r.why}. A food safety guideline is a source, not a law of nature, so never PROVEN)` : `(${r.why}. Read the source below; this never means false)`;
+    line.className = 'source ' + (r.verdict === 'REASONED' ? 'supports' : 'opposes');
     a.href = d.url; a.rel = 'noopener'; a.target = '_blank'; a.textContent = `USDA FSIS FoodKeeper, "${r.product.name}" (product ${r.product.id})`;
     line.append(a); out.append(head, line); body.append(out);
     tally();
@@ -151,14 +151,14 @@ function nameButton(said, li, tag, body) {
     try {
       const r = await checkNames(said, getRegistry), out = document.createElement('div');
       body.querySelector('.whyguess')?.remove();
-      if (r.verdict !== 'CHECKED' && (r.sources || r.names || []).length) reasoned(tag);
-      if (r.verdict === 'CHECKED') {
-        tag.className = 'tag checked'; tag.textContent = 'CHECKED'; tag.title = TIP.CHECKED; delete tag.dataset.grade;
+      if (r.verdict !== 'REASONED' && (r.sources || r.names || []).length) reasoned(tag);
+      if (r.verdict === 'REASONED') {
+        tag.className = 'tag reasoned'; tag.textContent = 'REASONED'; tag.title = TIP.MATCH; tag.dataset.grade = 'source match';
         const how = li.querySelector('.how');
-        if (how) addReceipt(how, said, 'CHECKED', `names: ${r.names.map(n => `${n.registry} ${n.name}`).join(', ')}`, r.names.map(n => `${n.name} ${n.version}`).join(', '));
+        if (how) addReceipt(how, said, 'REASONED', `names: ${r.names.map(n => `${n.registry} ${n.name}`).join(', ')}`, r.names.map(n => `${n.name} ${n.version}`).join(', '));
       }
-      const head = document.createElement('span'); head.className = r.verdict === 'CHECKED' ? 'source-head' : 'whyguess';
-      head.textContent = `(${r.why}${r.verdict === 'CHECKED' ? '; a listed package can still be the wrong one, so never PROVEN' : ''})`;
+      const head = document.createElement('span'); head.className = r.verdict === 'REASONED' ? 'source-head' : 'whyguess';
+      head.textContent = `(${r.why}${r.verdict === 'REASONED' ? '; a listed package can still be the wrong one, so never PROVEN' : ''})`;
       out.append(head);
       for (const n of r.names.filter(n => n.found)) {
         const line = document.createElement('span'), a = document.createElement('a');
@@ -184,14 +184,14 @@ function wikiButton(said, li, tag, body) {
     try {
       const r = await lookUp(said, getJSON), out = document.createElement('div');
       body.querySelector('.whyguess')?.remove();
-      if (r.verdict !== 'CHECKED' && (r.sources || r.names || []).length) reasoned(tag);
-      if (r.verdict === 'CHECKED') {
-        tag.className = 'tag checked'; tag.textContent = 'CHECKED'; tag.title = TIP.CHECKED; delete tag.dataset.grade;
+      if (r.verdict !== 'REASONED' && (r.sources || r.names || []).length) reasoned(tag);
+      if (r.verdict === 'REASONED') {
+        tag.className = 'tag reasoned'; tag.textContent = 'REASONED'; tag.title = TIP.MATCH; tag.dataset.grade = 'source match';
         const how = li.querySelector('.how'), s0 = r.sources[0];
-        if (how) addReceipt(how, said, 'CHECKED', `wiki: ${s0.name} "${s0.title}" ${s0.url || ''} read ${new Date().toISOString().slice(0, 10)}`.replace(/\s+/g, ' '), s0.sentence);
+        if (how) addReceipt(how, said, 'REASONED', `wiki: ${s0.name} "${s0.title}" ${s0.url || ''} read ${new Date().toISOString().slice(0, 10)}`.replace(/\s+/g, ' '), s0.sentence);
       }
-      const head = document.createElement('span'); head.className = r.verdict === 'CHECKED' ? 'source-head' : 'whyguess';
-      head.textContent = r.verdict === 'CHECKED' ? `(${r.why}: the sentence below holds every main word and number of the claim, in nearly the same order. It does not mean the claim is true: an encyclopedia can be wrong, so never PROVEN)`
+      const head = document.createElement('span'); head.className = r.verdict === 'REASONED' ? 'source-head' : 'whyguess';
+      head.textContent = r.verdict === 'REASONED' ? `(${r.why}: the sentence below holds every main word and number of the claim, in nearly the same order. It does not mean the claim is true: an encyclopedia can be wrong, so never PROVEN)`
         : r.sources.length ? `(${r.why})` : `(not found${r.tried.length ? ' on ' + r.tried.map(t => `"${t}"`).join(', ') : ''}; still a guess, which never means false)`;
       out.append(head);
       for (const s of r.sources) {
@@ -208,7 +208,6 @@ function wikiButton(said, li, tag, body) {
 function tally() {
   const tags = [...$('results').querySelectorAll('.tag')].map(t => t.textContent), n = k => tags.filter(t => t === k).length;
   const parts = [`<b>${tags.length}</b> claim${tags.length === 1 ? '' : 's'}`, `${n('PROVEN')} proven`];
-  if (n('CHECKED')) parts.push(`${n('CHECKED')} checked by a source`);
   if (n('REASONED')) parts.push(`${n('REASONED')} reasoned`);
   parts.push(`${n('CHECK FAILED')} failed the check`, `${n('GUESS')} still a guess`);
   $('status').innerHTML = parts.join(', ') + '.';

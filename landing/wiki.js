@@ -88,8 +88,8 @@ export async function lookUp(claim, get) {
   const sources = [];
   for (const [name, f] of Object.entries(found)) for (const stance of ['supports', 'opposes']) if (f[stance]) sources.push({ name: SOURCE_NAMES[name], stance, ...f[stance] });
   const yes = sources.filter(s => s.stance === 'supports'), no = sources.filter(s => s.stance === 'opposes');
-  const verdict = yes.length && !no.length ? 'CHECKED' : 'GUESS';
+  const verdict = yes.length && !no.length ? 'REASONED' : 'GUESS';
   const why = yes.length && no.length ? 'sources disagree' : yes.length ? `${yes.map(s => s.name).join(' and ')} say${yes.length > 1 ? '' : 's'} this`
     : no.length ? `${no.map(s => s.name).join(' and ')} say${no.length > 1 ? '' : 's'} otherwise; still a guess, never false` : 'not found';
-  return { verdict, why, sources: verdict === 'CHECKED' ? yes : sources, tried: titles };
+  return { verdict, why, sources: verdict === 'REASONED' ? yes : sources, tried: titles };
 }
