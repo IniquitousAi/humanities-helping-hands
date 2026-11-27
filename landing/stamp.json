@@ -1,10 +1,10 @@
 {
- "sha256": "09cc5b72bec5dbffe40da6d6f3292409df74d4e66bc4bbce88a84e8d4c886626",
+ "sha256": "9344242699d8500cf0a60acaad271dd9eed30fd2368e30f0f9a06dad7c502129",
  "files": 273,
  "day": "2026-11-26",
  "model": "claude-opus-5-5",
  "hashes": "sha256 of each file exactly as uploaded (the published copy, tools/publish_copy.py). Cloudflare then rewrites pages on the way out (email addresses, its analytics script), so a served page matches once those are taken out: tools/ship_gate.py norm()",
  "how": "OpenTimestamps: only this fingerprint left the PC; it is anchored in Bitcoin within a few hours",
- "manifest_sha256": "bc64826a331b77a258c723bad0683e0d35411f82c0bc92e7b7699f00c6956f01",
+ "manifest_sha256": "f98b21ec325de83a6814cb62362be650a74b8b82cb9a436e87068ac338a8a19f",
  "manifest_signed": false
 }
