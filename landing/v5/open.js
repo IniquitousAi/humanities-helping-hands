@@ -1,9 +1,10 @@
 import { index, rank, mark } from './find.js';
+import { shown as four } from '/labels.js';
 const TECH = document.body.dataset.mode === 'technical';
 const log = document.getElementById('log'), find = document.getElementById('find'), shown = document.getElementById('shown'), more = document.getElementById('more');
 shown.textContent = 'Loading...'; // (v4, attacks_nojs: the page itself starts blank, so a reader without scripts never sees a loading line that never ends)
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const chip = l => l === 'SOURCED' ? '<span class="chip measured">Traced</span>' : l === 'GUESS' ? '<span class="chip guess">Guess</span>' : '<span class="chip plain">Not traced</span>';
+const chip = l => { const s = four(l); return `<span class="chip ${s.cls}">${s.word}</span>`; };
 const safe = u => String(u || '').startsWith('https://') ? esc(u) : '';
 const STEP = 20;
 const SEARCH = [['author', 'the author'], ['claim', 'the claim'], ['barrier', 'the barrier'], ['where_it_broke', 'where it broke'], ['year', 'the year']];

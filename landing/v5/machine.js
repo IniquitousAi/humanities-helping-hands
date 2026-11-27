@@ -1,7 +1,8 @@
 const MODE = document.body.dataset.mode || 'everyone';
 const REAL = !!document.body.dataset.site && MODE !== 'kids';
-const KID = { proven: 'Yes, true!', measured: 'We measured it', reasoned: 'We think so', guess: 'Just a guess' };
-const WORD = { proven: 'Proven', measured: 'Measured', reasoned: 'Reasoned', guess: 'Guess' };
+import { FOUR, KIDS, factChip, factShown } from '/labels.js';
+const KID = Object.fromEntries(Object.entries(KIDS).map(([k, w]) => [FOUR[k].cls, w]));
+const WORD = Object.fromEntries(Object.values(FOUR).map(v => [v.cls, v.word]));
 
 const CLAIMS = {
   kids: [
@@ -100,7 +101,7 @@ async function check([text, label, field, ref, method]) {
   if (field) fields.forEach(f => { if (f.dataset.fieldCount === field) f.textContent = (Number(f.textContent.replace(/,/g, '')) + 1).toLocaleString('en-US'); });
 }
 
-const realChip = (l, kids) => l === 'PROVEN' ? chip('proven', kids) : `<span class="chip measured">Math checked</span>`;
+const realChip = f => factChip(f);
 async function replay(f) {
   for (const r of receipts) {
     $('[data-r="no"]', r).textContent = f.id; $('[data-r="claim"]', r).textContent = f.claim;
@@ -117,11 +118,11 @@ async function replay(f) {
     for (const r of receipts) { $$('.steps li', r)[i].className = 'done'; $('.meter i', r).style.width = `${(i + 1) / STEPS.length * 100}%`; }
   }
   for (const p of pipes) $$('.stage', p).forEach(s => s.classList.remove('on'));
-  for (const r of receipts) { $('[data-r="label"]', r).innerHTML = realChip(f.label); $('[data-r="hash"]', r).textContent = f.theorem || ''; }
-  if (logs.length) logLine(`<span class="g">label ${f.label === 'PROVEN' ? 'PROVEN' : 'MATH CHECKED'}</span> ${esc(f.id)}`);
+  for (const r of receipts) { $('[data-r="label"]', r).innerHTML = realChip(f); $('[data-r="hash"]', r).textContent = f.theorem || ''; }
+  if (logs.length) logLine(`<span class="g">label ${factShown(f).label}</span> ${esc(f.id)}`);
   for (const fd of feeds) {
     const li = document.createElement('li'); li.className = 'new';
-    li.innerHTML = `<span class="t">${esc(f.added || '')}</span><span class="c">${esc(f.claim)}</span>${realChip(f.label)}`;
+    li.innerHTML = `<span class="t">${esc(f.added || '')}</span><span class="c">${esc(f.claim)}</span>${realChip(f)}`;
     fd.prepend(li); while (fd.children.length > Number(fd.dataset.max || 6)) fd.lastElementChild.remove();
   }
 }
@@ -132,7 +133,7 @@ if (REAL) {
     if (!facts.length) { for (const r of receipts) $('[data-r="claim"]', r).textContent = 'The facts did not load. The Atlas has every one.'; return; }
     for (let i = facts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [facts[i], facts[j]] = [facts[j], facts[i]]; }
     for (const fd of feeds) for (const f of facts.slice(-Number(fd.dataset.max || 6))) {
-      const li = document.createElement('li'); li.innerHTML = `<span class="t">${esc(f.added || '')}</span><span class="c">${esc(f.claim)}</span>${realChip(f.label)}`; fd.append(li);
+      const li = document.createElement('li'); li.innerHTML = `<span class="t">${esc(f.added || '')}</span><span class="c">${esc(f.claim)}</span>${realChip(f)}`; fd.append(li);
     }
     if (logs.length) logLine(`<span class="w">[replay]</span> ${facts.length} facts from /facts.json, each accepted by the Lean proof checker`);
     let i = 0; for (;;) { await replay(facts[i++ % facts.length]); await wait(2600); }

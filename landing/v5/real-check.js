@@ -2,6 +2,7 @@ import { checkPublic } from '/public_check.js';
 import { findClaims, whole, spelled, sentences as split } from '/finder.js';
 import { run as settle } from '/checker.js';
 import { receipt } from '/receipt.js';
+import { shown as four, factShown, notProven, chipHTML, said as saidOf } from '/labels.js';
 import { getJSON } from './site.js';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -29,8 +30,8 @@ export function everyday(s) {
     .replace(/[$€£](?=\s?\d)\s?/g, '');
 }
 
-export const KIND = { PROVEN: ['proven', 'Proven'], 'ARITHMETIC-CHECKED': ['proven', 'Proven'], FALSIFIED: ['guess', 'False'], 'NOT CHECKED': ['plain', 'Not checked'] };
-export const chip = label => { const [c, w] = KIND[label] || KIND['NOT CHECKED']; return `<span class="chip ${c}">${w}</span>`; };
+export const view = r => r.show || four(r.label);
+export const chip = r => chipHTML(typeof r === 'string' ? four(r) : view(r));
 const shown = f => String(f).replace(/\s\*\s/g, ' × ').replace(/~=/g, '≈').replace(/\s*(>=|<=|!=)\s*/g, (_, s) => ` ${{ '>=': '≥', '<=': '≤', '!=': '≠' }[s]} `);
 
 function plain(label, check, why, form) {
@@ -84,7 +85,10 @@ export function nearest(s, all) {
 
 async function one(said, read, all, runId) {
   const lib = await checkPublic(said, all, runId);
-  if (lib.kind === 'library') return { s: said, ...lib, why: `Fact ${lib.id} in the Atlas, checked by ${lib.checked_by}. The words around the math are ${String(lib.words_label).toLowerCase()}.` };
+  if (lib.kind === 'library') {
+    const f = (all || []).find(x => x.id === lib.id) || lib, show = factShown(f), np = notProven(f);
+    return { s: said, ...lib, show, why: (show.label === 'PROVEN' ? `Fact ${lib.id} in the Atlas: a machine (${lib.checked_by}) checked its exact statement.` : `Fact ${lib.id} in the Atlas. ${show.note}`) + (np ? ` Not proven: ${np}` : '') };
+  }
   const out = [];
   for (const c of findClaims(read)) {
     const said1 = out.length ? c.said : said;
@@ -120,9 +124,9 @@ export async function check(text) {
   return kept;
 }
 
-export const ORDER = ['Proven', 'Measured', 'Reasoned', 'Guess', 'Not checked', 'False'];
-const word = r => (KIND[r.label] || KIND['NOT CHECKED'])[1];
-const CLS = { Proven: 'proven', Measured: 'measured', Reasoned: 'reasoned', Guess: 'guess', 'Not checked': 'plain', False: 'false' };
+export const ORDER = ['Proven, true', 'Proven, false', 'Measured', 'Reasoned', 'Guess'];
+const word = r => { const v = view(r); return v.label === 'PROVEN' ? `Proven, ${v.holds === 'false' ? 'false' : 'true'}` : v.word; };
+const CLS = { 'Proven, true': 'proven', 'Proven, false': 'proven', Measured: 'measured', Reasoned: 'reasoned', Guess: 'guess' };
 export function sorted(rs) { return ORDER.flatMap(w => rs.filter(r => word(r) === w)); }
 
 export function filter(out) {
@@ -153,9 +157,9 @@ function drawSorter(rs, out) {
 }
 
 export function render(rs, out) {
-  const n = l => rs.filter(r => r.label === l).length, yes = n('PROVEN') + n('ARITHMETIC-CHECKED'), no = n('FALSIFIED'), not = rs.length - yes - no;
+  const n = w => rs.filter(r => word(r) === w).length, yes = n('Proven, true'), no = n('Proven, false'), src = n('Reasoned'), mes = n('Measured'), not = n('Guess');
   out.summary.innerHTML = rs.length
-    ? `<b>${rs.length}</b> claim${rs.length > 1 ? 's' : ''}: <b>${yes}</b> proven, <b>${no}</b> false, <b>${not}</b> not checked.${not ? ' Not checked never means false.' : ''}${rs.more ? ` Only the first ${rs.length} claims were checked. Paste the rest to check them too.` : ''}`
+    ? `<b>${rs.length}</b> claim${rs.length > 1 ? 's' : ''}: <b>${yes}</b> proven true, <b>${no}</b> proven false, ${mes ? `<b>${mes}</b> measured, ` : ''}${src ? `<b>${src}</b> reasoned, ` : ''}<b>${not}</b> guess, not checked yet.${not ? ' A guess never means false: nothing here could check it yet.' : ''}${rs.more ? ` Only the first ${rs.length} claims were checked. Paste the rest to check them too.` : ''}`
     : 'Type or paste something to check.';
   drawSorter(rs, out);
   const atlas = r => r.kind === 'library' ? ` &middot; <a href="atlas#${esc(r.id)}">open it in the Atlas</a>` : '';
@@ -164,12 +168,12 @@ export function render(rs, out) {
   const near = r => r.near ? `<span class="suggest">The closest fact in the Atlas: <a href="atlas#${esc(r.near.id)}">${esc(r.near.claim.length > 110 ? r.near.claim.slice(0, 108) + '…' : r.near.claim)}</a></span>` : '';
   const groups = ORDER.map(w => [w, rs.filter(r => word(r) === w)]).filter(([, g]) => g.length);
   out.list.innerHTML = groups.map(([w, g]) => (groups.length > 1 ? `<li class="grp-head" data-k="${w}"><h4>${w} <span>${g.length}</span></h4></li>` : '')
-    + g.map(r => `<li data-k="${w}">${chip(r.label)}<div><p dir="auto">${esc(r.s)}</p><small>${esc(r.why)}${rec(r)}${atlas(r)}</small>${sug(r)}${near(r)}</div></li>`).join('')).join('');
-  out.inline.innerHTML = rs.map(r => `<span data-k="${word(r)}"><mark class="${(KIND[r.label] || KIND['NOT CHECKED'])[0]}" dir="auto">${esc(r.s)}</mark><sup>${chip(r.label)}</sup></span>`).join(' ');
+    + g.map(r => `<li data-k="${w}">${chip(r)}<div><p dir="auto">${esc(r.s)}</p><small>${esc(r.why)}${rec(r)}${atlas(r)}</small>${sug(r)}${near(r)}</div></li>`).join('')).join('');
+  out.inline.innerHTML = rs.map(r => `<span data-k="${word(r)}"><mark class="${view(r).cls}" dir="auto">${esc(r.s)}</mark><sup>${chip(r)}</sup></span>`).join(' ');
   out.left.innerHTML = rs.map(r => `<p dir="auto" data-k="${word(r)}">${esc(r.s)}</p>`).join('');
-  out.right.innerHTML = rs.map(r => `<div data-k="${word(r)}"><p>${chip(r.label)} ${r.form ? `<code>${esc(r.form)}</code> ` : ''}${esc(r.why)}${rec(r)}</p>${sug(r)}${near(r)}</div>`).join('');
+  out.right.innerHTML = rs.map(r => `<div data-k="${word(r)}"><p>${chip(r)}${r.form ? `<code>${esc(r.form)}</code> ` : ''}${esc(r.why)}${rec(r)}</p>${sug(r)}${near(r)}</div>`).join('');
   filter(out);
 }
 
-export const shareText = rs => rs.map(r => `${(KIND[r.label] || KIND['NOT CHECKED'])[1]}: ${r.s}${r.receipt ? ` (receipt ${r.receipt.sha256.slice(0, 12)})` : ''}`).join('\n')
+export const shareText = rs => rs.map(r => `${saidOf(view(r))}: ${r.s}${r.receipt ? ` (receipt ${r.receipt.sha256.slice(0, 12)})` : ''}`).join('\n')
   + '\nChecked on Humanities Helping Hands, humanitieshelpinghands.com';

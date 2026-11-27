@@ -19,7 +19,8 @@ const only = el('label', 'idea-only'), check = el('input'); check.type = 'checkb
 const clear = el('button', '', 'Clear'); clear.type = 'button'; tools.append(only, clear); list.after(tools);
 let hits = [], active = -1;
 
-const pill = tag => tag ? el('span', tag.className, tag.textContent) : el('span', 'tag open', 'NOT TRACED');
+const graded = (s, g) => (g && (s.dataset.grade = g), s);
+const pill = tag => tag ? graded(el('span', tag.className, tag.textContent), tag.dataset.grade) : graded(el('span', 'tag guess', 'GUESS'), 'not weighed');
 function line(i) {
   const a = el('a', 'idea-hit'); a.href = '#'; a.append(pill(info[i].tag), ' ', info[i].title);
   a.addEventListener('click', e => { e.preventDefault(); jump(i); });

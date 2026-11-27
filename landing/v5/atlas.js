@@ -1,10 +1,13 @@
 import { toast, openDialog, getJSON } from './site.js';
 import { index, rank, mark, FIELDS } from './find.js';
+import { factShown, factChip, notProven } from '/labels.js';
 const TECH = document.body.dataset.mode === 'technical';
 const grid = document.getElementById('grid'), find = document.getElementById('find'), shown = document.getElementById('shown'), more = document.getElementById('more');
 shown.textContent = 'Loading the facts...'; // (v4, attacks_nojs: the page itself starts blank, so a reader without scripts never sees a loading line that never ends)
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const chip = l => l === 'PROVEN' ? '<span class="chip proven">Proven</span>' : '<span class="chip measured">Math checked</span>';
+const chip = f => factChip(f);
+const np = (f, m = esc) => { const t = notProven(f); return t ? `<span class="card-note">Not proven: ${m(t)}</span>` : ''; };
+const by = f => factShown(f).label === 'PROVEN' ? 'Checked by' : 'Arithmetic checked by';
 const STEP = TECH ? 40 : 24;
 let facts = [], ix = [], filter = '', limit = STEP, first = null, ready = false, failed = false;
 
@@ -16,8 +19,8 @@ function draw() {
   first = q && hit.length ? hit[0].fact.id : null;
   const where = r => q && r.field > 0 && FIELDS[r.field][0] !== 'checked_by' ? `<span class="card-note">Found in ${FIELDS[r.field][1]}: ${m(r.fact[FIELDS[r.field][0]])}</span>` : '';
   if (TECH) grid.innerHTML = some.length ? `<table class="data"><thead><tr><th>Label</th><th>Claim</th><th>Checked as</th><th>Theorem</th><th>By</th><th>Added</th></tr></thead><tbody>${some.map(({ fact: f }) =>
-    `<tr class="click" id="${esc(f.id)}" data-id="${esc(f.id)}"><td>${chip(f.label)}</td><td><button type="button" class="row-btn">${m(f.claim)}</button>${f.credit && q ? `<span class="card-note">Credit: ${m(f.credit)}</span>` : ''}</td><td><code>${m(f.checked_as)}</code></td><td><code>${m(f.theorem || '')}</code></td><td class="nw">${m(f.checked_by)}</td><td class="nw"><code>${esc(f.added || '')}</code></td></tr>`).join('')}</tbody></table>` : '';
-  else grid.innerHTML = some.map(r => `<button class="card-btn" type="button" id="${esc(r.fact.id)}" data-id="${esc(r.fact.id)}">${chip(r.fact.label)}<span>${m(r.fact.claim)}</span>${where(r)}<span class="card-note">Checked by ${m(r.fact.checked_by)}</span></button>`).join('');
+    `<tr class="click" id="${esc(f.id)}" data-id="${esc(f.id)}"><td>${chip(f)}</td><td><button type="button" class="row-btn">${m(f.claim)}</button>${f.credit && q ? `<span class="card-note">Credit: ${m(f.credit)}</span>` : ''}${np(f)}</td><td><code>${m(f.checked_as)}</code></td><td><code>${m(f.theorem || '')}</code></td><td class="nw">${m(f.checked_by)}</td><td class="nw"><code>${esc(f.added || '')}</code></td></tr>`).join('')}</tbody></table>` : '';
+  else grid.innerHTML = some.map(r => `<button class="card-btn" type="button" id="${esc(r.fact.id)}" data-id="${esc(r.fact.id)}">${chip(r.fact)}<span>${m(r.fact.claim)}</span>${where(r)}<span class="card-note">${by(r.fact)} ${m(r.fact.checked_by)}</span>${np(r.fact)}</button>`).join('');
   if (!some.length) grid.innerHTML = '<p class="lede">No fact matches that yet. Try a shorter word.</p>';
   shown.textContent = (got.close && some.length ? 'Nothing spelled that way. Closest: ' : '') + `${some.length} of ${hit.length} shown`;
   if (ready) { const p = new URLSearchParams(); if (q) p.set('find', q); if (filter) p.set('show', filter); const s = p.toString(); history.replaceState(null, '', location.pathname + location.search + (s ? '#' + s : '')); }
@@ -25,7 +28,8 @@ function draw() {
 }
 function open(id) {
   const f = facts.find(x => x.id === id); if (!f) return;
-  openDialog(f.label === 'PROVEN' ? 'Proven' : 'Math checked', `<p><b class="dlg-claim">${esc(f.claim)}</b></p><p>What the machine checked:<br><code>${esc(f.checked_as)}</code></p>${f.theorem ? `<p>Theorem: <code>${esc(f.theorem)}</code></p>` : ''}<p>Checked by ${esc(f.checked_by)}${f.credit ? `. Credit: ${esc(f.credit)}` : ''}.</p>${f.not_proven ? `<p>Not proven here: ${esc(f.not_proven)}</p>` : ''}<p><button type="button" class="btn btn-line" data-copy="${esc(location.origin + location.pathname + '#' + encodeURIComponent(f.id))}">Copy a link to this fact</button></p>`);
+  const s = factShown(f), not = notProven(f);
+  openDialog(s.word, `<p>${chip(f)}</p><p><b class="dlg-claim">${esc(f.claim)}</b></p>${s.note ? `<p>${esc(s.note)}</p>` : ''}<p>What the machine checked:<br><code>${esc(f.checked_as)}</code></p>${f.theorem ? `<p>Theorem: <code>${esc(f.theorem)}</code></p>` : ''}<p>${by(f)} ${esc(f.checked_by)}${f.credit ? `. Credit: ${esc(f.credit)}` : ''}.</p>${not ? `<p>Not proven here: ${esc(not)}</p>` : ''}<p><button type="button" class="btn btn-line" data-copy="${esc(location.origin + location.pathname + '#' + encodeURIComponent(f.id))}">Copy a link to this fact</button></p>`);
   history.replaceState(null, '', location.pathname + location.search + '#' + encodeURIComponent(f.id));
 }
 document.addEventListener('click', async e => {

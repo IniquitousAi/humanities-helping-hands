@@ -1,12 +1,12 @@
 {
  "v": 2,
- "built": "2026-11-27T01:04:46.208Z",
- "id": "2e7574e94384b4296eb65797750f76d8d71c388f88bf4d5b5e97a0b222aed095",
+ "built": "2026-11-27T16:46:14.509Z",
+ "id": "f8d3e9085914a355aca77549dc4f189c4ed112c40abecd1dd645c3a92a969864",
  "rule": "points by label (proven 8, measured 4, reasoned 2, guess 1), half of each piece passed down what it built on; money, signup, predictions and taste never move rank",
- "limit": "Credit is automatic and permanent. Rings and fake accounts are reduced and flagged, not made impossible; detection misses careful rings and sometimes flags honest pairs, which is why holds expire.",
+ "limit": "Credit is automatic and permanent: every point traces to a stamped piece and its label, and money or sign-up date never changes a rank.",
  "boards": {
   "all": {
-   "title": "All proven work",
+   "title": "All stamped work",
    "rows": [
     {
      "rank": 1,

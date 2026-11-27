@@ -1,4 +1,5 @@
 import { receipt } from './receipt.js';
+import { shown, factShown, notProven, brief } from './labels.js';
 
 export const MAX_CLAIM = 300, MAX_BODY = 2048, MAX_DIGITS = 60, MAX_POW = 512, MAX_RESULT_DIGITS = 4000, MAX_TOKENS = 80;
 export const LABELS = { PROVEN: 'PROVEN', FALSIFIED: 'FALSIFIED', NOT: 'NOT CHECKED' };
@@ -74,8 +75,9 @@ export async function checkPublic(text, facts, runId) {
   if (f) {
     const check = `library:${f.id}`, words = f.claim_label || 'NOT CHECKED';
     const rec = await receipt(f.claim, f.label, check, runId, JSON.stringify({ id: f.id, label: f.label, claim_label: words, checked_by: f.checked_by }));
-    return { kind: 'library', label: f.label, words_label: words, id: f.id, checked_by: f.checked_by, link: f.link,
-      plain: `This is fact "${f.id}" in the library. The math part is ${f.label}, checked by ${f.checked_by} when it was added. The words around it are ${words}.`, receipt: rec };
+    const s = factShown(f), np = notProven(f);
+    return { kind: 'library', label: f.label, words_label: words, id: f.id, checked_by: f.checked_by, link: f.link, shown: brief(s),
+      plain: `This is fact "${f.id}" in the library: ${s.word}. ${s.label === 'PROVEN' ? `A machine (${f.checked_by}) checked its exact statement when it was added.` : `${s.note} The arithmetic was checked by ${f.checked_by}; its words are ${f.claim_label || 'OPEN'} in the real world.`}${np ? ` Not proven: ${np}` : ''}`, receipt: rec };
   }
   const two = /\b\d{4}-\d{1,2}-\d{1,2}\b|(?<![\d\s-])\d{1,2}-\d{2}(?![\d-])/.test(claim) ? 'it looks like a date (2024-01-15, 12-25), which reads two ways'
     : /(?<![\d,.])0\d*,\d/.test(claim) ? 'a comma after a leading zero (0,500) could be a decimal comma or a thousands group'
@@ -84,9 +86,9 @@ export async function checkPublic(text, facts, runId) {
   if (a.form) {
     const label = a.holds ? LABELS.PROVEN : LABELS.FALSIFIED;
     const rec = await receipt(a.form, label, 'arith:bigint-v1', runId, a.value);
-    return { kind: 'arith', label, form: a.form, plain: a.holds ? 'Exact whole-number arithmetic: this is true as written.' : 'Exact whole-number arithmetic: this is false as written.', receipt: rec };
+    return { kind: 'arith', label, form: a.form, shown: brief(shown(label)), plain: a.holds ? 'Exact whole-number arithmetic: this is true as written.' : 'Exact whole-number arithmetic: this is false as written.', receipt: rec };
   }
-  return { kind: 'none', label: LABELS.NOT, plain: `Not checked: ${a.why}. Not checked never means false. It only means this checker cannot check it. Try an exact fact from the library, or whole-number arithmetic like 2^10 = 1024.` };
+  return { kind: 'none', label: LABELS.NOT, shown: brief(shown(LABELS.NOT)), plain: `Not checked: ${a.why}. Not checked never means false. It only means this checker cannot check it. Try an exact fact from the library, or whole-number arithmetic like 2^10 = 1024.` };
 }
 
 export const logRow = (r, t) => ({ t, kind: r.kind, ...r.receipt });

@@ -2,16 +2,17 @@ const level = new URLSearchParams(location.search).get('level') || 'everyone';
 const spread = document.getElementById('spread'), where = document.getElementById('where'), jump = document.getElementById('jump');
 where.textContent = 'Loading...'; // (v4, attacks_nojs: the page itself starts blank, so a reader without scripts never sees a loading line that never ends)
 const prev = document.getElementById('prev'), next = document.getElementById('next');
+import { factShown, factChip, notProven, KIDS } from '/labels.js';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const chip = f => level === 'kids' ? (f.label === 'PROVEN' ? '<span class="chip proven">Yes, true!</span>' : '<span class="chip measured">We measured it</span>')
-  : f.label === 'PROVEN' ? '<span class="chip proven">Proven</span>' : '<span class="chip measured">Math checked</span>';
+const chip = f => { const s = factShown(f); return level === 'kids' ? `<span class="chip ${s.cls}">${KIDS[s.label]}</span>` : factChip(f); };
 let facts = [], at = 0, failed = false;
 const two = () => matchMedia('(min-width:621px)').matches ? 2 : 1;
 function page(f, n) {
   if (!f) return `<div><h4>The end, for now</h4><p>The next page is written the day the checker proves something new.</p><span class="pn">${n}</span></div>`;
-  const how = level === 'kids' ? (f.label === 'PROVEN' ? 'A computer checked every step. It found no mistake.' : 'A computer checked the math. The numbers that go in come from people who measured them.')
-    : level === 'technical' ? `<code class="book-code">${esc(f.checked_as)}</code>${f.theorem ? `<br><span class="card-note">theorem ${esc(f.theorem)}</span>` : ''}`
-    : `Checked by ${esc(f.checked_by)}.${f.not_proven ? ' ' + esc(f.not_proven) : ''}`;
+  const not = notProven(f);
+  const how = level === 'kids' ? (f.label === 'PROVEN' ? 'A computer checked every step of the exact math. It found no mistake. Whether the words fit real life is not proven.' : 'A computer checked the math. The facts that go in come from experts who measured them.')
+    : level === 'technical' ? `<code class="book-code">${esc(f.checked_as)}</code>${f.theorem ? `<br><span class="card-note">theorem ${esc(f.theorem)}</span>` : ''}${not ? `<br><span class="card-note">Not proven: ${esc(not)}</span>` : ''}`
+    : `${f.label === 'PROVEN' ? 'Checked' : 'Its arithmetic was checked'} by ${esc(f.checked_by)}.${not ? ' Not proven: ' + esc(not) : ''}`;
   const receipt = level === 'kids' ? '' : `<a class="count" href="${level === 'technical' ? 'tech-atlas' : 'atlas'}#${encodeURIComponent(f.id)}">See the receipt &rarr;</a>`;
   return `<div>${chip(f)}<h4>${esc(f.claim)}</h4><p>${how}</p>${receipt}<span class="pn">Page ${n}</span></div>`;
 }

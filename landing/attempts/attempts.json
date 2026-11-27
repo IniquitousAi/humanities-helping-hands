@@ -40,8 +40,8 @@
    "traced": "yes",
    "where_it_broke": "Zhu Daming, Luan Junfeng, M.A. Shaohan refute the clique algorithm in \"Hardness and methods to solve CLIQUE\" (JCST 16, 2001). Woeginger does not state the exact step.",
    "barrier": "",
-   "break_source_url": "https://web.archive.org/web/2010/portal.acm.org/citation.cfm?id=501491",
-   "claim_url": "https://web.archive.org/web/2010/portal.acm.org/citation.cfm?id=501491&dl=",
+   "break_source_url": "https://doi.org/10.1007/BF02948987",
+   "claim_url": "",
    "listed_in": "woeginger",
    "source": "Gerhard Woeginger's P-versus-NP page (https://wscor.win.tue.nl/woeginger/P-versus-NP.htm)"
   },
@@ -55,7 +55,7 @@
    "where_it_broke": "",
    "barrier": "",
    "break_source_url": "",
-   "claim_url": "https://web.archive.org/web/2010/www.tarusa.ru/~mit/ENG/eng.html",
+   "claim_url": "https://web.archive.org/web/20071222201421/www.tarusa.ru/~mit/ENG/eng.html",
    "listed_in": "woeginger",
    "source": "Gerhard Woeginger's P-versus-NP page (https://wscor.win.tue.nl/woeginger/P-versus-NP.htm)"
   },
@@ -377,7 +377,7 @@
    "where_it_broke": "",
    "barrier": "",
    "break_source_url": "",
-   "claim_url": "https://web.archive.org/web/2010/www.tarusa.ru/~mit/ENG/sigma01_e.php",
+   "claim_url": "https://web.archive.org/web/20091108072446/www.tarusa.ru/~mit/ENG/sigma01_e.php",
    "listed_in": "woeginger",
    "source": "Gerhard Woeginger's P-versus-NP page (https://wscor.win.tue.nl/woeginger/P-versus-NP.htm)"
   },
@@ -503,7 +503,7 @@
    "where_it_broke": "",
    "barrier": "",
    "break_source_url": "",
-   "claim_url": "https://web.archive.org/web/2010/www.scialert.net/pdfs/itj/2006/851-859.pdf",
+   "claim_url": "https://doi.org/10.3923/itj.2006.851.859",
    "listed_in": "woeginger",
    "source": "Gerhard Woeginger's P-versus-NP page (https://wscor.win.tue.nl/woeginger/P-versus-NP.htm)"
   },

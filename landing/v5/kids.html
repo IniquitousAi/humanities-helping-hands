@@ -31,14 +31,15 @@
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="k-bars">
-      <div class="k-block proven"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 33 l13 13 L52 18" fill="none" stroke="#000" stroke-width="8" stroke-linecap="square"/></svg><b>Yes, true!</b><i>We are sure.</i></div>
-      <div class="k-block guess"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 17 L47 47 M47 17 L17 47" fill="none" stroke="#000" stroke-width="8" stroke-linecap="square"/></svg><b>No, not true!</b><i>The robot says what it really makes.</i></div>
-      <div class="k-block plain"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 22a10 10 0 1 1 14 9c-3 2-4 4-4 8" fill="none" stroke="currentColor" stroke-width="7"/><rect x="28" y="46" width="8" height="8" fill="currentColor"/></svg><b>Can't check yet</b><i>That does not mean it is wrong.</i></div>
+    <div class="k-bars" id="k-key" aria-label="What the answer means">
+      <div class="k-block proven" data-key="yes" hidden><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 33 l13 13 L52 18" fill="none" stroke="#000" stroke-width="8" stroke-linecap="square"/></svg><b>Yes, true!</b><i>Proven: the robot worked it out and is sure.</i></div>
+      <div class="k-block proven" data-key="no" hidden><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 17 L47 47 M47 17 L17 47" fill="none" stroke="#000" stroke-width="8" stroke-linecap="square"/></svg><b>No, not true!</b><i>Proven: the robot worked it out and is sure. It says what it really makes.</i></div>
+      <div class="k-block reasoned" data-key="reasoned" hidden><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 46 L32 14 L50 46 Z" fill="none" stroke="#000" stroke-width="7" stroke-linejoin="miter"/></svg><b>Experts say so</b><i>Reasoned: books and experts back it. The robot checked only the numbers.</i></div>
+      <div class="k-block guess" data-key="guess" hidden><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 22a10 10 0 1 1 14 9c-3 2-4 4-4 8" fill="none" stroke="#000" stroke-width="7"/><rect x="28" y="46" width="8" height="8" fill="#000"/></svg><b>Can't check yet</b><i>Guess: not checked yet. That does not mean it is wrong.</i></div>
     </div>
   </div></section>
 </main>
 <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="./">For grown-ups</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b11abb86e7</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version 38b5e28954</a></div></footer>
 </body></html>

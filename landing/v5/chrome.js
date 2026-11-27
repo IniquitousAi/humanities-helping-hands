@@ -18,16 +18,16 @@ export const LINKS = {
 export const ABOUT = {
   index: 'Paste any claim or AI answer. A machine checks each part and gives it a label, with a receipt anyone can rerun.',
   kids: 'Is it true? A robot checks sums and says yes or no, for kids.',
-  tech: 'The checker at work: parse, formalize, check, stamp. Lean-proven facts, an MCP server for AI agents, and the label rules.',
-  check: 'Check a claim: sums, fractions, decimals, percents, units, primes and Atlas facts come back proven or false with a receipt; anything else says Not checked.',
+  tech: 'The checker at work: parse, formalize, check, stamp. Lean-checked facts, an MCP server for AI agents, and the label rules.',
+  check: 'Check a claim: sums, percents, units, primes and Atlas facts come back Proven, true or false, with a receipt; anything else is a Guess, not checked yet.',
   'tech-check': 'Run the site\'s checker: exact-fraction arithmetic, unit conversions, rounding, primality and word-for-word Atlas matches, each with a SHA-256 receipt.',
-  atlas: 'Every fact a machine has proven, in plain words, with what was checked and who proved it.',
+  atlas: 'Every fact in the Atlas, in plain words, with its label, with what was checked and who proved it.',
   'tech-atlas': 'Every checked fact with the exact statement the machine saw, the Lean theorem name and the checker.',
   open: 'P vs NP in small steps: every published attempt and where it broke, open for anyone to trace.',
   'tech-open': 'Every published P vs NP attempt, traced to the step that fails, with the source of each break.',
   law: 'For lawyers: paste a brief and every case it cites is looked up in Harvard\'s Caselaw Access Project, with the name, year, court, pin page and quotes checked and a receipt for each.',
   plans: 'Pay only for a signed stamp or checks done for you: One Stamp $1, Checker $10 a month, Proven Standing $99 a month.',
-  book: 'The Book: the proven facts read like a book, at a kids, everyone or technical reading level.',
+  book: 'The Book: the Atlas facts read like a book, at a kids, everyone or technical reading level.',
   founders: 'The Founders: every name earned its seat with work a machine accepted. How to pitch in.',
 };
 const attr = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');

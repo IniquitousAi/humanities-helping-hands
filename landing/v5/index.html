@@ -19,9 +19,9 @@
     <div class="hero-l">
       <p class="eyebrow">The proof stamp</p>
       <h1 class="h1">Every claim,<br><span class="hl-red">checked in the open.</span></h1>
-      <p class="lede">Paste a claim or an AI answer. A machine works out the math in it and checks it against the Atlas, our library of proven facts. Each claim comes back <b>Proven, False or Not checked</b>, with a receipt anyone can rerun.</p>
+      <p class="lede">Paste a claim or an AI answer. A machine works out the math in it and checks it against the Atlas, our library of facts. Each claim comes back <b>Proven true, Proven false or Guess</b>, with a receipt anyone can rerun.</p>
       <form class="ask" action="check" method="get"><input id="home-q" enterkeyhint="go" autocomplete="off" aria-label="A claim to check" placeholder="Try: 15% of 80 is 12"><button class="btn btn-main" type="submit">Check</button></form>
-      <p class="note">Today it checks sums, percents, units, primes and the <span data-fact-n></span> Atlas facts. History, health and news say Not checked, which never means false. You pay only for a signed stamp.</p>
+      <p class="note">Today it checks sums, percents, units, primes and the <span data-fact-n></span> Atlas facts. History, health and news are a Guess, not checked yet, never false. You pay only for a signed stamp.</p>
     </div>
     <div class="panel ticks receipt" data-machine="receipt" aria-live="off"></div>
   </div></section>
@@ -30,7 +30,7 @@
     <div class="kpis">
       <div class="kpi"><b data-fact-n="">170</b><span>Facts in the Atlas</span></div>
       <div class="kpi"><b data-fact-n="PROVEN">142</b><span>Proven by a proof checker</span></div>
-      <div class="kpi"><b data-fact-n="ARITHMETIC-CHECKED">28</b><span>Math checked</span></div>
+      <div class="kpi"><b data-fact-n="ARITHMETIC-CHECKED">28</b><span>Reasoned, their math checked</span></div>
       <div class="kpi"><b data-attempts-n="">126</b><span>Tries at P vs NP, logged</span></div>
     </div>
     <p class="note kpi-note">The box above replays real facts from the Atlas, each one accepted by Lean, a program that checks math proofs step by step. P vs NP is a famous math problem nobody has solved yet. <a href="atlas">See every fact</a> or <a href="open">every attempt</a>.</p>
@@ -52,22 +52,23 @@
   </div></section>
 
   <section class="sec" id="labels"><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">The four labels</p><h2 class="h2">How sure we are, in one word.</h2><p class="lede">Every claim we check gets one of these. The Atlas itself holds only Proven facts and numbers checked by exact arithmetic. A check you run here answers Proven, False or Not checked.</p></div>
+    <div class="sec-head"><p class="eyebrow">The four labels</p><h2 class="h2">How sure we are, in one word.</h2><p class="lede">Every claim we check gets one of these. The label says how it was checked; beside a Proven one, true or false says whether it holds. The Atlas holds Proven facts and Reasoned ones, real-world facts whose numbers a machine checked.</p></div>
     <div class="cols-4">
-      <div class="panel lab"><span><span class="chip proven">Proven</span></span><p>Checked by a computer proof. It holds, every time.</p></div>
-      <div class="panel lab"><span><span class="chip measured">Measured</span></span><p>Matched to a real measurement and its source.</p></div>
-      <div class="panel lab"><span><span class="chip reasoned">Reasoned</span></span><p>A careful argument, each link shown. Not a proof.</p></div>
-      <div class="panel lab"><span><span class="chip guess">Guess</span></span><p>Nothing backs it yet. We say so out loud.</p></div>
+      <div class="panel lab"><span><span class="chip proven">Proven</span></span><p>Only for a claim a machine checked. True or false says whether it holds.</p></div>
+      <div class="panel lab"><span><span class="chip measured">Measured</span></span><p>Tested or measured, and the page says which test.</p></div>
+      <div class="panel lab"><span><span class="chip reasoned">Reasoned</span></span><p>Backed by sources or studies, with how strong the evidence is.</p></div>
+      <div class="panel lab"><span><span class="chip guess">Guess</span></span><p>Not checked yet. The page says which checker is missing.</p></div>
     </div>
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">The library</p><h2 class="h2">Facts the machine has proven.</h2></div>
+    <div class="sec-head"><p class="eyebrow">The library</p><h2 class="h2">Facts from the Atlas.</h2></div>
     <div class="panel ticks"><div class="panel-head"><span class="live">From the Atlas</span><span>Date added</span></div><ul class="feed" data-machine="feed" data-max="6"></ul></div>
   </div></section>
 
   <section class="sec" id="plans"><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Plans</p><h2 class="h2">Pay only for the stamp.</h2></div>
+    <p class="note center-note"><b>Coming soon:</b> these plans are not on sale yet. Until then, check a claim now in the Check box. Every answer comes with its receipt.</p>
     <div class="cols-3">
       <div class="panel plan"><h3 class="h3">One Stamp</h3><div class="price">$1 <small>once</small></div><ul><li>One file checked</li><li>Signed only if it passes with no gaps</li><li>A timestamp anyone can check</li></ul><a class="btn btn-line" href="plans#stamp">See One Stamp</a></div>
       <div class="panel plan on ticks"><h3 class="h3">Checker</h3><div class="price">$10 <small>a month</small></div><ul><li>100 checks a month</li><li>Every check stamped, full receipt</li><li>Cancel any time with one email</li></ul><a class="btn btn-line" href="plans#checker">See the Checker</a></div>
@@ -78,7 +79,7 @@
   <section class="sec" id="faq"><div class="wrap u-mw860">
     <div class="sec-head"><p class="eyebrow">Questions</p><h2 class="h2">What people ask first.</h2></div>
     <div class="faq">
-      <details><summary>Who does the checking?</summary><p>A machine. The math in what you paste is worked out exactly, and every Atlas fact was accepted by a proof checker (Lean 4). People write the rules, not the verdicts. Matching numbers to their sources and tracing arguments are being built; until then those claims say Not checked.</p></details>
+      <details><summary>Who does the checking?</summary><p>A machine. The math in what you paste is worked out exactly, and every Atlas fact was accepted by a proof checker (Lean 4). People write the rules, not the verdicts. Matching numbers to their sources and tracing arguments are being built; until then those claims are a Guess, not checked yet.</p></details>
       <details><summary>What if you are wrong?</summary><p>Every receipt can be rerun by anyone. If a label breaks, the receipt shows where, and the label changes in public.</p></details>
       <details><summary>Why not just say true or false?</summary><p>Because most claims are not proven either way. The label says how sure anyone can honestly be.</p></details>
       <details><summary>Is my text kept?</summary><p>No. The check runs in your own browser, so what you paste is not sent anywhere. A stamp you pay for keeps a fingerprint of the file, not the file.</p></details>
@@ -104,5 +105,5 @@
 </main>
 <footer class="foot"><div class="wrap foot-in"><b>HHH</b><span>Open to read and use. Pay only for a stamp or a check.</span>
   <nav class="foot-links" aria-label="Site"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="/verify/">Check a stamp</a></nav>
-  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version b11abb86e7</a></div></footer>
+  <span class="credit">Daniel Steadham, Humanities Helping Hands</span><a class="credit" href="/stamp/">Version 38b5e28954</a></div></footer>
 </body></html>

@@ -42,16 +42,16 @@
 
   <section>
     <h2><span class="num">I.</span>The two files</h2>
-    <div class="row"><span class="tag measured">LIST</span><p><a href="manifest.txt">manifest.txt</a>: one line per file, its sha256 fingerprint and its path.</p></div>
-    <div class="row"><span class="tag proven">PROOF</span><p><a href="manifest.txt.ots">manifest.txt.ots</a>: the OpenTimestamps proof that the list existed by a Bitcoin block.</p></div>
+    <div class="row"><span class="tag root">LIST</span><p><a href="manifest.txt">manifest.txt</a>: one line per file, its sha256 fingerprint and its path.</p></div>
+    <div class="row"><span class="tag root">PROOF</span><p><a href="manifest.txt.ots">manifest.txt.ots</a>: the OpenTimestamps proof that the list existed by a Bitcoin block.</p></div>
   </section>
 
   <section>
     <h2><span class="num">II.</span>Check it in three steps</h2>
-    <div class="row"><span class="tag guess">1</span><p>Download both files into one folder.</p></div>
-    <div class="row"><span class="tag guess">2</span><p>Install the OpenTimestamps client: <code>pip install opentimestamps-client</code>.
+    <div class="row"><span class="tag root">1</span><p>Download both files into one folder.</p></div>
+    <div class="row"><span class="tag root">2</span><p>Install the OpenTimestamps client: <code>pip install opentimestamps-client</code>.
       Or, with no install, drop the .ots file on the OpenTimestamps website (opentimestamps.org).</p></div>
-    <div class="row"><span class="tag guess">3</span><p>Run <code>ots verify manifest.txt.ots</code>. It names the Bitcoin block and its time.
+    <div class="row"><span class="tag root">3</span><p>Run <code>ots verify manifest.txt.ots</code>. It names the Bitcoin block and its time.
       A new build can say "pending" for a few hours, until Bitcoin confirms it.</p></div>
     <p class="note" data-level="kids">This shows the file is real and old. It does not prove who wrote it. It does not prove if the text is right. That is why we run computer checks on every math fact.</p>
     <p class="note" data-level="everyone">What this proves: the list, and so every file named in it, existed no later than that block. What it does not prove:
@@ -59,7 +59,7 @@
     <p class="note" data-level="technical">Cryptographic timestamping attests solely to prior existence prior to block confirmation time; it does not assert authorship, semantic correctness, or formal validity. Proof validation is performed deterministically by kernel verifiers.</p>
   </section>
   <section class="closing" aria-label="Next step"><p>Want your own work checked and stamped?</p><a class="go" href="/check/done-for-you/">See the plans</a></section>
-  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open problems, piece by piece</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version b11abb86e7</a></footer>
+  <footer class="foot"><a href="/charter/">The Charter</a> &middot; <a href="/open/">Open problems, piece by piece</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a> &middot; Humanities Helping Hands &middot; <a href="/verify/">Check a stamp</a><br>Open to read and use. Pay only for a stamp or a check. &middot; Daniel Steadham, Humanities Helping Hands &middot; <a href="/stamp/">Version 38b5e28954</a></footer>
 </main>
 
 </body></html>

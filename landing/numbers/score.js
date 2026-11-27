@@ -1,6 +1,8 @@
 import { SHOW, LABELS } from '../score_words.js';
 import { getJSON, failed } from '../getjson.js';
 const $ = id => document.getElementById(id);
+export const STALE_HOURS = 6;
+export const stale = (at, now = Date.now()) => !(now - Date.parse(at) <= STALE_HOURS * 3600e3);
 
 async function start() {
   let b;
@@ -32,7 +34,8 @@ async function start() {
     const u = await getJSON('/updated.json', { retries: 0, shape: d => typeof d?.at === 'string' });
     const at = new Date(u.at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
     const speed = u.q2p?.median_min != null ? ` A new fact reaches the front page in about ${u.q2p.median_min} minutes (the middle of the last ${u.q2p.facts}, measured).` : '';
+    if (stale(u.at)) { $('fresh').textContent = `Last rebuilt ${at}. Automatic rebuilds are paused, so every number here is as of that date.`; return; }
     $('fresh-detail').textContent = ` Last run ${at}, ${u.every_check_passed ? 'every check passed' : 'a check failed, so the site kept the last good build'}.${speed}`;
   } catch { /* the one static sentence stays */ }
 }
-start();
+if (typeof document !== 'undefined') start();

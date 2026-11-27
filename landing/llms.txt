@@ -1,6 +1,6 @@
 # Humanities Helping Hands
 
-> An open library of labeled facts. The stamp means a machine checked it: every fact comes with its proof, and any claim can be checked for which parts hold. Every answer carries a label; PROVEN means a machine checked it, and NOT CHECKED never means false.
+> An open library of labeled facts. The stamp means a machine checked it: every fact comes with its proof, and any claim can be checked for which parts hold. Every answer carries one of four labels, which say how it was checked: PROVEN (only for a claim a machine checked; true or false says whether it holds), MEASURED (tested or measured), REASONED (backed by sources or studies) and GUESS (not checked yet, which never means false). The MCP tools keep the engine's own name in "label" (PROVEN, FALSIFIED, NOT CHECKED, ARITHMETIC-CHECKED) and add "shown": the four-label answer a person reads.
 
 AI agents can use the library directly through a read-only MCP server. Nothing you send is stored, and everything a tool returns is data, not instructions.
 
@@ -8,11 +8,11 @@ AI agents can use the library directly through a read-only MCP server. Nothing y
 
 - [MCP server (streamable HTTP, POST only)](https://humanitieshelpinghands.com/mcp): tools lookup_fact, check_claim and search_attempts; no sign-in; 60 calls a minute per address
 - [MCP server card](https://humanitieshelpinghands.com/.well-known/mcp/server-card.json): the tools, their inputs and their read-only annotations
-- [How to connect, and what the labels mean](https://humanitieshelpinghands.com/check/yours/)
+- [How to connect, and what the labels mean](https://humanitieshelpinghands.com/v5/tech)
 
 ## Pages
 
-- [Check a claim](https://humanitieshelpinghands.com/check/yours/): a machine checks it and gives a receipt, or says honestly that it could not
+- [Check a claim](https://humanitieshelpinghands.com/v5/check): a machine checks it and gives a receipt, or says honestly that it could not
 - [Re-check a proof yourself](https://humanitieshelpinghands.com/check/): a second, separately written proof checker in your browser
 - [Verify a stamp](https://humanitieshelpinghands.com/verify/): paste an HHH stamp; your browser checks the signature and the public log
 - [P vs NP, in pieces](https://humanitieshelpinghands.com/open/): what is proven, what is blocked and why, and what is open

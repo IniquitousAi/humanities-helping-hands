@@ -21,7 +21,7 @@
     {
       "name": "lookup_fact",
       "title": "Look up a proven fact",
-      "description": "Search the library of machine-checked facts. Compact by default (claim start, label, receipt link); set detail true for the full wording.",
+      "description": "Search the library of facts. Each line leads with the sentence label: PROVEN covers the exact statement a machine checked, REASONED a real-world claim whose arithmetic a machine checked, and every match says what is not proven. Compact by default (claim start, label, receipt link); set detail true for the full wording.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -59,7 +59,7 @@
     {
       "name": "check_claim",
       "title": "Check a claim",
-      "description": "Find the claims in a text and check the ones plain code can: arithmetic (PROVEN or FALSIFIED), primes, unit conversions. A famous unsolved problem (P vs NP, the Riemann hypothesis) is OPEN. Anything else is NOT CHECKED, which never means false, with a next step.",
+      "description": "Find the claims in a text and check the ones plain code can: arithmetic, primes, unit conversions. Each claim is shown as PROVEN with holds true or false when a machine settled it, or GUESS, not checked, which never means false, with a next step. Its label field is the engine's word: PROVEN, FALSIFIED, OPEN (a famous unsolved problem such as P vs NP) or NOT CHECKED.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -85,7 +85,7 @@
     {
       "name": "search_attempts",
       "title": "Search past P vs NP attempts",
-      "description": "Search the list of past attempts at P vs NP. Rows are labeled REASONED (a named source says where it broke), a graded guess (a likely break step, no source read for it) or NOT TRACED. A match is a warning sign, never a verdict.",
+      "description": "Search the list of past attempts at P vs NP. Rows are labeled REASONED (a named source says where it broke) or GUESS: graded educated (a likely break step, no source read for it) or not weighed (open for anyone to trace). A match is a warning sign, never a verdict.",
       "inputSchema": {
         "type": "object",
         "properties": {
