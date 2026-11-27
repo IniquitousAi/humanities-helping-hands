@@ -8,6 +8,7 @@ const TWIN = {
   open: ['kids.html', 'open.html', 'tech-open.html'], 'tech-open': ['kids.html', 'open.html', 'tech-open.html'],
   book: ['book.html?level=kids', 'book.html', 'book.html?level=technical'],
   plans: ['kids.html', 'plans.html', null], founders: ['kids.html', 'founders.html', null], law: ['kids.html', 'law.html', null],
+  tower: ['kids.html', 'tower.html', null],
 };
 export const LINKS = {
   everyone: [['check', 'check.html', 'Check'], ['atlas', 'atlas.html', 'Atlas'], ['open', 'open.html', 'Open problems'], ['plans', 'plans.html', 'Plans'], ['book', 'book.html', 'The Book'], ['founders', 'founders.html', 'Founders']],
@@ -29,6 +30,7 @@ export const ABOUT = {
   plans: 'Pay only for a signed stamp or checks done for you: One Stamp $1, Checker $10 a month, Proven Standing $99 a month.',
   book: 'The Book: the Atlas facts read like a book, at a kids, everyone or technical reading level.',
   founders: 'The Founders: every name earned its seat with work a machine accepted. How to pitch in.',
+  tower: 'The Proof Tower: every fact on HHH stands on one of nine fixed floors, from logic at the bottom to meaning and value at the top.',
 };
 const attr = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 export function head(page, title) {
