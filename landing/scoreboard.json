@@ -1,5 +1,5 @@
 {
- "made": "2026-11-27T08:43:26.605Z",
+ "made": "2026-11-27T09:09:09.769Z",
  "source": "landing-tests/scoreboard.mjs",
  "rules": {
   "proven_facts": "facts in facts.json: the PROVEN ones, plus the ARITHMETIC-CHECKED ones whose numbers alone a machine checked (their real-world part is still open)",
@@ -41,9 +41,9 @@
   "agent_test_wrong_latest": 0,
   "label_proven": 17,
   "label_measured": 10,
-  "label_checked": 33,
-  "label_reasoned": 17,
-  "label_guess": 2,
+  "label_checked": 2,
+  "label_reasoned": 40,
+  "label_guess": 10,
   "label_blocked": 5,
   "label_open": 10
  },
@@ -665,9 +665,9 @@
    "agent_test_wrong_latest": 0,
    "label_proven": 17,
    "label_measured": 10,
-   "label_checked": 33,
-   "label_reasoned": 17,
-   "label_guess": 2,
+   "label_checked": 2,
+   "label_reasoned": 40,
+   "label_guess": 10,
    "label_blocked": 5,
    "label_open": 10
   }

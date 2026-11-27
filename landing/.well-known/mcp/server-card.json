@@ -85,7 +85,7 @@
     {
       "name": "search_attempts",
       "title": "Search past P vs NP attempts",
-      "description": "Search the list of past attempts at P vs NP. Rows are labeled CHECKED, REASONED or NOT TRACED. A match is a warning sign, never a verdict.",
+      "description": "Search the list of past attempts at P vs NP. Rows are labeled REASONED (a named source says where it broke), a graded guess (a likely break step, no source read for it) or NOT TRACED. A match is a warning sign, never a verdict.",
       "inputSchema": {
         "type": "object",
         "properties": {

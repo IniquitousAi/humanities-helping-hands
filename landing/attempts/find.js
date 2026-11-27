@@ -55,7 +55,7 @@ function run() {
   tools.hidden = !q; show();
   const walls = BARRIERS.filter(([re]) => re.test(q)).map(([, why]) => why);
   $('idea-wall').hidden = !walls.length;
-  $('idea-wall').replaceChildren(...(walls.length ? [el('span', 'tag checked', 'CHECKED'), ' Watch out: ' + walls.join(' ')] : []));
+  $('idea-wall').replaceChildren(...(walls.length ? [el('span', 'tag reasoned', 'REASONED'), ' Watch out: ' + walls.join(' ')] : []));
   const count = $('idea-count'); count.hidden = !q;
   if (!q) return count.replaceChildren();
   if (!hits.length) return count.replaceChildren(el('span', 'tag open', 'NO MATCH LOGGED'),

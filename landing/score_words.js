@@ -7,7 +7,7 @@ export const SHOW = [['proven_facts', 'machine-checked facts'], ['proven_by_lean
   ['median_minutes_to_proven_answer', 'minutes from question to proven answer'],
   ['agent_test_calls', 'test calls by our own AI agents (simulated, not outside use)'], ['agent_test_wrong_latest', 'wrong labels in their latest round']];
 
-export const LABELS = [['label_proven', 'labeled PROVEN'], ['label_measured', 'labeled MEASURED'], ['label_checked', 'labeled CHECKED'],
+export const LABELS = [['label_proven', 'labeled PROVEN'], ['label_measured', 'labeled MEASURED'], ['label_checked', 'old CHECKED labels still on pages, being replaced'],
   ['label_reasoned', 'labeled REASONED'], ['label_guess', 'labeled GUESS'], ['label_blocked', 'labeled BLOCKED'], ['label_open', 'labeled OPEN']];
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
